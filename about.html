@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>About — Nikhil Naglapur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://subscribe-forms.beehiiv.com" crossorigin>
+  <link rel="dns-prefetch" href="//subscribe-forms.beehiiv.com">
+  <link rel="prefetch" href="newsletter.html">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com">    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Outfit', 'system-ui', 'sans-serif'],
+            sans: ['Outfit', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+      // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+  <style>
+    body { background-color: #131C2B; color: #F2F2F2; }
+    a, button { transition: all 0.18s ease; }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    .hero-float { animation: float 7s ease-in-out infinite; }
+    nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); background-color: rgba(19,28,43,0.92) !important; }
+    .logo-marquee {
+      position: relative;
+      overflow: hidden;
+      background: #111C2A;
+    }
+    .logo-track {
+      display: flex;
+      width: max-content;
+      align-items: center;
+      gap: 4rem;
+      padding: 1.1rem 0;
+      animation: logo-scroll 20s linear infinite;
+      will-change: transform;
+    }
+    .logo-item {
+      flex: 0 0 auto;
+      width: 170px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      transition: transform 0.2s ease;
+    }
+    .logo-item:hover {
+      transform: translateY(-2px);
+    }
+    .logo-item img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .logo-item img.jobright-logo {
+      transform: scale(2.25);
+      transform-origin: center;
+    }
+    @keyframes logo-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-33.3333%); }
+    }
+    @media (max-width: 768px) {
+      .logo-track { gap: 2.2rem; padding: 0.9rem 0; }
+      .logo-item { width: 130px; height: 36px; }
+    }
+    .mobile-drawer-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.38); z-index: 70; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
+    .mobile-drawer-overlay.open { opacity: 1; pointer-events: auto; }
+    .mobile-drawer { position: fixed; top: 0; right: 0; width: min(92vw, 380px); height: 100dvh; background: #e9e9e9; color: #15171a; z-index: 80; transform: translateX(100%); transition: transform 0.24s ease; box-shadow: -16px 0 36px rgba(0,0,0,0.2); padding: 22px; overflow: hidden; display: flex; flex-direction: column; }
+    .mobile-drawer.open { transform: translateX(0); }
+    .mobile-drawer-header { position: relative; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; flex-shrink: 0; }
+    .mobile-drawer-close { position: absolute; right: 0; top: 50%; transform: translateY(-50%); }
+    .mobile-drawer-content { overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; touch-action: pan-y; padding-bottom: 1.25rem; flex: 1; min-height: 0; }
+    .mobile-nav-item { display: flex; align-items: center; gap: 0.85rem; font-size: 1.02rem; color: #5f6670; padding: 0.95rem 1rem; border-radius: 0.9rem; }
+    .mobile-nav-item.active { background: #dedede; color: #171a1f; font-weight: 600; }
+  </style>
+</head>
+<body class="font-sans">
+
+  <!-- NAV -->
+  <nav class="sticky top-0 z-50 border-b border-[#1E2D42]">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <img src="nikhil2.png" alt="Nikhil" class="w-8 h-8 rounded-full object-cover" style="object-position:center 35%;">
+        <span class="font-semibold text-sm text-[#F2F2F2]">Nikhil</span>
+      </a>
+      <div class="hidden md:flex items-center gap-7 text-sm">
+        <a href="index.html" class="text-[#8A9AB0] hover:text-[#F2F2F2]">Home</a>
+        <a href="resources.html" class="text-[#8A9AB0] hover:text-[#F2F2F2]">Resources</a>
+        <a href="ai-solutions.html" class="text-[#8A9AB0] hover:text-[#F2F2F2]">Consulting</a>
+        <a href="partnerships.html" class="text-[#8A9AB0] hover:text-[#F2F2F2]">Partnerships</a>
+        <a href="about.html" class="font-medium text-[#F2F2F2] hover:text-[#00B4FF]">About</a>
+        <a href="newsletter.html" class="text-[#8A9AB0] hover:text-[#F2F2F2]">Newsletter</a>
+      </div>
+      <a href="newsletter.html#newsletter-signup" class="hidden md:inline-flex bg-[#4A86E8] hover:bg-[#3068C8] text-white text-sm font-medium px-5 py-2.5 rounded-full">
+        Sign up to newsletter
+      </a>
+      <button id="mobile-drawer-open" aria-label="Open menu" class="md:hidden p-2">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F2F2F2" stroke-width="2.3" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16"></path>
+          <path d="M4 12h16"></path>
+          <path d="M4 17h16"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-drawer-overlay" class="mobile-drawer-overlay md:hidden"></div>
+  <aside id="mobile-drawer" class="mobile-drawer md:hidden">
+    <div class="mobile-drawer-header">
+      <p class="text-3xl font-medium tracking-tight">niknaglapur.com</p>
+      <button id="mobile-drawer-close" aria-label="Close menu" class="mobile-drawer-close text-[#616770] text-5xl leading-none">&times;</button>
+    </div>
+    <div class="mobile-drawer-content">
+      <div class="bg-[#efefef] border border-[#dfdfdf] rounded-[2rem] p-6">
+        <img src="nikhil2.png" alt="Nikhil Naglapur" class="w-44 h-44 rounded-full object-cover object-center mx-auto mb-6" style="object-position:center 35%;">
+        <h3 class="text-center text-[2.2rem] font-semibold tracking-tight">Nikhil Naglapur</h3>
+        <p class="text-center text-[#7a7a7a] text-2xl mb-8">AI Creator</p>
+        <div class="space-y-2">
+          <a href="index.html" class="mobile-nav-item"><span>Home</span></a>
+          <a href="resources.html" class="mobile-nav-item"><span>Resources</span></a>
+          <a href="ai-solutions.html" class="mobile-nav-item"><span>Consulting</span></a>
+          <a href="partnerships.html" class="mobile-nav-item"><span>Partnerships</span></a>
+          <a href="about.html" class="mobile-nav-item active"><span>About</span></a>
+          <a href="newsletter.html" class="mobile-nav-item"><span>Newsletter</span></a>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- HERO -->
+  <section class="max-w-6xl mx-auto px-6 pt-16 pb-12">
+    <div class="flex flex-col md:flex-row items-start gap-14">
+      <!-- Photo -->
+      <div class="flex-shrink-0">
+        <img src="nikhil2.png" alt="Nikhil Naglapur"
+             class="rounded-2xl object-cover"
+             style="width:240px;height:320px;object-position:center 18%;" class="rounded-2xl object-cover hero-float">
+      </div>
+      <!-- Text -->
+      <div class="flex-1 max-w-xl pt-2">
+        <p class="text-[#4A86E8] text-xs font-semibold uppercase tracking-widest mb-4">About Me</p>
+        <h1 class="font-serif text-4xl md:text-5xl font-bold leading-[1.08] mb-6">
+          Hey, I'm Nikhil.
+        </h1>
+        <div class="space-y-4 text-[#A9B7C8] text-base leading-relaxed">
+          <p>
+            I make AI easy to understand for everyone. Whether you're a creator trying to grow faster, a founder building something new, or just someone who doesn't want to get left behind — I've got you covered.
+          </p>
+          <p>
+            I create short-form content on Instagram, TikTok, YouTube, and X that breaks down the latest AI tools, news, and techniques into things you can actually use today. No hype. No fluff. Just the stuff that works.
+          </p>
+          <p>
+            I also run <strong class="text-[#F2F2F2]">Escape Velocity</strong> — a free newsletter delivering the most important AI developments twice a week, with the context and clarity the internet is missing.
+          </p>
+          <p>
+            I've partnered with brands like <strong class="text-[#F2F2F2]">Microsoft, Replit, Airia, JobRight, Wispr Flow</strong>, and Willow Voice to bring real AI tools to my audience in ways that feel authentic.
+          </p>
+        </div>
+        <div class="flex items-center gap-4 mt-8 flex-wrap">
+          <a href="resources.html"
+             class="inline-flex items-center gap-2 bg-[#00B4FF] hover:bg-[#0090CC] text-white text-sm font-medium px-5 py-3 rounded-full">
+            Browse Free Resources
+          </a>
+          <a href="https://escapingvelocity.beehiiv.com/" target="_blank"
+             class="text-sm font-medium text-[#4A86E8] hover:underline">
+            Subscribe to the newsletter →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BY THE NUMBERS -->
+  <section class="max-w-6xl mx-auto px-6 py-14">
+    <p class="text-[#4A86E8] text-xs font-semibold uppercase tracking-widest mb-8 text-center reveal">By the numbers</p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center reveal">
+      <div>
+        <p class="font-serif text-4xl font-bold mb-1">12K+</p>
+        <p class="text-[#A9B7C8] text-sm">Followers</p>
+      </div>
+      <div>
+        <p class="font-serif text-4xl font-bold mb-1">340K+</p>
+        <p class="text-[#A9B7C8] text-sm">Monthly impressions</p>
+      </div>
+      <div>
+        <p class="font-serif text-4xl font-bold mb-1">5.03%</p>
+        <p class="text-[#A9B7C8] text-sm">Engagement rate</p>
+      </div>
+      <div>
+        <p class="font-serif text-4xl font-bold mb-1">1000+</p>
+        <p class="text-[#A9B7C8] text-sm">Newsletter subscribers</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS -->
+  <section class="max-w-6xl mx-auto px-6 py-10">
+    <p class="text-center text-[#9B948E] text-sm mb-4">Partnering with many of the best companies</p>
+    <div class="logo-marquee rounded-xl">
+      <div class="logo-track">
+        <div class="logo-item"><img src="assets/logos/microsoft.webp" alt="Microsoft"></div>
+        <div class="logo-item"><img src="assets/logos/replit.svg" alt="Replit"></div>
+        <div class="logo-item"><img src="assets/logos/airia-transparent.png" alt="Airia"></div>
+        <div class="logo-item"><img class="jobright-logo" src="assets/logos/jobright-transparent.png" alt="Jobright"></div>
+        <div class="logo-item"><img src="assets/logos/extra.avif" alt="Partner logo"></div>
+        <div class="logo-item"><img src="assets/logos/microsoft.webp" alt="Microsoft"></div>
+        <div class="logo-item"><img src="assets/logos/replit.svg" alt="Replit"></div>
+        <div class="logo-item"><img src="assets/logos/airia-transparent.png" alt="Airia"></div>
+        <div class="logo-item"><img class="jobright-logo" src="assets/logos/jobright-transparent.png" alt="Jobright"></div>
+        <div class="logo-item"><img src="assets/logos/extra.avif" alt="Partner logo"></div>
+        <div class="logo-item"><img src="assets/logos/microsoft.webp" alt="Microsoft"></div>
+        <div class="logo-item"><img src="assets/logos/replit.svg" alt="Replit"></div>
+        <div class="logo-item"><img src="assets/logos/airia-transparent.png" alt="Airia"></div>
+        <div class="logo-item"><img class="jobright-logo" src="assets/logos/jobright-transparent.png" alt="Jobright"></div>
+        <div class="logo-item"><img src="assets/logos/extra.avif" alt="Partner logo"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="max-w-6xl mx-auto px-6 py-14">
+    <div class="bg-[#142540] rounded-2xl p-10 border border-[#2E4060] text-center max-w-lg mx-auto">
+      <h2 class="font-serif text-2xl font-bold mb-3">Let's connect</h2>
+      <p class="text-[#A9B7C8] text-sm mb-6">
+        For brand partnerships, collaborations, or just to say hi — reach out anytime.
+      </p>
+      <a href="mailto:niknaglapur@gmail.com"
+         class="inline-flex items-center gap-2 bg-[#4A86E8] hover:bg-[#3068C8] text-white text-sm font-medium px-6 py-3 rounded-full">
+        niknaglapur@gmail.com
+      </a>
+      <div class="flex items-center justify-center gap-5 mt-7 text-[#9B948E]">
+        <a href="https://www.instagram.com/niknaglapur" target="_blank" class="hover:text-[#F2F2F2]">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@niknagl" target="_blank" class="hover:text-[#F2F2F2]">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.26 8.26 0 004.83 1.55V6.78a4.85 4.85 0 01-1.06-.09z"/></svg>
+        </a>
+        <a href="https://youtube.com/@niknaglapur" target="_blank" class="hover:text-[#F2F2F2]">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 002.12 2.14c1.84.55 9.38.55 9.38.55s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.38V8.62L15.86 12l-6.11 3.38z"/></svg>
+        </a>
+        <a href="https://x.com/niknaglapur" target="_blank" class="hover:text-[#F2F2F2]">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-[#1E2D42]">
+    <div class="max-w-6xl mx-auto px-6 pt-7 pb-4 flex flex-col md:flex-row items-center justify-between gap-5">
+      <div class="flex items-center gap-2">
+        <img src="nikhil2.png" alt="Nikhil" class="w-6 h-6 rounded-full object-cover" style="object-position:center 35%;">
+        <span class="text-sm font-semibold">Nikhil</span>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-[#A9B7C8]">
+        <a href="index.html" class="hover:text-[#F2F2F2]">Home</a>
+        <a href="resources.html" class="hover:text-[#F2F2F2]">Resources</a>
+        <a href="ai-solutions.html" class="hover:text-[#F2F2F2]">Consulting</a>
+        <a href="partnerships.html" class="hover:text-[#F2F2F2]">Partnerships</a>
+        <a href="about.html" class="hover:text-[#F2F2F2]">About</a>
+        <a href="newsletter.html" class="hover:text-[#F2F2F2]">Newsletter</a>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pb-6 flex items-center justify-between">
+      <p class="text-[#9B948E] text-xs">© 2026 Nikhil Naglapur</p>
+      <p class="text-[#9B948E] text-xs">Or email me directly at <a href="mailto:niknaglapur@gmail.com" class="text-[#4A86E8] hover:underline">niknaglapur@gmail.com</a></p>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      const openBtn = document.getElementById('mobile-drawer-open');
+      const closeBtn = document.getElementById('mobile-drawer-close');
+      const drawer = document.getElementById('mobile-drawer');
+      const overlay = document.getElementById('mobile-drawer-overlay');
+      if (!openBtn || !closeBtn || !drawer || !overlay) return;
+      const openDrawer = () => { drawer.classList.add('open'); overlay.classList.add('open'); };
+      const closeDrawer = () => { drawer.classList.remove('open'); overlay.classList.remove('open'); };
+      openBtn.addEventListener('click', openDrawer);
+      closeBtn.addEventListener('click', closeDrawer);
+      overlay.addEventListener('click', closeDrawer);
+      drawer.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeDrawer));
+    })();
+  </script>
+</body>
+</html>

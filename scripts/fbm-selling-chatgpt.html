@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <title>FBM Selling w/ ChatGPT — Nikhil Naglapur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{fontFamily:{serif:['Outfit','system-ui','sans-serif'],sans:['Outfit','system-ui','sans-serif']}}}}</script>
+  <style>
+    body { background-color: #0A0A0A; color: #F2F2F2; }
+    nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); background-color: rgba(10,10,10,0.88) !important; }
+    .nav-link { position: relative; color: #777; transition: color 0.18s ease; }
+    .nav-link:hover, .nav-link.active { color: #F2F2F2; }
+    .nav-link::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: #00B4FF; transition: width 0.22s ease; }
+    .nav-link:hover::after { width: 100%; }
+    .btn-blue { background: #00B4FF; color: #fff; transition: all 0.18s ease; }
+    .btn-blue:hover { background: #0090CC; box-shadow: 0 0 24px rgba(0,180,255,0.4); transform: translateY(-1px); }
+    .prompt-block { background: #111; border-left: 3px solid #00B4FF; padding: 14px 18px; border-radius: 4px; color: #666; font-style: italic; }
+  </style>
+</head>
+<body class="font-sans">
+  <nav class="sticky top-0 z-50 border-b border-[#161616]">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-2.5">
+        <img src="../nikhil2.png" alt="Nikhil" class="w-8 h-8 rounded-full object-cover border border-[#2A2A2A]" style="object-position:center 35%;">
+        <span class="font-semibold text-sm text-white">Nikhil</span>
+      </a>
+      <div class="hidden md:flex items-center gap-7 text-sm">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../ai-solutions.html" class="nav-link">Consulting</a>
+        ../<a href="../resources.html" class="nav-link active">Resources</a>
+        <a href="../partnerships.html" class="nav-link">Partnerships</a>
+        </div>
+      <a href="https://escapingvelocity.beehiiv.com/" target="_blank" class="btn-blue text-sm font-semibold px-5 py-2.5 rounded-full">Sign up to newsletter</a>
+    </div>
+  </nav>
+
+  <main class="max-w-2xl mx-auto px-6 py-16">
+    <a href="../resources.html" class="inline-flex items-center gap-1.5 text-[#00B4FF] text-sm font-medium mb-10 hover:underline transition-colors">← Back to Resources</a>
+    <div class="flex items-center gap-2.5 mb-4">
+      <span class="w-2 h-2 rounded-full bg-[#00B4FF]" style="box-shadow:0 0 8px rgba(0,180,255,0.8);"></span>
+      <p class="text-[#00B4FF] text-xs font-semibold uppercase tracking-[0.18em]">Scripts</p>
+    </div>
+    <h1 class="font-serif text-4xl md:text-5xl font-bold leading-[1.08] mb-10 text-white">🛍️ FBM Selling w/ ChatGPT</h1>
+    <div class="space-y-5 text-[#888] text-[15px] leading-relaxed">
+      <p>This has to be the craziest ChatGPT use case that I've ever seen.</p>
+      <p>So you start by taking a picture of something that you want to sell, upload it into ChatGPT and say:</p>
+      <div class="prompt-block">"I need you to sell this for me within the next seven days. It is in used but new condition. I can ship to anyone in the US for $10. Use agent mode."</div>
+      <p>ChatGPT will then open its own browser, log into your Facebook Marketplace account, and start listing the item for you.</p>
+      <p>It started building out the listing and it even took the photo I sent it, downloaded it, and then uploaded it as the cover photo. It somehow also found the name of the product and filled in the rest of the details.</p>
+      <p>It just finished and I'm back on my actual Facebook account. You can see that it filled in everything perfectly — the title, price, condition, description, brand, color, and it even added the $10 shipping.</p>
+      <p>If you want all my crazy use case prompts, just follow me and drop "prompt" in the comments and I'll shoot them over to you.</p>
+    </div>
+  </main>
+
+  <footer class="border-t border-[#161616]" style="background:#0A0A0A;">
+    <div class="max-w-6xl mx-auto px-6 pt-8 pb-4 flex flex-col md:flex-row items-center justify-between gap-5">
+      <div class="flex items-center gap-2.5">
+        <img src="../nikhil2.png" alt="Nikhil" class="w-6 h-6 rounded-full object-cover border border-[#222]" style="object-position:center 35%;">
+        <span class="text-sm font-semibold text-white">Nikhil</span>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-[#444]">
+        <a href="../index.html" class="hover:text-white transition-colors">Home</a>
+        <a href="../ai-solutions.html" class="hover:text-white transition-colors">Consulting</a>
+        ../<a href="../resources.html" class="hover:text-white transition-colors">Resources</a>
+        <a href="../partnerships.html" class="hover:text-white transition-colors">Partnerships</a>
+        </div>
+      <a href="https://escapingvelocity.beehiiv.com/" target="_blank" class="btn-blue text-xs font-semibold px-4 py-2 rounded-full">Sign up to newsletter</a>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pb-6 mt-2 flex items-center justify-between">
+      <p class="text-[#333] text-xs">© 2026 Nikhil Naglapur</p>
+      <p class="text-[#333] text-xs">Email: <a href="mailto:niknaglapur@gmail.com" class="text-[#00B4FF] hover:underline">niknaglapur@gmail.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>

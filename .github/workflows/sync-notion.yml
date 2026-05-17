@@ -1,0 +1,42 @@
+name: Sync Notion Prompts
+
+on:
+  schedule:
+    - cron: '0 * * * *'   # every hour on the hour
+  workflow_dispatch:        # allow manual trigger from GitHub UI
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write       # needed to commit & push changes
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Notion sync
+        env:
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+        run: node sync-notion.js
+
+      - name: Commit and push if anything changed
+        run: |
+          git config user.name  "notion-sync[bot]"
+          git config user.email "notion-sync[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "Nothing new to commit."
+          else
+            git commit -m "chore: auto-sync new Notion prompt resource(s)"
+            git push
+          fi

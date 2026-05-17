@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>Consulting for Creators — Nikhil Naglapur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://subscribe-forms.beehiiv.com" crossorigin>
+  <link rel="dns-prefetch" href="//subscribe-forms.beehiiv.com">
+  <link rel="prefetch" href="newsletter.html">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Outfit', 'system-ui', 'sans-serif'],
+            sans: ['Outfit', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #131C2B; color: #F2F2F2; }
+    nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); background-color: rgba(19,28,43,0.92) !important; }
+    .nav-link { position: relative; color: #777; transition: color 0.18s ease; }
+    .nav-link:hover, .nav-link.active { color: #F2F2F2; }
+    .nav-link::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: #00B4FF; transition: width 0.22s ease; }
+    .nav-link:hover::after { width: 100%; }
+    a, button { transition: all 0.18s ease; }
+    .btn-blue { background: #00B4FF; color: #fff; transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease; }
+    .btn-blue:hover { background: #0090CC; box-shadow: 0 0 24px rgba(0,180,255,0.4); transform: translateY(-1px); }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+    .card { transition: border-color 0.28s ease, box-shadow 0.28s ease, transform 0.22s ease; }
+    .card:hover { border-color: rgba(0,180,255,0.28) !important; box-shadow: 0 0 35px rgba(0,180,255,0.07); transform: translateY(-3px); }
+    @keyframes orb-drift { 0%,100%{transform:translate(0,0)} 50%{transform:translate(20px,-15px)} }
+    .orb { animation: orb-drift 14s ease-in-out infinite; pointer-events: none; }
+    .mobile-drawer-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.38); z-index: 70; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
+    .mobile-drawer-overlay.open { opacity: 1; pointer-events: auto; }
+    .mobile-drawer { position: fixed; top: 0; right: 0; width: min(92vw, 380px); height: 100dvh; background: #e9e9e9; color: #15171a; z-index: 80; transform: translateX(100%); transition: transform 0.24s ease; box-shadow: -16px 0 36px rgba(0,0,0,0.2); padding: 22px; overflow: hidden; display: flex; flex-direction: column; }
+    .mobile-drawer.open { transform: translateX(0); }
+    .mobile-drawer-header { position: relative; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; flex-shrink: 0; }
+    .mobile-drawer-close { position: absolute; right: 0; top: 50%; transform: translateY(-50%); }
+    .mobile-drawer-content { overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; touch-action: pan-y; padding-bottom: 1.25rem; flex: 1; min-height: 0; }
+    .mobile-nav-item { display: flex; align-items: center; gap: 0.85rem; font-size: 1.02rem; color: #5f6670; padding: 0.95rem 1rem; border-radius: 0.9rem; }
+    .mobile-nav-item.active { background: #dedede; color: #171a1f; font-weight: 600; }
+  </style>
+</head>
+<body class="font-sans">
+
+  <!-- NAV -->
+  <nav class="sticky top-0 z-50 border-b border-[#1E2D42]">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <img src="nikhil2.png" alt="Nikhil" class="w-8 h-8 rounded-full object-cover border border-[#2E4060]" style="object-position:center 35%;">
+        <span class="font-semibold text-sm text-white">Nikhil</span>
+      </a>
+      <div class="hidden md:flex items-center gap-7 text-sm">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="partnerships.html" class="nav-link">Partnerships</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="ai-solutions.html" class="nav-link active">Consulting</a>
+        <a href="newsletter.html" class="nav-link">Newsletter</a>
+      </div>
+      <a href="newsletter.html#newsletter-signup" class="hidden md:inline-flex btn-blue text-sm font-semibold px-5 py-2.5 rounded-full">
+        Sign up to newsletter
+      </a>
+      <button id="mobile-drawer-open" aria-label="Open menu" class="md:hidden p-2">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F2F2F2" stroke-width="2.3" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16"></path>
+          <path d="M4 12h16"></path>
+          <path d="M4 17h16"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-drawer-overlay" class="mobile-drawer-overlay md:hidden"></div>
+  <aside id="mobile-drawer" class="mobile-drawer md:hidden">
+    <div class="mobile-drawer-header">
+      <p class="text-3xl font-medium tracking-tight">niknaglapur.com</p>
+      <button id="mobile-drawer-close" aria-label="Close menu" class="mobile-drawer-close text-[#616770] text-5xl leading-none">&times;</button>
+    </div>
+    <div class="mobile-drawer-content">
+      <div class="bg-[#efefef] border border-[#dfdfdf] rounded-[2rem] p-6">
+        <img src="nikhil2.png" alt="Nikhil Naglapur" class="w-44 h-44 rounded-full object-cover object-center mx-auto mb-6" style="object-position:center 35%;">
+        <h3 class="text-center text-[2.2rem] font-semibold tracking-tight">Nikhil Naglapur</h3>
+        <p class="text-center text-[#7a7a7a] text-2xl mb-8">AI Creator</p>
+        <div class="space-y-2">
+          <a href="index.html" class="mobile-nav-item"><span>Home</span></a>
+          <a href="resources.html" class="mobile-nav-item"><span>Resources</span></a>
+          <a href="ai-solutions.html" class="mobile-nav-item active"><span>Consulting</span></a>
+          <a href="partnerships.html" class="mobile-nav-item"><span>Partnerships</span></a>
+          <a href="newsletter.html" class="mobile-nav-item"><span>Newsletter</span></a>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- HERO -->
+  <section class="max-w-4xl mx-auto px-6 pt-20 pb-14 text-center relative overflow-hidden">
+    <div class="orb absolute" style="top:-80px;left:50%;transform:translateX(-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(0,180,255,0.10) 0%,transparent 70%);filter:blur(50px);"></div>
+    <div class="flex items-center justify-center gap-2.5 mb-5 relative">
+      <span class="w-2 h-2 rounded-full bg-[#00B4FF] inline-block" style="box-shadow:0 0 8px rgba(0,180,255,0.8);"></span>
+      <p class="text-[#00B4FF] text-xs font-semibold uppercase tracking-[0.18em]">For Content Creators</p>
+    </div>
+    <h1 class="font-serif text-4xl md:text-6xl font-bold leading-[1.06] mb-6 text-white relative">
+      AI solutions to help<br>you grow on social<br>media
+    </h1>
+    <p class="text-[#666] text-base leading-relaxed mb-9 max-w-xl mx-auto relative">
+      I work 1:1 with content creators to help you build out content strategy, systems, and automations to help you maximize your social media growth
+    </p>
+    <div class="flex items-center justify-center gap-3 flex-wrap">
+      <a href="https://calendly.com/niknaglapur/quick-chat" target="_blank" rel="noopener noreferrer" class="btn-blue inline-flex items-center gap-2 text-sm font-semibold px-7 py-3.5 rounded-full">
+        Let's Work →
+      </a>
+      <a href="mailto:niknaglapur@gmail.com" class="inline-flex items-center gap-2 text-sm font-semibold px-7 py-3.5 rounded-full border border-[#2E4060] text-white hover:border-[#00B4FF] hover:text-[#DFF5FF]">
+        Get in Touch
+      </a>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="max-w-6xl mx-auto px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <div class="card h-full bg-[#0F0F0F] rounded-2xl p-8 border border-[#1E1E1E] reveal">
+        <div class="w-10 h-10 rounded-xl bg-[#0A1B28] flex items-center justify-center mb-5">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00B4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 17.5h7M17.5 14v7"/></svg>
+        </div>
+        <h3 class="font-semibold text-lg mb-3 text-white">Daily Content System</h3>
+        <p class="text-[#666] text-sm leading-relaxed mb-5">
+          The exact frameworks I've been using to efficiently post everyday. I will teach you how to automate and systematize content research with tools like Claude &amp; Notion, so that you can create repeatable content systems.
+        </p>
+        <ul class="space-y-2.5">
+          <li class="flex items-start gap-2.5 text-sm text-[#666]">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00B4FF" stroke-width="2.5" class="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+            Learn how to create a Notion production vault that integrates with Claude
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-[#666]">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00B4FF" stroke-width="2.5" class="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+            Strategies to create a repeatable series content style
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-[#666]">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00B4FF" stroke-width="2.5" class="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+            Automate your competitive research and insights
+          </li>
+        </ul>
+      </div>
+
+      <div class="card h-full bg-[#0F0F0F] rounded-2xl p-8 border border-[#1E1E1E] reveal reveal-d1">
+        <div class="w-10 h-10 rounded-xl bg-[#0A1B28] flex items-center justify-center mb-5">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00B4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3 class="font-semibold text-lg mb-3 text-white">Platform Automations</h3>
+        <p class="text-[#666] text-sm leading-relaxed mb-5">
+          Learn how to use automations like ManyChat to actually turn views into conversions. I will help build out automations to increase followers, collect emails, and drive leads to your products.
+        </p>
+        <ul class="space-y-2.5">
+          <li class="flex items-start gap-2.5 text-sm text-[#666]">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00B4FF" stroke-width="2.5" class="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+            Keyword trigger flows that collect contact info and help increase engagement
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-[#666]">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00B4FF" stroke-width="2.5" class="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+            Email list capture and newsletter funnel setup
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-[#666]">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00B4FF" stroke-width="2.5" class="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+            Drive viewers to personal website and other products
+          </li>
+        </ul>
+      </div>
+
+      <div class="card h-full bg-[#0F0F0F] rounded-2xl p-8 border border-[#1E1E1E] reveal reveal-d2">
+        <div class="w-10 h-10 rounded-xl bg-[#0A1B28] flex items-center justify-center mb-5">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00B4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0112 0v2"/></svg>
+        </div>
+        <h3 class="font-semibold text-lg mb-3 text-white">Content Strategy</h3>
+        <p class="text-[#666] text-sm leading-relaxed mb-5">
+          1:1 coaching to help out with the aspects of content strategy that AI isn't best suited for such as crafting hooks and mastering the art of storytelling.
+        </p>
+        <ul class="space-y-2.5">
+          <li class="flex items-start gap-2.5 text-sm text-[#666]">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00B4FF" stroke-width="2.5" class="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+            Learn how to create compelling visual, text, and audio hooks
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-[#666]">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00B4FF" stroke-width="2.5" class="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+            Learn the three funnels of content creation (TOFU, MOFU, BOFU) and map out personalized content for each funnel
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-[#666]">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00B4FF" stroke-width="2.5" class="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+            Maximize content surface area through cross-posting, audience interactions, and overall messaging
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-[#1E2D42]" style="background:#131C2B;">
+    <div class="max-w-6xl mx-auto px-6 pt-8 pb-4 flex flex-col md:flex-row items-center justify-between gap-5">
+      <div class="flex items-center gap-2.5">
+        <img src="nikhil2.png" alt="Nikhil" class="w-6 h-6 rounded-full object-cover border border-[#2E4060]" style="object-position:center 35%;">
+        <span class="text-sm font-semibold text-white">Nikhil</span>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-[#8A9AB0]">
+        <a href="index.html" class="hover:text-white transition-colors">Home</a>
+        <a href="resources.html" class="hover:text-white transition-colors">Resources</a>
+        <a href="ai-solutions.html" class="hover:text-white transition-colors">Consulting</a>
+        <a href="partnerships.html" class="hover:text-white transition-colors">Partnerships</a>
+        <a href="newsletter.html" class="hover:text-white transition-colors">Newsletter</a>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pb-6 mt-2 flex items-center justify-between">
+      <p class="text-[#6F8298] text-xs">© 2026 Nikhil Naglapur</p>
+      <p class="text-[#6F8298] text-xs">Email: <a href="mailto:niknaglapur@gmail.com" class="text-[#00B4FF] hover:underline">niknaglapur@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const openBtn = document.getElementById('mobile-drawer-open');
+      const closeBtn = document.getElementById('mobile-drawer-close');
+      const drawer = document.getElementById('mobile-drawer');
+      const overlay = document.getElementById('mobile-drawer-overlay');
+      if (!openBtn || !closeBtn || !drawer || !overlay) return;
+      const openDrawer = () => { drawer.classList.add('open'); overlay.classList.add('open'); };
+      const closeDrawer = () => { drawer.classList.remove('open'); overlay.classList.remove('open'); };
+      openBtn.addEventListener('click', openDrawer);
+      closeBtn.addEventListener('click', closeDrawer);
+      overlay.addEventListener('click', closeDrawer);
+      drawer.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeDrawer));
+    })();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

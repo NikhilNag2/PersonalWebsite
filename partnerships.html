@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>Partner with Nikhil — Media Kit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://subscribe-forms.beehiiv.com" crossorigin>
+  <link rel="dns-prefetch" href="//subscribe-forms.beehiiv.com">
+  <link rel="prefetch" href="newsletter.html">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Outfit', 'system-ui', 'sans-serif'],
+            sans: ['Outfit', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #131C2B; color: #F2F2F2; }
+    nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); background-color: rgba(19,28,43,0.92) !important; }
+    .nav-link { position: relative; color: #777; transition: color 0.18s ease; }
+    .nav-link:hover, .nav-link.active { color: #F2F2F2; }
+    .nav-link::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: #00B4FF; transition: width 0.22s ease; }
+    .nav-link:hover::after { width: 100%; }
+    a, button { transition: all 0.18s ease; }
+    .btn-blue { background: #00B4FF; color: #fff; }
+    .btn-blue:hover { background: #0090CC; box-shadow: 0 0 24px rgba(0,180,255,0.4); transform: translateY(-1px); }
+    .btn-outline { border: 1px solid #2A2A2A; color: #F2F2F2; }
+    .btn-outline:hover { border-color: #00B4FF; color: #00B4FF; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+    .card { transition: border-color 0.28s ease, box-shadow 0.28s ease, transform 0.22s ease; }
+    .card:hover { border-color: rgba(0,180,255,0.28) !important; box-shadow: 0 0 35px rgba(0,180,255,0.07); transform: translateY(-3px); }
+    .bar-fill { height: 8px; border-radius: 4px; background: linear-gradient(90deg, #00B4FF, #7DD3FC); }
+    .logo-marquee {
+      position: relative;
+      overflow: hidden;
+      background: #111C2A;
+    }
+    .logo-track {
+      display: flex;
+      width: max-content;
+      align-items: center;
+      gap: 4rem;
+      padding: 1.1rem 0;
+      animation: logo-scroll 20s linear infinite;
+      will-change: transform;
+    }
+    .logo-item {
+      flex: 0 0 auto;
+      width: 170px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      transition: transform 0.2s ease;
+    }
+    .logo-item:hover {
+      transform: translateY(-2px);
+    }
+    .logo-item img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .logo-item img.jobright-logo {
+      transform: scale(2.25);
+      transform-origin: center;
+    }
+    @keyframes logo-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-33.3333%); }
+    }
+    @media (max-width: 768px) {
+      .logo-track { gap: 2.2rem; padding: 0.9rem 0; }
+      .logo-item { width: 130px; height: 36px; }
+    }
+    .stat-num { background: linear-gradient(135deg, #00B4FF, #7DD3FC); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    @keyframes orb-drift { 0%,100%{transform:translate(0,0)} 50%{transform:translate(20px,-15px)} }
+    .orb { animation: orb-drift 14s ease-in-out infinite; pointer-events: none; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    .hero-float { animation: float 7s ease-in-out infinite; }
+    .mobile-drawer-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.38); z-index: 70; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
+    .mobile-drawer-overlay.open { opacity: 1; pointer-events: auto; }
+    .mobile-drawer { position: fixed; top: 0; right: 0; width: min(92vw, 380px); height: 100dvh; background: #e9e9e9; color: #15171a; z-index: 80; transform: translateX(100%); transition: transform 0.24s ease; box-shadow: -16px 0 36px rgba(0,0,0,0.2); padding: 22px; overflow: hidden; display: flex; flex-direction: column; }
+    .mobile-drawer.open { transform: translateX(0); }
+    .mobile-drawer-header { position: relative; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; flex-shrink: 0; }
+    .mobile-drawer-close { position: absolute; right: 0; top: 50%; transform: translateY(-50%); }
+    .mobile-drawer-content { overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; touch-action: pan-y; padding-bottom: 1.25rem; flex: 1; min-height: 0; }
+    .mobile-nav-item { display: flex; align-items: center; gap: 0.85rem; font-size: 1.02rem; color: #5f6670; padding: 0.95rem 1rem; border-radius: 0.9rem; }
+    .mobile-nav-item.active { background: #dedede; color: #171a1f; font-weight: 600; }
+  </style>
+</head>
+<body class="font-sans">
+
+  <!-- NAV -->
+  <nav class="sticky top-0 z-50 border-b border-[#1E2D42]">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <img src="nikhil2.png" alt="Nikhil" class="w-8 h-8 rounded-full object-cover border border-[#2E4060]" style="object-position:center 35%;">
+        <span class="font-semibold text-sm text-white">Nikhil</span>
+      </a>
+      <div class="hidden md:flex items-center gap-7 text-sm">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="partnerships.html" class="nav-link active">Partnerships</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="ai-solutions.html" class="nav-link">Consulting</a>
+        <a href="newsletter.html" class="nav-link">Newsletter</a>
+      </div>
+      <a href="newsletter.html#newsletter-signup" class="hidden md:inline-flex btn-blue text-sm font-semibold px-5 py-2.5 rounded-full">
+        Sign up to newsletter
+      </a>
+      <button id="mobile-drawer-open" aria-label="Open menu" class="md:hidden p-2">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F2F2F2" stroke-width="2.3" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16"></path>
+          <path d="M4 12h16"></path>
+          <path d="M4 17h16"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-drawer-overlay" class="mobile-drawer-overlay md:hidden"></div>
+  <aside id="mobile-drawer" class="mobile-drawer md:hidden">
+    <div class="mobile-drawer-header">
+      <p class="text-3xl font-medium tracking-tight">niknaglapur.com</p>
+      <button id="mobile-drawer-close" aria-label="Close menu" class="mobile-drawer-close text-[#616770] text-5xl leading-none">&times;</button>
+    </div>
+    <div class="mobile-drawer-content">
+      <div class="bg-[#efefef] border border-[#dfdfdf] rounded-[2rem] p-6">
+        <img src="nikhil2.png" alt="Nikhil Naglapur" class="w-44 h-44 rounded-full object-cover object-center mx-auto mb-6" style="object-position:center 35%;">
+        <h3 class="text-center text-[2.2rem] font-semibold tracking-tight">Nikhil Naglapur</h3>
+        <p class="text-center text-[#7a7a7a] text-2xl mb-8">AI Creator</p>
+        <div class="space-y-2">
+          <a href="index.html" class="mobile-nav-item"><span>Home</span></a>
+          <a href="resources.html" class="mobile-nav-item"><span>Resources</span></a>
+          <a href="ai-solutions.html" class="mobile-nav-item"><span>Consulting</span></a>
+          <a href="partnerships.html" class="mobile-nav-item active"><span>Partnerships</span></a>
+          <a href="newsletter.html" class="mobile-nav-item"><span>Newsletter</span></a>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- HERO -->
+  <section class="max-w-6xl mx-auto px-6 pt-20 pb-12 relative overflow-hidden">
+    <div class="orb absolute" style="top:-100px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(0,180,255,0.09) 0%,transparent 70%);filter:blur(50px);"></div>
+    <div class="flex flex-col md:flex-row items-center justify-between gap-12 relative">
+      <div class="flex-1 max-w-xl">
+        <div class="flex items-center gap-2.5 mb-5">
+          <span class="w-2 h-2 rounded-full bg-[#00B4FF]" style="box-shadow:0 0 8px rgba(0,180,255,0.8);"></span>
+          <p class="text-[#00B4FF] text-xs font-semibold uppercase tracking-[0.18em]">Media Kit</p>
+        </div>
+        <h1 class="font-serif text-4xl md:text-6xl font-bold leading-[1.06] mb-5 text-white">
+          Partner with Nikhil
+        </h1>
+        <p class="text-[#666] text-base leading-relaxed mb-8 max-w-lg">
+          I create high-engagement, short-form AI content that blends education, storytelling, and real tools to drive results for brands. My audience is highly engaged, tech-forward, and ready to act.
+        </p>
+        <div class="flex items-center gap-4 flex-wrap">
+          <a href="https://beacons.ai/nikhiln/mediakit?platform=instagram&platform_username=niknaglapur" target="_blank" rel="noopener noreferrer" class="btn-blue inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-full">
+            Full Media Kit →
+          </a>
+          <a href="mailto:niknaglapur@gmail.com" class="btn-outline inline-flex items-center text-sm font-medium px-6 py-3 rounded-full">
+            Get in Touch
+          </a>
+        </div>
+      </div>
+      <div class="flex-shrink-0 hero-float">
+        <img src="nikhil2.png" alt="Nikhil Naglapur"
+             class="object-cover rounded-2xl"
+             style="width:220px;height:290px;object-position:center 18%;box-shadow:0 0 40px rgba(0,180,255,0.15);">
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="border-t border-b border-[#1E2D42] py-12" style="background:#111C2A;">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+        <div class="bg-[#0F0F0F] rounded-2xl p-6 border border-[#1E1E1E] text-center reveal">
+          <p class="text-3xl font-bold stat-num mb-1">12K+</p>
+          <p class="text-[#555] text-sm">Total Followers</p>
+        </div>
+        <div class="bg-[#0F0F0F] rounded-2xl p-6 border border-[#1E1E1E] text-center reveal reveal-d1">
+          <p class="text-3xl font-bold stat-num mb-1">340K+</p>
+          <p class="text-[#555] text-sm">Monthly Impressions</p>
+        </div>
+        <div class="bg-[#0F0F0F] rounded-2xl p-6 border border-[#1E1E1E] text-center reveal reveal-d2">
+          <p class="text-3xl font-bold stat-num mb-1">5.03%</p>
+          <p class="text-[#555] text-sm">Engagement Rate</p>
+        </div>
+        <div class="bg-[#0F0F0F] rounded-2xl p-6 border border-[#1E1E1E] text-center reveal reveal-d3">
+          <p class="text-3xl font-bold stat-num mb-1">1000+</p>
+          <p class="text-[#555] text-sm">Newsletter Subscribers</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIENCE DEMOGRAPHICS -->
+  <section class="max-w-6xl mx-auto px-6 py-14">
+    <p class="text-[#00B4FF] text-xs font-semibold uppercase tracking-[0.18em] mb-2 text-center">Audience</p>
+    <h2 class="font-serif text-3xl font-bold text-center text-white mb-10">Who's watching</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Age -->
+      <div class="bg-[#0F0F0F] rounded-2xl p-7 border border-[#1E1E1E]">
+        <div class="flex items-center gap-2.5 mb-6">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00B4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          <span class="text-xs font-semibold uppercase tracking-wider text-[#555]">Age Breakdown</span>
+        </div>
+        <div class="space-y-4">
+          <div>
+            <div class="flex justify-between text-sm mb-2">
+              <span class="text-[#666]">18–24</span><span class="font-semibold text-white">18.2%</span>
+            </div>
+            <div class="h-2 bg-[#1E2D42] rounded-full"><div class="bar-fill" style="width:18.2%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-2">
+              <span class="text-[#666]">25–34</span><span class="font-semibold text-white">34.6%</span>
+            </div>
+            <div class="h-2 bg-[#1E2D42] rounded-full"><div class="bar-fill" style="width:34.6%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-2">
+              <span class="text-[#666]">35–44</span><span class="font-semibold text-white">26.1%</span>
+            </div>
+            <div class="h-2 bg-[#1E2D42] rounded-full"><div class="bar-fill" style="width:26.1%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-2">
+              <span class="text-[#666]">45–54</span><span class="font-semibold text-white">14.3%</span>
+            </div>
+            <div class="h-2 bg-[#1E2D42] rounded-full"><div class="bar-fill" style="width:14.3%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-2">
+              <span class="text-[#666]">55–64</span><span class="font-semibold text-white">6.8%</span>
+            </div>
+            <div class="h-2 bg-[#1E2D42] rounded-full"><div class="bar-fill" style="width:6.8%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Countries -->
+      <div class="bg-[#0F0F0F] rounded-2xl p-7 border border-[#1E1E1E]">
+        <div class="flex items-center gap-2.5 mb-6">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00B4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          <span class="text-xs font-semibold uppercase tracking-wider text-[#555]">Top Countries</span>
+        </div>
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-sm text-[#666]">United States</span>
+            <div class="flex items-center gap-3">
+              <div class="w-28 h-2 bg-[#1E2D42] rounded-full"><div class="bar-fill" style="width:100%"></div></div>
+              <span class="text-sm font-semibold text-white w-10 text-right">38.4%</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-sm text-[#666]">India</span>
+            <div class="flex items-center gap-3">
+              <div class="w-28 h-2 bg-[#1E2D42] rounded-full"><div class="bar-fill" style="width:30%"></div></div>
+              <span class="text-sm font-semibold text-white w-10 text-right">11.5%</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-sm text-[#666]">United Kingdom</span>
+            <div class="flex items-center gap-3">
+              <div class="w-28 h-2 bg-[#1E2D42] rounded-full"><div class="bar-fill" style="width:18%"></div></div>
+              <span class="text-sm font-semibold text-white w-10 text-right">7.0%</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-sm text-[#666]">Canada</span>
+            <div class="flex items-center gap-3">
+              <div class="w-28 h-2 bg-[#1E2D42] rounded-full"><div class="bar-fill" style="width:14%"></div></div>
+              <span class="text-sm font-semibold text-white w-10 text-right">5.4%</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-sm text-[#666]">Australia</span>
+            <div class="flex items-center gap-3">
+              <div class="w-28 h-2 bg-[#1E2D42] rounded-full"><div class="bar-fill" style="width:11%"></div></div>
+              <span class="text-sm font-semibold text-white w-10 text-right">4.2%</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-sm text-[#666]">Germany</span>
+            <div class="flex items-center gap-3">
+              <div class="w-28 h-2 bg-[#1E2D42] rounded-full"><div class="bar-fill" style="width:5%"></div></div>
+              <span class="text-sm font-semibold text-white w-10 text-right">1.9%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS -->
+  <section class="border-t border-[#1E2D42] py-14" style="background:#111C2A;">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="font-serif text-2xl font-bold text-center text-white mb-6">Brands I've worked with</h2>
+      <div class="logo-marquee rounded-xl">
+        <div class="logo-track">
+          <div class="logo-item"><img src="assets/logos/microsoft.webp" alt="Microsoft"></div>
+          <div class="logo-item"><img src="assets/logos/replit.svg" alt="Replit"></div>
+          <div class="logo-item"><img src="assets/logos/airia-transparent.png" alt="Airia"></div>
+          <div class="logo-item"><img class="jobright-logo" src="assets/logos/jobright-transparent.png" alt="Jobright"></div>
+          <div class="logo-item"><img src="assets/logos/extra.avif" alt="Partner logo"></div>
+          <div class="logo-item"><img src="assets/logos/microsoft.webp" alt="Microsoft"></div>
+          <div class="logo-item"><img src="assets/logos/replit.svg" alt="Replit"></div>
+          <div class="logo-item"><img src="assets/logos/airia-transparent.png" alt="Airia"></div>
+          <div class="logo-item"><img class="jobright-logo" src="assets/logos/jobright-transparent.png" alt="Jobright"></div>
+          <div class="logo-item"><img src="assets/logos/extra.avif" alt="Partner logo"></div>
+          <div class="logo-item"><img src="assets/logos/microsoft.webp" alt="Microsoft"></div>
+          <div class="logo-item"><img src="assets/logos/replit.svg" alt="Replit"></div>
+          <div class="logo-item"><img src="assets/logos/airia-transparent.png" alt="Airia"></div>
+          <div class="logo-item"><img class="jobright-logo" src="assets/logos/jobright-transparent.png" alt="Jobright"></div>
+          <div class="logo-item"><img src="assets/logos/extra.avif" alt="Partner logo"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I OFFER -->
+  <section class="max-w-6xl mx-auto px-6 py-14">
+    <p class="text-[#00B4FF] text-xs font-semibold uppercase tracking-[0.18em] mb-2 text-center">Packages</p>
+    <h2 class="font-serif text-3xl font-bold text-center text-white mb-10">What I offer</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div class="card bg-[#0F0F0F] rounded-2xl p-6 border border-[#1E1E1E]">
+        <div class="w-8 h-8 rounded-lg bg-[#0A1B28] flex items-center justify-center mb-4">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00B4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="0.5" fill="#00B4FF"/></svg>
+        </div>
+        <h3 class="font-semibold text-sm mb-2 text-white">Sponsored Short Form Video</h3>
+        <p class="text-[#555] text-xs leading-relaxed">One short-form video distributed across Instagram, TikTok, and YouTube Shorts to drive engagement and conversions.</p>
+      </div>
+      <div class="card bg-[#0F0F0F] rounded-2xl p-6 border border-[#1E1E1E]">
+        <div class="w-8 h-8 rounded-lg bg-[#0A1B28] flex items-center justify-center mb-4">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00B4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3 class="font-semibold text-sm mb-2 text-white">Automated DM Integration</h3>
+        <p class="text-[#555] text-xs leading-relaxed">ManyChat automations that route viewers straight to website or product.</p>
+      </div>
+      <div class="card bg-[#0F0F0F] rounded-2xl p-6 border border-[#1E1E1E]">
+        <div class="w-8 h-8 rounded-lg bg-[#0A1B28] flex items-center justify-center mb-4">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00B4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+        </div>
+        <h3 class="font-semibold text-sm mb-2 text-white">Link-In-Bio Placement</h3>
+        <p class="text-[#555] text-xs leading-relaxed">A dedicated link across all my platforms for three days.</p>
+      </div>
+      <div class="card bg-[#0F0F0F] rounded-2xl p-6 border border-[#1E1E1E]">
+        <div class="w-8 h-8 rounded-lg bg-[#0A1B28] flex items-center justify-center mb-4">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00B4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        </div>
+        <h3 class="font-semibold text-sm mb-2 text-white">Newsletter Feature</h3>
+        <p class="text-[#555] text-xs leading-relaxed">A dedicated placement in my newsletter to reach 1000+ engaged readers across creators, founders, and operators.</p>
+      </div>
+      <div class="card bg-[#0F0F0F] rounded-2xl p-6 border border-[#1E1E1E]">
+        <div class="w-8 h-8 rounded-lg bg-[#0A1B28] flex items-center justify-center mb-4">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00B4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        <h3 class="font-semibold text-sm mb-2 text-white">Paid Ad Usage Rights</h3>
+        <p class="text-[#555] text-xs leading-relaxed">Whitelist-ready usage for ads so your team can run the content from your own ad account for broader reach.</p>
+      </div>
+      <div class="card bg-[#0F0F0F] rounded-2xl p-6 border border-[#1E1E1E]">
+        <div class="w-8 h-8 rounded-lg bg-[#0A1B28] flex items-center justify-center mb-4">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00B4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3 class="font-semibold text-sm mb-2 text-white">Raw Video Asset Delivery</h3>
+        <p class="text-[#555] text-xs leading-relaxed">Receive the unbranded source file so your team can repurpose and redistribute the content across your channels.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-6xl mx-auto px-6 py-16">
+    <div class="text-center max-w-md mx-auto">
+      <div class="w-12 h-12 rounded-2xl bg-[#0A1B28] flex items-center justify-center mx-auto mb-6">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00B4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+      </div>
+      <h2 class="font-serif text-2xl font-bold mb-3 text-white">Let's work together</h2>
+      <p class="text-[#666] text-sm mb-6 leading-relaxed">Interested in a campaign or partnership? Let's chat!</p>
+      <div class="flex items-center justify-center gap-4">
+        <a href="mailto:niknaglapur@gmail.com" class="btn-blue inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-full">
+          Get in Touch →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-[#1E2D42]" style="background:#131C2B;">
+    <div class="max-w-6xl mx-auto px-6 pt-8 pb-4 flex flex-col md:flex-row items-center justify-between gap-5">
+      <div class="flex items-center gap-2.5">
+        <img src="nikhil2.png" alt="Nikhil" class="w-6 h-6 rounded-full object-cover border border-[#2E4060]" style="object-position:center 35%;">
+        <span class="text-sm font-semibold text-white">Nikhil</span>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-[#8A9AB0]">
+        <a href="index.html" class="hover:text-white transition-colors">Home</a>
+        <a href="resources.html" class="hover:text-white transition-colors">Resources</a>
+        <a href="ai-solutions.html" class="hover:text-white transition-colors">Consulting</a>
+        <a href="partnerships.html" class="hover:text-white transition-colors">Partnerships</a>
+        <a href="newsletter.html" class="hover:text-white transition-colors">Newsletter</a>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pb-6 mt-2 flex items-center justify-between">
+      <p class="text-[#6F8298] text-xs">© 2026 Nikhil Naglapur</p>
+      <p class="text-[#6F8298] text-xs">Email: <a href="mailto:niknaglapur@gmail.com" class="text-[#00B4FF] hover:underline">niknaglapur@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const openBtn = document.getElementById('mobile-drawer-open');
+      const closeBtn = document.getElementById('mobile-drawer-close');
+      const drawer = document.getElementById('mobile-drawer');
+      const overlay = document.getElementById('mobile-drawer-overlay');
+      if (!openBtn || !closeBtn || !drawer || !overlay) return;
+      const openDrawer = () => { drawer.classList.add('open'); overlay.classList.add('open'); };
+      const closeDrawer = () => { drawer.classList.remove('open'); overlay.classList.remove('open'); };
+      openBtn.addEventListener('click', openDrawer);
+      closeBtn.addEventListener('click', closeDrawer);
+      overlay.addEventListener('click', closeDrawer);
+      drawer.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeDrawer));
+    })();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

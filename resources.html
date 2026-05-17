@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>Resources — Nikhil Naglapur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://subscribe-forms.beehiiv.com" crossorigin>
+  <link rel="dns-prefetch" href="//subscribe-forms.beehiiv.com">
+  <link rel="prefetch" href="newsletter.html">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Outfit', 'system-ui', 'sans-serif'],
+            sans: ['Outfit', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #131C2B; color: #F2F2F2; }
+    nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); background-color: rgba(19,28,43,0.92) !important; }
+    .nav-link { position: relative; color: #777; transition: color 0.18s ease; }
+    .nav-link:hover, .nav-link.active { color: #F2F2F2; }
+    .nav-link::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: #00B4FF; transition: width 0.22s ease; }
+    .nav-link:hover::after { width: 100%; }
+    a, button { transition: all 0.18s ease; }
+    .btn-blue { background: #00B4FF; color: #fff; }
+    .btn-blue:hover { background: #0090CC; box-shadow: 0 0 24px rgba(0,180,255,0.4); transform: translateY(-1px); }
+
+    .filter-btn { transition: all 0.15s ease; border: 1px solid #2E4060; color: #666; }
+    .filter-btn:hover { color: #F2F2F2; border-color: #333; }
+    .filter-btn.active { background: #F2F2F2; color: #131C2B; border-color: #F2F2F2; }
+
+    .resource-item { border-top: 1px solid #1E2D42; transition: background 0.15s ease; }
+    .resource-item:last-child { border-bottom: 1px solid #1E2D42; }
+    .resource-item:hover { background: rgba(0,180,255,0.02); }
+    .resource-item[data-hidden="true"] { display: none; }
+
+    .expand-icon { transition: transform 0.2s ease; color: #444; font-size: 1.25rem; }
+    .expanded .expand-icon { transform: rotate(45deg); color: #00B4FF; }
+    .resource-detail { display: none; }
+    .expanded .resource-detail { display: block; }
+    .mobile-drawer-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.38); z-index: 70; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
+    .mobile-drawer-overlay.open { opacity: 1; pointer-events: auto; }
+    .mobile-drawer { position: fixed; top: 0; right: 0; width: min(92vw, 380px); height: 100dvh; background: #e9e9e9; color: #15171a; z-index: 80; transform: translateX(100%); transition: transform 0.24s ease; box-shadow: -16px 0 36px rgba(0,0,0,0.2); padding: 22px; overflow: hidden; display: flex; flex-direction: column; }
+    .mobile-drawer.open { transform: translateX(0); }
+    .mobile-drawer-header { position: relative; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; flex-shrink: 0; }
+    .mobile-drawer-close { position: absolute; right: 0; top: 50%; transform: translateY(-50%); }
+    .mobile-drawer-content { overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; touch-action: pan-y; padding-bottom: 1.25rem; flex: 1; min-height: 0; }
+    .mobile-nav-item { display: flex; align-items: center; gap: 0.85rem; font-size: 1.02rem; color: #5f6670; padding: 0.95rem 1rem; border-radius: 0.9rem; }
+    .mobile-nav-item.active { background: #dedede; color: #171a1f; font-weight: 600; }
+
+  </style>
+</head>
+<body class="font-sans">
+
+  <!-- NAV -->
+  <nav class="sticky top-0 z-50 border-b border-[#1E2D42]">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <img src="nikhil2.png" alt="Nikhil" class="w-8 h-8 rounded-full object-cover border border-[#2E4060]" style="object-position:center 35%;">
+        <span class="font-semibold text-sm text-white">Nikhil</span>
+      </a>
+      <div class="hidden md:flex items-center gap-7 text-sm">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="partnerships.html" class="nav-link">Partnerships</a>
+        <a href="resources.html" class="nav-link active">Resources</a>
+        <a href="ai-solutions.html" class="nav-link">Consulting</a>
+        <a href="newsletter.html" class="nav-link">Newsletter</a>
+      </div>
+      <a href="newsletter.html#newsletter-signup" class="hidden md:inline-flex btn-blue text-sm font-semibold px-5 py-2.5 rounded-full">
+        Sign up to newsletter
+      </a>
+      <button id="mobile-drawer-open" aria-label="Open menu" class="md:hidden p-2">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F2F2F2" stroke-width="2.3" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16"></path>
+          <path d="M4 12h16"></path>
+          <path d="M4 17h16"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-drawer-overlay" class="mobile-drawer-overlay md:hidden"></div>
+  <aside id="mobile-drawer" class="mobile-drawer md:hidden">
+    <div class="mobile-drawer-header">
+      <p class="text-3xl font-medium tracking-tight">niknaglapur.com</p>
+      <button id="mobile-drawer-close" aria-label="Close menu" class="mobile-drawer-close text-[#616770] text-5xl leading-none">&times;</button>
+    </div>
+    <div class="mobile-drawer-content">
+      <div class="bg-[#efefef] border border-[#dfdfdf] rounded-[2rem] p-6">
+        <img src="nikhil2.png" alt="Nikhil Naglapur" class="w-44 h-44 rounded-full object-cover object-center mx-auto mb-6" style="object-position:center 35%;">
+        <h3 class="text-center text-[2.2rem] font-semibold tracking-tight">Nikhil Naglapur</h3>
+        <p class="text-center text-[#7a7a7a] text-2xl mb-8">AI Creator</p>
+        <div class="space-y-2">
+          <a href="index.html" class="mobile-nav-item"><span>Home</span></a>
+          <a href="resources.html" class="mobile-nav-item active"><span>Resources</span></a>
+          <a href="ai-solutions.html" class="mobile-nav-item"><span>Consulting</span></a>
+          <a href="partnerships.html" class="mobile-nav-item"><span>Partnerships</span></a>
+          <a href="newsletter.html" class="mobile-nav-item"><span>Newsletter</span></a>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- HEADER -->
+  <section class="max-w-3xl mx-auto px-6 pt-16 pb-10">
+    <div class="flex items-center gap-2.5 mb-5">
+      <span class="w-2 h-2 rounded-full bg-[#00B4FF]" style="box-shadow:0 0 8px rgba(0,180,255,0.8);"></span>
+      <p class="text-[#00B4FF] text-xs font-semibold uppercase tracking-[0.18em]">Resources</p>
+    </div>
+    <h1 class="font-serif text-4xl md:text-5xl font-bold leading-[1.08] mb-4 text-white">
+      All of my best free AI<br>resources, in one place
+    </h1>
+    <p class="text-[#666] text-base mb-6 max-w-lg">
+      Prompts, guides, systems, and tutorials to help you get more out of AI — without digging through old posts, random links, or outdated videos.
+    </p>
+    <a href="ai-solutions.html" class="btn-blue inline-flex items-center gap-2 text-sm font-semibold px-5 py-3 rounded-full">
+      Get My Help
+    </a>
+  </section>
+
+  <!-- Consulting Banner -->
+  <div class="max-w-3xl mx-auto px-6 mb-8">
+    <div class="bg-[#0A1B28] border border-[#0D2A3D] rounded-2xl px-6 py-4 flex items-center justify-between gap-4">
+      <p class="text-sm text-[#888]"><span class="font-semibold text-white">A creator looking to grow with AI?</span> I offer 1:1 coaching, content automation, and system buildouts built specifically for content creators.</p>
+      <a href="ai-solutions.html" class="text-[#00B4FF] text-sm font-semibold whitespace-nowrap hover:underline">Explore →</a>
+    </div>
+  </div>
+
+  <!-- FILTER TABS -->
+  <div class="max-w-3xl mx-auto px-6 mb-8">
+    <div class="flex flex-wrap gap-2">
+      <button class="filter-btn active text-sm font-medium px-4 py-1.5 rounded-full" data-filter="all">All</button>
+      <button class="filter-btn text-sm font-medium px-4 py-1.5 rounded-full" data-filter="learning">Learning</button>
+      <button class="filter-btn text-sm font-medium px-4 py-1.5 rounded-full" data-filter="resources">Resources</button>
+    </div>
+  </div>
+
+  <!-- RESOURCE LIST -->
+  <div class="max-w-3xl mx-auto px-6 pb-24" id="resource-list">
+
+    <!-- May 17 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="prompts" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Prompts</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">15 Claude Cheat Codes That Actually Work</h3>
+          <p class="text-[#555] text-sm leading-relaxed">Prompt prefixes that instantly change how Claude thinks — stress-test ideas, reframe problems, and get world-class rewrites with one word.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">Includes the 5 from the video plus 10 more: Pre-mortem, Red team, First principles, Invert this, Steel thread, and more. Every code comes with a copy-paste template and a full quick-reference cheat sheet.</p>
+            <a href="claude-cheat-codes.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- May 12 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="learning" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Learning</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">5 Free Subscriptions Every Student Needs to Activate Before Graduation</h3>
+          <p class="text-[#555] text-sm leading-relaxed">GitHub Student Pack, Cursor Pro, Notion, Figma, and Perplexity — all free or heavily discounted with a student email.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">One student email unlocks thousands of dollars worth of professional tools most students never claim. This guide covers exactly what you get, why each one matters, and how to activate all five.</p>
+            <a href="scripts/free-student-subscriptions.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- May 11 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="skills" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Skills</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">The Prompt Master — Never Write a Mega Prompt Manually Again</h3>
+          <p class="text-[#555] text-sm leading-relaxed">A Claude skill that generates accurate, token-efficient prompts for any task — so you stop wasting time re-prompting.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">Install the Prompt Master and just describe what you want to achieve. Claude generates the optimal prompt for you, adapts to any AI tool, and minimizes token usage. Ideal for Claude Code, marketing copy, and automation workflows.</p>
+            <a href="scripts/the-prompt-master.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- May 10 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="workflows" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Workflows</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">Claude Code Routines — Setup Guide</h3>
+          <p class="text-[#555] text-sm leading-relaxed">Automated AI agents that run on Anthropic's cloud on a schedule or trigger — no laptop, no terminal, no you required.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">Full setup guide for all three trigger types: scheduled, API endpoint, and GitHub events. Includes the best routines to run for your business, plan limits, and a migration guide from n8n, Make, or Zapier.</p>
+            <a href="scripts/claude-code-routines.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- May 9 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="tools" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Tools</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">Claude Finance Agents — 4 Tools That Collapse the Retail vs Institutional Gap</h3>
+          <p class="text-[#555] text-sm leading-relaxed">4 Claude finance plugins that give retail investors institutional-grade research: equity research, earnings review, financial modeling, and market research.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">Covers Equity Research (15 commands), Earnings Reviewer, Financial Analysis (DCFs + comps), and Market Researcher. Includes copy-paste prompts for each plugin and an honest breakdown of what these agents can't do.</p>
+            <a href="scripts/claude-finance-industry.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- May 8 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="learning" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Learning</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">5 Free Certifications Every Student Needs on Their Resume</h3>
+          <p class="text-[#555] text-sm leading-relaxed">The best free AI certifications in 2026 — ranked by prestige, time investment, and career impact.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">Covers Google AI Essentials, Microsoft AI certifications, and more. Includes study strategies using Claude Code and AI agents to accelerate your learning.</p>
+            <a href="scripts/free-certifications-resume.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- May 6 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="prompts" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Prompts</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">The Claude Council — Multi-Agent Prompt System</h3>
+          <p class="text-[#555] text-sm leading-relaxed">A structured reasoning framework that spins up multiple AI agents to debate, critique, and validate any decision.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">Use this prompt to stop AI from lying or hallucinating. It creates a council of AI agents with different perspectives that challenge each other's answers before giving you a final response.</p>
+            <a href="claude-council-prompt.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- May 5 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="tools" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Tools</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">10 Claude Artifacts to Build This Weekend</h3>
+          <p class="text-[#555] text-sm leading-relaxed">Anthropic's live artifacts feature changes what AI can build. Here are 10 you can create in an afternoon.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">From interactive dashboards to live calculators and full mini-apps. Each artifact includes the exact prompt to use and what makes it actually useful in real life.</p>
+            <a href="scripts/claude-artifacts-weekend.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- May 2 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="skills" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Skills</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">Claude Language Tutor — Project Setup</h3>
+          <p class="text-[#555] text-sm leading-relaxed">A Claude Project that replaces Duolingo, flashcard apps, and expensive tutors — with a 5-minute setup and fully personalized, conversational language learning.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">Duolingo teaches vocabulary well, but fluency requires real conversation and correction. This Claude project fills that gap by acting as an adaptive, always-available tutor that knows your level, your goals, and your weak spots.</p>
+            <a href="scripts/claude-language-tutor.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- May 2 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="skills" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Skills</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">No Excuses Fitness Coach — Claude Skill</h3>
+          <p class="text-[#555] text-sm leading-relaxed">A Claude skill that reads your real health data, builds a daily workout plan, and adjusts it based on sleep, movement, and recovery — like a trainer who never cancels.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">Integrates with Apple Health (iOS) or Health Connect (Android). Requires Claude Pro or Max. Once installed, just describe your goal and the skill generates a fully personalized, adaptive training plan updated daily.</p>
+            <a href="scripts/no-excuses-fitness-coach.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- May 1 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="learning" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Learning</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">How to Give Claude Perfect Memory — 3 Layer System</h3>
+          <p class="text-[#555] text-sm leading-relaxed">A structured system for making Claude remember everything about you, your projects, and your preferences.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">Covers Projects, Profile instructions, and import/export workflows. Includes templates for setting up each memory layer so Claude actually knows you on every session.</p>
+            <a href="scripts/claude-perfect-memory.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- Apr 22 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="skills" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Skills</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">Claude Just Killed Marketing Agencies — 29 Free Skills</h3>
+          <p class="text-[#555] text-sm leading-relaxed">29 free Claude skills that turn Claude into a full marketing team — content, ads, SEO, email, and more.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">A curated list of the 29 most powerful free Claude skills for marketing. Includes installation links and the exact prompts to get the most out of each skill.</p>
+            <a href="marketing-skills.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- Apr 21 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="tools" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Tools</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">Claude Design — Quick Start Guide + 5 Prompts</h3>
+          <p class="text-[#555] text-sm leading-relaxed">Get started with Claude Design in minutes. Includes 5 prompts that produce stunning design outputs.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">Claude Design lets you create professional design artifacts directly in Claude. This guide covers setup and the 5 best prompts for UI design, branding, and visual content.</p>
+            <a href="scripts/claude-design.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- Apr 21 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="skills" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Skills</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">Claude Marketing Agency — 29 Skills in One</h3>
+          <p class="text-[#555] text-sm leading-relaxed">Use Claude's skills system to build a full content marketing agency inside one Claude Project.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">Combines content strategy, copywriting, SEO, and AI search optimization skills into a single project. Ask Claude to run full campaigns from scratch.</p>
+            <a href="scripts/claude-marketing-agency.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- Apr 21 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="workflows" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Workflows</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">Animated Short-Form Videos with Claude Code + Remotion</h3>
+          <p class="text-[#555] text-sm leading-relaxed">Build fully animated TikToks, Reels, and YouTube Shorts using Claude Code and Remotion. Type a prompt — AI handles the animation, rendering, and export.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">No design skills needed. Claude Code generates all the Remotion components from a description. Covers the full workflow from prompt to rendered video file, including transitions, text overlays, and animated stats.</p>
+            <a href="scripts/claude-can-animate.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- Apr 20 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="prompts" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Prompts</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">Claude's Secret Codes: 100 Prompt Shortcuts</h3>
+          <p class="text-[#555] text-sm leading-relaxed">100 slash commands and shortcut codes organized by category — writing, learning, brainstorming, and more.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">The most useful shortcodes and slash commands for Claude, tested and organized. Copy-paste directly into any Claude conversation to unlock hidden functionality.</p>
+            <a href="prompt-shortcuts.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- Apr 20 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="tools" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Tools</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">Claude Code Can Now Redesign Rooms — 2026</h3>
+          <p class="text-[#555] text-sm leading-relaxed">Use Claude Code + a free skill called Banana to redesign any room in ~30 seconds. Snap a photo, describe the vibe, get photo-realistic results.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">Connects Claude to Google's image generation model through the Banana skill. No design experience needed — just upload a photo of your room and describe what you want it to look like. Works with the Claude desktop app or Claude Code in terminal.</p>
+            <a href="scripts/claude-interior-designer.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- Apr 20 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="skills" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Skills</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">The Claude Council Skill — Stop AI from Lying</h3>
+          <p class="text-[#555] text-sm leading-relaxed">Install this Claude skill to spin up multiple AI agents that check each other's work before answering.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">A one-click Claude skill that activates a multi-agent reasoning council. Just say "ask the council" to get a verified, cross-checked answer on any important question.</p>
+            <a href="scripts/claude-council-skill.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- Apr 20 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="prompts" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Prompts</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">ChatGPT Reveal Prompts — What It Actually Knows About You</h3>
+          <p class="text-[#555] text-sm leading-relaxed">4 prompts that force ChatGPT to surface its full psychological profile of you — personality, blind spots, and patterns you don't see in yourself.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">Run these four prompts in order, in one continuous chat. Each one builds on the last — from a full personality reveal to your single biggest blind spot and what your life looks like in five years if nothing changes.</p>
+            <a href="scripts/chatgpt-reveal.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- Apr 20 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="workflows" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Workflows</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">Claude Video Editing with Remotion</h3>
+          <p class="text-[#555] text-sm leading-relaxed">Claude just killed video editors. Here's how to edit and generate videos programmatically using Claude + Remotion.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">Full workflow for using Claude Code with the Remotion framework to edit videos with natural language. No video editing experience required — just describe what you want.</p>
+            <a href="scripts/claude-video-editing-remotion.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- Apr 20 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="workflows" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Workflows</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">Remotion Setup Guide — Claude Code Video Skill</h3>
+          <p class="text-[#555] text-sm leading-relaxed">The complete setup guide for Remotion and Claude Code. Get the video generation workflow running in under 20 minutes.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">Step-by-step technical setup for Remotion with Claude Code. Includes environment setup, example commands, and the best use cases for AI-generated video.</p>
+            <a href="remotion-setup.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- Apr 20 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="workflows" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Workflows</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">Claude Managed Agents — Build AI Agents Without Code</h3>
+          <p class="text-[#555] text-sm leading-relaxed">Claude's Managed Agents lets you build full AI agents — inbox managers, customer service bots, competitor trackers — without writing a single line of code.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">Handles the database, backend, and security automatically. Use quick-start templates or just describe what you want to build. Covers the three alternatives (N8N, Claude Code, harnesses) and why Managed Agents replaces all of them for most use cases.</p>
+            <a href="scripts/claude-managed-agents.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- Apr 20 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="prompts" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Prompts</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">Viral Prompts Library</h3>
+          <p class="text-[#555] text-sm leading-relaxed">My personal collection of viral-level prompts for writing, growth, and extreme AI modes. Copy, paste, go.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">Includes viral mode prompts, human-writing prompts, and high-performance AI modes. These are the prompts that have driven millions of views across my content.</p>
+            <a href="viral-prompts.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- Apr 20 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="tools" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Tools</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">FREE / DISCOUNTED TOOLS LIST</h3>
+          <p class="text-[#555] text-sm leading-relaxed">70+ free and heavily discounted AI tools — including student discounts, GitHub Pack perks, and credits you didn't know existed.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">A curated, constantly updated list of the best free AI tools and how to access discounts most people don't know about. Includes Stripe, Nvidia, Intel, and many more.</p>
+            <a href="free-tools-list.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- Apr 20 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="learning" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Learning</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">Switching Memory from ChatGPT to Claude</h3>
+          <p class="text-[#555] text-sm leading-relaxed">The complete brain migration guide — export your ChatGPT memory and set it up perfectly in Claude.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">Step-by-step walkthrough with exact prompts for migrating all your AI context, rules, and preferences from ChatGPT to Claude Projects.</p>
+            <a href="chatgpt-to-claude.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+    <!-- Apr 20 -->
+    <div class="resource-item py-5 cursor-pointer select-none" data-category="learning" onclick="toggleResource(this)">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1">
+          <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-1.5">Learning</p>
+          <h3 class="font-semibold text-base leading-snug mb-1 text-white">The Complete Claude Beginner's Guide 2026</h3>
+          <p class="text-[#555] text-sm leading-relaxed">From first login to power user. Everything you need to know about Claude.ai, Claude Code, Projects, and more.</p>
+          <div class="resource-detail mt-3">
+            <p class="text-[#555] text-sm leading-relaxed mb-3">Step-by-step guide covering Claude.ai interface, Projects, memory, artifacts, Claude Code setup and use cases. Designed for complete beginners who want to get up to speed fast.</p>
+            <a href="claude-beginners-guide.html" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-[#00B4FF] text-sm font-medium hover:underline">Access Resource →</a>
+          </div>
+        </div>
+        <span class="expand-icon flex-shrink-0 mt-0.5 font-light">+</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-[#1E2D42]" style="background:#131C2B;">
+    <div class="max-w-6xl mx-auto px-6 pt-8 pb-4 flex flex-col md:flex-row items-center justify-between gap-5">
+      <div class="flex items-center gap-2.5">
+        <img src="nikhil2.png" alt="Nikhil" class="w-6 h-6 rounded-full object-cover border border-[#2E4060]" style="object-position:center 35%;">
+        <span class="text-sm font-semibold text-white">Nikhil</span>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-[#8A9AB0]">
+        <a href="index.html" class="hover:text-white transition-colors">Home</a>
+        <a href="resources.html" class="hover:text-white transition-colors">Resources</a>
+        <a href="ai-solutions.html" class="hover:text-white transition-colors">Consulting</a>
+        <a href="partnerships.html" class="hover:text-white transition-colors">Partnerships</a>
+        <a href="newsletter.html" class="hover:text-white transition-colors">Newsletter</a>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pb-6 mt-2 flex items-center justify-between">
+      <p class="text-[#6F8298] text-xs">© 2026 Nikhil Naglapur</p>
+      <p class="text-[#6F8298] text-xs">Email: <a href="mailto:niknaglapur@gmail.com" class="text-[#00B4FF] hover:underline">niknaglapur@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const openBtn = document.getElementById('mobile-drawer-open');
+      const closeBtn = document.getElementById('mobile-drawer-close');
+      const drawer = document.getElementById('mobile-drawer');
+      const overlay = document.getElementById('mobile-drawer-overlay');
+      if (!openBtn || !closeBtn || !drawer || !overlay) return;
+      const openDrawer = () => { drawer.classList.add('open'); overlay.classList.add('open'); };
+      const closeDrawer = () => { drawer.classList.remove('open'); overlay.classList.remove('open'); };
+      openBtn.addEventListener('click', openDrawer);
+      closeBtn.addEventListener('click', closeDrawer);
+      overlay.addEventListener('click', closeDrawer);
+      drawer.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeDrawer));
+    })();
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        const groupedCategories = {
+          resources: ['prompts', 'skills', 'tools', 'workflows']
+        };
+        document.querySelectorAll('.resource-item').forEach(item => {
+          const category = item.dataset.category;
+          const isGroupedMatch = groupedCategories[filter]?.includes(category);
+          item.style.display = (filter === 'all' || category === filter || isGroupedMatch) ? '' : 'none';
+        });
+      });
+    });
+    function toggleResource(el) { el.classList.toggle('expanded'); }
+
+    // Resource rows navigate directly to their content page.
+    document.querySelectorAll('.resource-item').forEach(item => {
+      item.onclick = function(e) {
+        const link = this.querySelector('a[href]');
+        if (link) window.location.href = link.getAttribute('href');
+      };
+    });
+  </script>
+</body>
+</html>

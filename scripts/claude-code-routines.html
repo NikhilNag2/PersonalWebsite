@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>🤖 Claude Code Routines – Setup Guide — Nikhil Naglapur</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={theme:{extend:{fontFamily:{serif:['Outfit','system-ui','sans-serif'],sans:['Outfit','system-ui','sans-serif']}}}}</script><style>body{background:#0A0A0A;color:#F2F2F2}nav{backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background-color:rgba(10,10,10,.88)!important}.nav-link{position:relative;color:#777;transition:color .18s ease}.nav-link:hover,.nav-link.active{color:#F2F2F2}.nav-link::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:#00B4FF;transition:width .22s ease}.nav-link:hover::after{width:100%}.btn-blue{background:#00B4FF;color:#fff;transition:all .18s ease}.btn-blue:hover{background:#0090CC;box-shadow:0 0 24px rgba(0,180,255,.4);transform:translateY(-1px)}.content h1{font-size:2.1rem;line-height:1.1;font-weight:800;color:#fff;margin:2.5rem 0 1rem}.content h2{font-size:1.55rem;line-height:1.2;font-weight:750;color:#fff;margin:2.35rem 0 .85rem}.content h3{font-size:1.15rem;font-weight:700;color:#E8E8E8;margin:1.65rem 0 .6rem}.content p,.content li{color:#9A9A9A;line-height:1.78;font-size:15px}.content p{margin-bottom:1rem}.content strong{color:#DCDCDC;font-weight:700}.content em{color:#C8C8C8}.content ul,.content ol{margin:0 0 1.2rem 1.35rem}.content ul{list-style:disc}.content ol{list-style:decimal}.content li{margin:.35rem 0}.content hr{border:0;border-top:1px solid #1C1C1C;margin:2rem 0}.content blockquote{border-left:3px solid #00B4FF;background:rgba(0,180,255,.06);border-radius:0 8px 8px 0;padding:1rem 1.15rem;margin:1.4rem 0;color:#CFCFCF;line-height:1.7}.content pre{background:#111;border:1px solid #222;border-radius:8px;padding:1rem;overflow:auto;margin:1.25rem 0;color:#D6D6D6}.content code{background:#141414;border:1px solid #252525;border-radius:5px;padding:.1rem .28rem;color:#E6E6E6;font-size:.92em}.content pre code{background:transparent;border:0;padding:0;color:inherit}.content table{width:100%;border-collapse:collapse;margin:1.4rem 0;border:1px solid #202020;border-radius:8px;overflow:hidden;display:table}.content tr{border-bottom:1px solid #202020}.content tr:last-child{border-bottom:0}.content td{border-right:1px solid #202020;padding:.8rem;vertical-align:top;color:#999;font-size:14px;line-height:1.55}.content td:last-child{border-right:0}.content tr:first-child td{color:#F2F2F2;font-weight:700;background:#111}.content details{border:1px solid #202020;border-radius:8px;margin:1rem 0;background:#0D0D0D}.content summary{cursor:pointer;padding:1rem;color:#F2F2F2;font-weight:650}.content .details-body{padding:0 1rem 1rem}@media(max-width:640px){.content table{display:block;overflow-x:auto}.content h1{font-size:1.7rem}}</style></head><body class="font-sans"><nav class="sticky top-0 z-50 border-b border-[#161616]"><div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between"><a href="../index.html" class="flex items-center gap-2.5"><img src="../nikhil2.png" alt="Nikhil" class="w-8 h-8 rounded-full object-cover border border-[#2A2A2A]" style="object-position:center 35%;"><span class="font-semibold text-sm text-white">Nikhil</span></a><div class="hidden md:flex items-center gap-7 text-sm"><a href="../index.html" class="nav-link">Home</a><a href="../ai-solutions.html" class="nav-link">Consulting</a>../<a href="../resources.html" class="nav-link active">Resources</a><a href="../partnerships.html" class="nav-link">Partnerships</a></div><a href="https://escapingvelocity.beehiiv.com/" target="_blank" class="btn-blue text-sm font-semibold px-5 py-2.5 rounded-full">Sign up to newsletter</a></div></nav><main class="max-w-3xl mx-auto px-6 py-14"><a href="../resources.html" class="inline-flex items-center gap-1.5 text-[#00B4FF] text-sm font-medium mb-10 hover:underline">← Back to Resources</a><div class="flex items-center gap-2.5 mb-4"><span class="w-2 h-2 rounded-full bg-[#00B4FF]" style="box-shadow:0 0 8px rgba(0,180,255,.8)"></span><p class="text-[#00B4FF] text-xs font-semibold uppercase tracking-[0.18em]">Prompt Database</p></div><h1 class="font-serif text-4xl md:text-5xl font-bold leading-[1.08] mb-10 text-white">🤖 Claude Code Routines – Setup Guide</h1><article class="content"><blockquote>💡 <strong>What are Routines?</strong> Routines are saved AI agent configurations (prompt + repos + connectors + trigger) that run on Anthropic's cloud — no laptop, no terminal, no you required.</blockquote>
+<hr>
+<h2>📋 What You Need Before Starting</h2>
+<table>
+<tr>
+<td>Requirement</td>
+<td>Details</td>
+</tr>
+<tr>
+<td>Claude Plan</td>
+<td>Pro, Max, Team, or Enterprise</td>
+</tr>
+<tr>
+<td>Claude Code</td>
+<td>Must be enabled on web (claude.ai/code)</td>
+</tr>
+<tr>
+<td>GitHub Repo</td>
+<td>Clean, focused repo per routine</td>
+</tr>
+<tr>
+<td>API Keys</td>
+<td>Added as environment variables in Claude Cloud</td>
+</tr>
+<tr>
+<td>MCP Connectors</td>
+<td>Slack, Gmail, Linear, ClickUp, etc.</td>
+</tr>
+</table>
+<hr>
+<h2>⚡ 3 Ways to Trigger a Routine</h2>
+<details><summary>🕐 1. Scheduled (Time-Based)</summary><div class="details-body"><ul><li>Pick a cadence: hourly, daily, weekdays, weekly</li><li>Minimum interval: <strong>1 hour</strong></li><li>Times auto-convert to your local timezone</li><li>For custom intervals (every 2 hrs, 1st of month) → use CLI:</li></ul>
+<p>&lt;p&gt;	```bash&lt;/p&gt;</p>
+<p>&lt;p&gt;/schedule update --cron "0 &lt;em&gt;/2 &lt;/em&gt; &lt;em&gt; &lt;/em&gt;"&lt;/p&gt;</p>
+<p>&lt;p&gt;	```&lt;/p&gt;&lt;/div&gt;&lt;/details&gt;</p>
+<details><summary>🌐 2. API Trigger (HTTP Endpoint)</summary><div class="details-body"><ul><li>Every routine gets its own <strong>HTTP endpoint + bearer token</strong></li><li>POST to it to fire the routine</li><li>Pass extra context in the <code>text</code> field of the body</li><li>Response returns a <strong>session ID + URL</strong> to watch Claude work live</li></ul>
+<p>&lt;p&gt;	```bash&lt;/p&gt;</p>
+<p>&lt;p&gt;curl -X POST https://your-routine-endpoint \&lt;/p&gt;</p>
+<p>&lt;p&gt;  -H "Authorization: Bearer YOUR_TOKEN" \&lt;/p&gt;</p>
+<p>&lt;p&gt;  -H "Content-Type: application/json" \&lt;/p&gt;</p>
+<p>&lt;p&gt;  -d '{"text": "New lead from Acme Corp – check CRM"}'&lt;/p&gt;</p>
+<p>&lt;p&gt;	```&lt;/p&gt;</p>
+<p>&lt;p&gt;	&lt;strong&gt;Use case:&lt;/strong&gt; Your monitoring tool catches an error → hits the endpoint → Claude investigates and fixes.&lt;/p&gt;&lt;/div&gt;&lt;/details&gt;</p>
+<details><summary>🐙 3. GitHub Events</summary><div class="details-body"><ul><li>Fires on: PR opened, code pushed, issue created</li><li>Granular filters: specific authors, branches, PR labels</li><li><strong>Requires:</strong> Claude GitHub App installed on your repo (separate from web setup)</li></ul>
+<p>&lt;p&gt;	&amp;gt; ⚠️ If the app isn't installed, the trigger setup will flag it for you.&lt;/p&gt;&lt;/div&gt;&lt;/details&gt;</p>
+<hr>
+<h2>🏗️ How to Create a Routine (Step-by-Step)</h2>
+<p><strong>Access points:</strong></p>
+<ul><li>Web: <code>claude.ai/code/routines</code></li><li>Desktop app</li><li>CLI: <code>/schedule</code> command</li></ul>
+<blockquote>📝 Note: CLI can only create <strong>scheduled</strong> routines. For API or GitHub triggers, edit on the web after.</blockquote>
+<h3>Step 1 — Write the Prompt</h3>
+<p>Write it like you're handing off to someone who <strong>cannot reach you</strong>. No approvals, no questions.</p>
+<pre><code>Check for any new form submissions in the last 24 hours
+using the API key available as the environment variable FORM_API_KEY.
+For each lead:
+1. Research their company using web search
+2. Draft a personalized welcome email
+3. Add them to HubSpot CRM
+4. Post a summary to #new-leads in Slack
+
+If any step fails, post what went wrong to #alerts in Slack.</code></pre>
+<h3>Step 2 — Add Environment Variables</h3>
+<blockquote>⚠️ <strong>Critical:</strong> Your <code>.env</code> file is NOT available. Routines clone your repo fresh each run — no local files.</blockquote>
+<ul><li>Add all API keys to the <strong>Claude Cloud environment</strong> as env vars</li><li>Tell Claude explicitly: <code>use the API key from the environment variable, do not look for a .env file</code></li></ul>
+<h3>Step 3 — Configure the Repo</h3>
+<ul><li>Attach a <strong>lean, focused repo</strong> (not your massive main project)</li><li>Any changes Claude makes → pushed to a <strong>new branch</strong>, never straight to main</li></ul>
+<h3>Step 4 — Set Network Access</h3>
+<table>
+<tr>
+<td>Setting</td>
+<td>What it means</td>
+</tr>
+<tr>
+<td>Default (Trusted)</td>
+<td>Anthropic's vetted domains only</td>
+</tr>
+<tr>
+<td>Full</td>
+<td>Open internet access</td>
+</tr>
+<tr>
+<td>Custom</td>
+<td>Your specified allowlist</td>
+</tr>
+</table>
+<h3>Step 5 — Add Connectors</h3>
+<p>All your MCP integrations are included by default. Remove anything the routine doesn't need.</p>
+<h3>Step 6 — Test Before Scheduling</h3>
+<p>Hit <strong>Run Now</strong> first. Watch the run log — green = worked. Click in for full session detail (every tool call, every decision).</p>
+<hr>
+<h2>🎯 Best Routines to Run for Your Business</h2>
+<table>
+<tr>
+<td>Routine</td>
+<td>Trigger</td>
+<td>What It Does</td>
+</tr>
+<tr>
+<td>🚀 Speed to Lead</td>
+<td>New form submission (API)</td>
+<td>Research lead → draft email → add to CRM → notify Slack</td>
+</tr>
+<tr>
+<td>📊 Client Reporting</td>
+<td>Weekly schedule</td>
+<td>Pull data → generate report → send to client</td>
+</tr>
+<tr>
+<td>🧹 Pipeline Cleanup</td>
+<td>Daily schedule</td>
+<td>Flag stale deals → update statuses → post summary</td>
+</tr>
+<tr>
+<td>📥 Inbound Triage</td>
+<td>Hourly schedule</td>
+<td>Check new emails → categorize → draft responses → Slack drafts</td>
+</tr>
+<tr>
+<td>📄 Document Processing</td>
+<td>GitHub push</td>
+<td>New file in repo → extract data → update database</td>
+</tr>
+<tr>
+<td>🔔 Error Response</td>
+<td>API (monitoring tool)</td>
+<td>Alert fires → Claude investigates → auto-fix or escalates</td>
+</tr>
+</table>
+<hr>
+<h2>📦 Plan Limits</h2>
+<table>
+<tr>
+<td>Plan</td>
+<td>Runs/Day</td>
+<td>Extra Usage?</td>
+</tr>
+<tr>
+<td>Pro</td>
+<td>5</td>
+<td>✅ (metered overage)</td>
+</tr>
+<tr>
+<td>Max</td>
+<td>15</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Team / Enterprise</td>
+<td>25</td>
+<td>✅</td>
+</tr>
+</table>
+<p><strong>Each run gets:</strong> 4 vCPUs · 16GB RAM · 30GB disk</p>
+<blockquote>⚠️ Routine runs draw from the <strong>same token pool</strong> as your interactive sessions.</blockquote>
+<hr>
+<h2>✅ 5 Tips Before Going Live</h2>
+<details><summary>1️⃣ Always test with Run Now first</summary><div class="details-body"><p>Don't schedule anything you haven't watched run successfully at least once.</p></div></details>
+<details><summary>2️⃣ Add a failure fallback to your prompt</summary><div class="details-body"><pre><code>If any step fails, post a message to #alerts in Slack
+<p>with what went wrong and which step failed.</p>
+<p>	```&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/details&gt;</p>
+<details><summary>3️⃣ Keep a lean repo per routine</summary><div class="details-body"><p>Your main project's <code>CLAUDE.md</code> may be massive. Every token Claude spends reading irrelevant context = fewer tokens on the actual task.</p></div></details>
+<details><summary>4️⃣ Use setup scripts for dependencies</summary><div class="details-body"><p>Add a script in Claude Cloud environment that runs before Claude launches — pre-installs Python libraries, CLI tools, etc. Saves time every single run.</p></div></details>
+<details><summary>5️⃣ Migrate from n8n / Make / Zapier instantly</summary><div class="details-body"><pre><code>1. Open your workflow in n8n / Make / Zapier
+<ol><li>Export / copy the workflow JSON</li><li>Paste into Claude Code</li><li>Prompt: &amp;quot;Convert this into a Claude Code routine prompt&amp;quot;</li></ol>
+<p>	```</p>
+<p>	No rewriting from scratch.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/details&gt;</p>
+<hr>
+<h2>🔄 Routines vs. Local Tasks vs. /loop</h2>
+<table>
+<tr>
+<td>Tool</td>
+<td>Best For</td>
+<td>Min Interval</td>
+</tr>
+<tr>
+<td><strong>Routines</strong></td>
+<td>Stateless, cloud, no hardware needed</td>
+<td>1 hour</td>
+</tr>
+<tr>
+<td><strong>Local Scheduled Tasks</strong></td>
+<td>Needs local files, cookies, browser sessions</td>
+<td>Minutes</td>
+</tr>
+<tr>
+<td><strong>/loop</strong></td>
+<td>Recurring tasks inside a single terminal session</td>
+<td>1 minute</td>
+</tr>
+</table>
+<hr>
+<h2>⚠️ What Routines Can't Do</h2>
+<ul><li>No persistent memory between runs (stateless)</li><li>No local file access</li><li>No browser sessions or cookies</li><li>No stored state from previous runs</li></ul>
+<p>→ For any of these, keep it as a <strong>local scheduled task</strong>.</p></article></main><footer class="border-t border-[#161616]" style="background:#0A0A0A"><div class="max-w-6xl mx-auto px-6 pt-8 pb-4 flex flex-col md:flex-row items-center justify-between gap-5"><div class="flex items-center gap-2.5"><img src="../nikhil2.png" alt="Nikhil" class="w-6 h-6 rounded-full object-cover border border-[#222]" style="object-position:center 35%;"><span class="text-sm font-semibold text-white">Nikhil</span></div><div class="flex flex-wrap items-center justify-center gap-6 text-sm text-[#444]"><a href="../index.html" class="hover:text-white">Home</a><a href="../ai-solutions.html" class="hover:text-white">Consulting</a>../<a href="../resources.html" class="hover:text-white">Resources</a><a href="../partnerships.html" class="hover:text-white">Partnerships</a></div><a href="https://escapingvelocity.beehiiv.com/" target="_blank" class="btn-blue text-xs font-semibold px-4 py-2 rounded-full">Sign up to newsletter</a></div><div class="max-w-6xl mx-auto px-6 pb-6 mt-2 flex items-center justify-between"><p class="text-[#333] text-xs">© 2026 Nikhil Naglapur</p><p class="text-[#333] text-xs">Email: <a href="mailto:niknaglapur@gmail.com" class="text-[#00B4FF] hover:underline">niknaglapur@gmail.com</a></p></div></footer></body></html>

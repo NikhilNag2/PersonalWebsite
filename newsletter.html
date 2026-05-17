@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>Newsletter — Escape Velocity by Nikhil Naglapur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://subscribe-forms.beehiiv.com" crossorigin>
+  <link rel="dns-prefetch" href="//subscribe-forms.beehiiv.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Outfit', 'system-ui', 'sans-serif'],
+            sans: ['Outfit', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #131C2B; color: #F2F2F2; }
+    nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); background-color: rgba(19,28,43,0.92) !important; }
+    .nav-link { position: relative; color: #777; transition: color 0.18s ease; }
+    .nav-link:hover, .nav-link.active { color: #F2F2F2; }
+    .nav-link::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: #00B4FF; transition: width 0.22s ease; }
+    .nav-link:hover::after { width: 100%; }
+    .mobile-drawer-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.38); z-index: 70; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
+    .mobile-drawer-overlay.open { opacity: 1; pointer-events: auto; }
+    .mobile-drawer { position: fixed; top: 0; right: 0; width: min(92vw, 380px); height: 100dvh; background: #e9e9e9; color: #15171a; z-index: 80; transform: translateX(100%); transition: transform 0.24s ease; box-shadow: -16px 0 36px rgba(0,0,0,0.2); padding: 22px; overflow: visible; display: flex; flex-direction: column; }
+    .mobile-drawer.open { transform: translateX(0); }
+    .mobile-drawer-header { position: relative; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; flex-shrink: 0; }
+    .mobile-drawer-close { position: absolute; right: 0; top: 50%; transform: translateY(-50%); }
+    .mobile-drawer-content { overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; touch-action: pan-y; padding-bottom: 1.25rem; flex: 1; min-height: 0; }
+    .mobile-nav-item { display: flex; align-items: center; gap: 0.85rem; font-size: 1.02rem; color: #5f6670; padding: 0.95rem 1rem; border-radius: 0.9rem; }
+    .mobile-nav-item.active { background: #dedede; color: #171a1f; font-weight: 600; }
+    a, button { transition: all 0.18s ease; }
+    .btn-blue { background: #00B4FF; color: #fff; }
+    .btn-blue:hover { background: #0090CC; box-shadow: 0 0 24px rgba(0,180,255,0.4); transform: translateY(-1px); }
+    .ev-btn { background: #00E5A0; color: #131C2B; font-weight: 700; }
+    .ev-btn:hover { background: #00C88A; box-shadow: 0 0 22px rgba(0,229,160,0.4); transform: translateY(-1px); }
+    .newsletter-embed {
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      min-height: 190px;
+      overflow: visible;
+      position: relative;
+      border-radius: 0.75rem;
+      background: transparent;
+    }
+    .newsletter-loading {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.75rem;
+      background: linear-gradient(90deg, #e8ebf0 18%, #dbe1ea 36%, #e8ebf0 52%);
+      background-size: 220% 100%;
+      animation: loading-shimmer 1.2s linear infinite;
+      color: #69778c;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      transition: opacity 0.2s ease;
+    }
+    .newsletter-loading.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .newsletter-embed iframe[src*="subscribe-forms.beehiiv.com"] {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: 196px !important;
+      min-height: 196px !important;
+      border: 0 !important;
+      display: block !important;
+      margin: 0 !important;
+      position: relative;
+      z-index: 2;
+      background: transparent !important;
+      border-radius: 0.75rem !important;
+    }
+    @media (max-width: 640px) {
+      .newsletter-embed {
+        min-height: 196px;
+      }
+      .newsletter-loading {
+        font-size: 0.88rem;
+      }
+      .newsletter-embed iframe[src*="subscribe-forms.beehiiv.com"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 196px !important;
+        min-height: 196px !important;
+        margin: 0 !important;
+        transform: none !important;
+      }
+    }
+    @keyframes orb-drift { 0%,100%{transform:translate(0,0)} 50%{transform:translate(20px,-15px)} }
+    .orb { animation: orb-drift 14s ease-in-out infinite; pointer-events: none; }
+  </style>
+</head>
+<body class="font-sans">
+  <!-- NAV -->
+  <nav class="sticky top-0 z-50 border-b border-[#1E2D42]">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <img src="nikhil2.png" alt="Nikhil" class="w-8 h-8 rounded-full object-cover border border-[#2E4060]" style="object-position:center 35%;">
+        <span class="font-semibold text-sm text-white">Nikhil</span>
+      </a>
+      <div class="hidden md:flex items-center gap-7 text-sm">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="partnerships.html" class="nav-link">Partnerships</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="ai-solutions.html" class="nav-link">Consulting</a>
+        <a href="newsletter.html" class="nav-link active">Newsletter</a>
+      </div>
+      <a href="newsletter.html#newsletter-signup" class="hidden md:inline-flex btn-blue text-sm font-semibold px-5 py-2.5 rounded-full">
+        Sign up to newsletter
+      </a>
+      <button id="mobile-drawer-open" aria-label="Open menu" class="md:hidden p-2">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F2F2F2" stroke-width="2.3" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16"></path>
+          <path d="M4 12h16"></path>
+          <path d="M4 17h16"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-drawer-overlay" class="mobile-drawer-overlay md:hidden"></div>
+  <aside id="mobile-drawer" class="mobile-drawer md:hidden">
+    <div class="mobile-drawer-header">
+      <p class="text-3xl font-medium tracking-tight">niknaglapur.com</p>
+      <button id="mobile-drawer-close" aria-label="Close menu" class="mobile-drawer-close text-[#616770] text-5xl leading-none">&times;</button>
+    </div>
+    <div class="mobile-drawer-content">
+      <div class="bg-[#efefef] border border-[#dfdfdf] rounded-[2rem] p-6">
+        <img src="nikhil2.png" alt="Nikhil Naglapur" class="w-44 h-44 rounded-full object-cover object-center mx-auto mb-6" style="object-position:center 35%;">
+        <h3 class="text-center text-[2.2rem] font-semibold tracking-tight">Nikhil Naglapur</h3>
+        <p class="text-center text-[#7a7a7a] text-2xl mb-8">AI Creator</p>
+        <div class="space-y-2">
+          <a href="index.html" class="mobile-nav-item"><span>Home</span></a>
+          <a href="resources.html" class="mobile-nav-item"><span>Resources</span></a>
+          <a href="ai-solutions.html" class="mobile-nav-item"><span>Consulting</span></a>
+          <a href="partnerships.html" class="mobile-nav-item"><span>Partnerships</span></a>
+          <a href="newsletter.html" class="mobile-nav-item active"><span>Newsletter</span></a>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- HERO -->
+  <section class="max-w-2xl mx-auto px-6 pt-20 pb-10 text-center relative overflow-hidden">
+    <div class="orb absolute" style="top:-80px;left:50%;transform:translateX(-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(0,229,160,0.08) 0%,transparent 70%);filter:blur(60px);"></div>
+    <!-- EV Logo -->
+    <div class="mb-6 relative" style="font-family:'Inter',sans-serif;font-weight:800;font-size:96px;line-height:1;letter-spacing:-8px;">
+      <span style="color:#E8E8E8;">E</span><span style="color:#00E5A0;">V</span>
+    </div>
+    <h1 class="font-serif text-4xl md:text-5xl font-bold leading-[1.08] mb-3 text-white">Escape Velocity</h1>
+    <p class="text-[#555] text-base mb-2">Everything worth knowing in AI this week, in five minutes or less.</p>
+    <div class="flex items-center justify-center gap-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#8A9AB0] mb-10">
+      <span class="w-1.5 h-1.5 rounded-full bg-[#00E5A0]" style="box-shadow:0 0 6px rgba(0,229,160,0.7);"></span>
+      <span>News</span><span>/</span><span>Tools</span><span>/</span><span>Strategy</span><span>/</span><span>Weekly</span>
+    </div>
+  </section>
+
+  <!-- SIGNUP CARD -->
+  <div id="newsletter-signup" class="max-w-2xl mx-auto px-6 mb-10">
+    <div class="bg-[#0F0F0F] border border-[#1E1E1E] rounded-2xl p-8" style="box-shadow:0 0 60px rgba(0,229,160,0.04);">
+      <h3 class="font-semibold text-lg mb-2 text-white">Free newsletter sent straight to your inbox</h3>
+      <p class="text-[#8A9AB0] text-sm mb-6 leading-relaxed">
+        I send a short email every Monday breaking down the latest AI news and tools, and it's completely <span class="font-semibold text-[#B7C4D2]">free</span>.
+      </p>
+      <div class="newsletter-embed mb-2">
+        <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="2c14917b-1e03-4208-93ea-8ad67dfe38db"></script>
+      </div>
+      <p class="text-[#8A9AB0] text-xs mt-0 flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#00E5A0] inline-block"></span>
+        1000+ readers · No spam · Unsubscribe anytime
+      </p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-[#1E2D42]" style="background:#131C2B;">
+    <div class="max-w-6xl mx-auto px-6 pt-8 pb-4 flex flex-col md:flex-row items-center justify-between gap-5">
+      <div class="flex items-center gap-2.5">
+        <img src="nikhil2.png" alt="Nikhil" class="w-6 h-6 rounded-full object-cover border border-[#2E4060]" style="object-position:center 35%;">
+        <span class="text-sm font-semibold text-white">Nikhil</span>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-[#8A9AB0]">
+        <a href="index.html" class="hover:text-white transition-colors">Home</a>
+        <a href="resources.html" class="hover:text-white transition-colors">Resources</a>
+        <a href="ai-solutions.html" class="hover:text-white transition-colors">Consulting</a>
+        <a href="partnerships.html" class="hover:text-white transition-colors">Partnerships</a>
+        <a href="newsletter.html" class="hover:text-white transition-colors">Newsletter</a>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pb-6 mt-2 flex items-center justify-between">
+      <p class="text-[#6F8298] text-xs">© 2026 Nikhil Naglapur</p>
+      <p class="text-[#6F8298] text-xs">Email: <a href="mailto:niknaglapur@gmail.com" class="text-[#00B4FF] hover:underline">niknaglapur@gmail.com</a></p>
+    </div>
+  </footer>
+
+    <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
+  <script>
+    (function () {
+      const openBtn = document.getElementById('mobile-drawer-open');
+      const closeBtn = document.getElementById('mobile-drawer-close');
+      const drawer = document.getElementById('mobile-drawer');
+      const overlay = document.getElementById('mobile-drawer-overlay');
+      if (!openBtn || !closeBtn || !drawer || !overlay) return;
+      const openDrawer = () => { drawer.classList.add('open'); overlay.classList.add('open'); };
+      const closeDrawer = () => { drawer.classList.remove('open'); overlay.classList.remove('open'); };
+      openBtn.addEventListener('click', openDrawer);
+      closeBtn.addEventListener('click', closeDrawer);
+      overlay.addEventListener('click', closeDrawer);
+      drawer.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeDrawer));
+    })();
+
+    
+
+    
+
+  </script>
+</body>
+</html>

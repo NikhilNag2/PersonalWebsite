@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>🧠 The Claude Council — Multi-Agent Prompt System — Nikhil Naglapur</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={theme:{extend:{fontFamily:{serif:['Outfit','system-ui','sans-serif'],sans:['Outfit','system-ui','sans-serif']}}}}</script><style>body{background:#0A0A0A;color:#F2F2F2}nav{backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background-color:rgba(10,10,10,.88)!important}.nav-link{position:relative;color:#777;transition:color .18s ease}.nav-link:hover,.nav-link.active{color:#F2F2F2}.nav-link::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:#00B4FF;transition:width .22s ease}.nav-link:hover::after{width:100%}.btn-blue{background:#00B4FF;color:#fff;transition:all .18s ease}.btn-blue:hover{background:#0090CC;box-shadow:0 0 24px rgba(0,180,255,.4);transform:translateY(-1px)}.content h1{font-size:2.1rem;line-height:1.1;font-weight:800;color:#fff;margin:2.5rem 0 1rem}.content h2{font-size:1.55rem;line-height:1.2;font-weight:750;color:#fff;margin:2.35rem 0 .85rem}.content h3{font-size:1.15rem;font-weight:700;color:#E8E8E8;margin:1.65rem 0 .6rem}.content p,.content li{color:#9A9A9A;line-height:1.78;font-size:15px}.content p{margin-bottom:1rem}.content strong{color:#DCDCDC;font-weight:700}.content em{color:#C8C8C8}.content ul,.content ol{margin:0 0 1.2rem 1.35rem}.content ul{list-style:disc}.content ol{list-style:decimal}.content li{margin:.35rem 0}.content hr{border:0;border-top: 1px solid #1E2D42;margin:2rem 0}.content blockquote{border-left:3px solid #00B4FF;background:rgba(0,180,255,.06);border-radius:0 8px 8px 0;padding:1rem 1.15rem;margin:1.4rem 0;color:#CFCFCF;line-height:1.7}.content pre{background:#142540;border: 1px solid #2E4060;border-radius:8px;padding:1rem;overflow:auto;margin:1.25rem 0;color:#D6D6D6}.content code{background:#162A45;border:1px solid #2E4060;border-radius:5px;padding:.1rem .28rem;color:#E6E6E6;font-size:.92em}.content pre code{background:transparent;border:0;padding:0;color:inherit}.content table{width:100%;border-collapse:collapse;margin:1.4rem 0;border: 1px solid #2A3A52;border-radius:8px;overflow:hidden;display:table}.content tr{border-bottom: 1px solid #2A3A52}.content tr:last-child{border-bottom:0}.content td{border-right: 1px solid #2A3A52;padding:.8rem;vertical-align:top;color:#999;font-size:14px;line-height:1.55}.content td:last-child{border-right:0}.content tr:first-child td{color:#F2F2F2;font-weight:700;background:#142540}.content details{border: 1px solid #2A3A52;border-radius:8px;margin:1rem 0;background:#122238}.content summary{cursor:pointer;padding:1rem;color:#F2F2F2;font-weight:650}.content .details-body{padding:0 1rem 1rem}@media(max-width:640px){.content table{display:block;overflow-x:auto}.content h1{font-size:1.7rem}}</style></head><body class="font-sans"><nav class="sticky top-0 z-50 border-b border-[#161616]"><div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between"><a href="index.html" class="flex items-center gap-2.5"><img src="nikhil2.png" alt="Nikhil" class="w-8 h-8 rounded-full object-cover border border-[#2E4060]" style="object-position:center 35%;"><span class="font-semibold text-sm text-white">Nikhil</span></a><div class="hidden md:flex items-center gap-7 text-sm"><a href="index.html" class="nav-link">Home</a><a href="resources.html" class="nav-link active">Resources</a><a href="ai-solutions.html" class="nav-link">Consulting</a><a href="partnerships.html" class="nav-link">Partnerships</a><a href="newsletter.html" class="nav-link">Newsletter</a></div><a href="newsletter.html#newsletter-signup" class="btn-blue text-sm font-semibold px-5 py-2.5 rounded-full">Sign up to newsletter</a></div></nav><main class="max-w-3xl mx-auto px-6 py-14"><a href="resources.html" class="inline-flex items-center gap-1.5 text-[#00B4FF] text-sm font-medium mb-10 hover:underline">← Back to Resources</a><div class="flex items-center gap-2.5 mb-4"><span class="w-2 h-2 rounded-full bg-[#00B4FF]" style="box-shadow:0 0 8px rgba(0,180,255,.8)"></span><p class="text-[#00B4FF] text-xs font-semibold uppercase tracking-[0.18em]">Prompt Database</p></div><h1 class="font-serif text-4xl md:text-5xl font-bold leading-[1.08] mb-10 text-white">🧠 The Claude Council — Multi-Agent Prompt System</h1><article class="content"><blockquote>💡 <strong>What is The Council?</strong> Instead of asking Claude one question and getting one answer, you run it through 5 independent advisors — each thinking from a fundamentally different angle — then have them peer-review each other, and finally a Chairman synthesizes a final verdict. Adapted from Andrej Karpathy's LLM Council methodology.</blockquote>
+<blockquote>🙏 <strong>Credits:</strong> Original skill by <strong>Ole Lehmann</strong>.</blockquote>
+<hr>
+<h2>🎯 When to Use The Council</h2>
+<p>The council is for questions <strong>where being wrong is expensive.</strong></p>
+<table>
+<tr>
+<td>✅ Good Council Questions</td>
+<td>❌ Bad Council Questions</td>
+</tr>
+<tr>
+<td>"Should I launch a $97 workshop or a $497 course?"</td>
+<td>"What's the capital of France?"</td>
+</tr>
+<tr>
+<td>"Which of these 3 positioning angles is strongest?"</td>
+<td>"Write me a tweet"</td>
+</tr>
+<tr>
+<td>"I'm thinking of pivoting from X to Y. Am I crazy?"</td>
+<td>"Summarize this article"</td>
+</tr>
+<tr>
+<td>"Here's my landing page copy. What's weak?"</td>
+<td>Simple yes/no with no real tradeoff</td>
+</tr>
+<tr>
+<td>"Should I hire a VA or build an automation first?"</td>
+<td>Factual lookups</td>
+</tr>
+</table>
+<blockquote>🚨 The council shines when there's <strong>genuine uncertainty and the cost of a bad call is high.</strong> If you already know the answer and just want validation, the council will likely tell you things you don't want to hear. That's the point.</blockquote>
+<hr>
+<h2>🔑 Trigger Phrases</h2>
+<p><strong>Mandatory triggers</strong> — always run the council:</p>
+<ul><li><code>council this</code> / <code>run the council</code> / <code>war room this</code></li><li><code>pressure-test this</code> / <code>stress-test this</code> / <code>debate this</code></li></ul>
+<p><strong>Strong triggers</strong> (use when combined with a real decision or tradeoff):</p>
+<ul><li><code>should I X or Y</code> / <code>which option</code> / <code>what would you do</code></li><li><code>is this the right move</code> / <code>validate this</code> / <code>get multiple perspectives</code></li><li><code>I can't decide</code> / <code>I'm torn between</code></li></ul>
+<hr>
+<h2>👥 The 5 Advisors</h2>
+<p>Each advisor is a <strong>thinking style</strong>, not a job title. They naturally create tension with each other.</p>
+<details><summary>🔴 1. The Contrarian</summary><div class="details-body"><p>Actively looks for what's wrong, what's missing, what will fail. Assumes the idea has a fatal flaw and tries to find it. If everything looks solid, digs deeper.</p>
+<p>&lt;p&gt;	The Contrarian is not a pessimist. They're the friend who saves you from a bad deal by asking the questions you're avoiding.&lt;/p&gt;&lt;/div&gt;&lt;/details&gt;</p>
+<details><summary>🔵 2. The First Principles Thinker</summary><div class="details-body"><p>Ignores the surface-level question and asks "what are we actually trying to solve here?" Strips away assumptions. Rebuilds the problem from the ground up.</p>
+<p>&lt;p&gt;	Sometimes the most valuable council output is the First Principles Thinker saying "you're asking the wrong question entirely."&lt;/p&gt;&lt;/div&gt;&lt;/details&gt;</p>
+<details><summary>🟢 3. The Expansionist</summary><div class="details-body"><p>Looks for upside everyone else is missing. What could be bigger? What adjacent opportunity is hiding? What's being undervalued?</p>
+<p>&lt;p&gt;	The Expansionist doesn't care about risk (that's the Contrarian's job). They care about what happens if this works even better than expected.&lt;/p&gt;&lt;/div&gt;&lt;/details&gt;</p>
+<details><summary>🟡 4. The Outsider</summary><div class="details-body"><p>Has zero context about you, your field, or your history. Responds purely to what's in front of them.</p>
+<p>&lt;p&gt;	This is the most underrated advisor. Experts develop blind spots. The Outsider catches the &lt;strong&gt;curse of knowledge&lt;/strong&gt;: things that are obvious to you but confusing to everyone else.&lt;/p&gt;&lt;/div&gt;&lt;/details&gt;</p>
+<details><summary>🟠 5. The Executor</summary><div class="details-body"><p>Only cares about one thing: can this actually be done, and what's the fastest path to doing it? Ignores theory, strategy, and big-picture thinking.</p>
+<p>&lt;p&gt;	The Executor looks at every idea through the lens of "OK but what do you do Monday morning?" If an idea sounds brilliant but has no clear first step, the Executor will say so.&lt;/p&gt;&lt;/div&gt;&lt;/details&gt;</p>
+<blockquote>⚖️ <strong>Why these five:</strong> They create three natural tensions. Contrarian vs Expansionist (downside vs upside). First Principles vs Executor (rethink everything vs just do it). The Outsider sits in the middle keeping everyone honest by seeing what fresh eyes see.</blockquote>
+<hr>
+<h2>⚙️ How a Council Session Works</h2>
+<details><summary>Step 1 — Frame the Question (with context enrichment)</summary><div class="details-body"><p>When triggered, do two things before framing:</p>
+<p>&lt;p&gt;	&lt;strong&gt;A. Scan the workspace for context.&lt;/strong&gt; Read any relevant files: &lt;code&gt;CLAUDE.md&lt;/code&gt;, &lt;code&gt;memory/&lt;/code&gt; folders, attached files, recent council transcripts. Look for the 2–3 files that give advisors grounded context instead of generic takes.&lt;/p&gt;</p>
+<p>&lt;p&gt;	&lt;strong&gt;B. Frame the question.&lt;/strong&gt; Rewrite the user's raw question as a clear, neutral prompt that includes:&lt;/p&gt;</p>
+<ol><li>The core decision or question</li><li>Key context from the user's message</li><li>Key context from workspace files (business stage, audience, constraints, past results)</li><li>What's at stake</li></ol>
+<p>&lt;p&gt;	If the question is too vague, ask &lt;strong&gt;one&lt;/strong&gt; clarifying question. Just one.&lt;/p&gt;&lt;/div&gt;&lt;/details&gt;</p>
+<details><summary>Step 2 — Convene the Council (5 sub-agents in parallel)</summary><div class="details-body"><p>Spawn all 5 advisors <strong>simultaneously</strong>. Each gets their identity, the framed question, and this instruction:</p>
+<p>&lt;p&gt;	&amp;gt; &lt;em&gt;Respond independently. Do not hedge. Do not try to be balanced. Lean fully into your assigned perspective. The synthesis comes later.&lt;/em&gt;&lt;/p&gt;</p>
+<p>&lt;p&gt;	Each advisor responds in &lt;strong&gt;150–300 words&lt;/strong&gt;.&lt;/p&gt;</p>
+<p>&lt;p&gt;	```javascript&lt;/p&gt;</p>
+<p>&lt;p&gt;Sub-agent prompt template:&lt;/p&gt;</p>
+<p>&lt;p&gt;You are [Advisor Name] on an LLM Council.&lt;/p&gt;</p>
+<p>&lt;p&gt;Your thinking style: [advisor description]&lt;/p&gt;</p>
+<p>&lt;p&gt;A user has brought this question to the council:&lt;/p&gt;</p>
+<hr>
+<p>&lt;p&gt;[framed question]&lt;/p&gt;</p>
+<hr>
+<p>&lt;p&gt;Respond from your perspective. Be direct and specific. Don't hedge or try to be balanced.&lt;/p&gt;</p>
+<p>&lt;p&gt;Lean fully into your assigned angle. The other advisors will cover the angles you're not covering.&lt;/p&gt;</p>
+<p>&lt;p&gt;Keep your response between 150–300 words. No preamble. Go straight into your analysis.&lt;/p&gt;</p>
+<p>&lt;p&gt;	```&lt;/p&gt;&lt;/div&gt;&lt;/details&gt;</p>
+<details><summary>Step 3 — Peer Review (5 sub-agents in parallel)</summary><div class="details-body"><p>Collect all 5 advisor responses. <strong>Anonymize them as Response A–E</strong> (randomize mapping to remove positional bias).</p>
+<p>&lt;p&gt;	Spawn 5 new reviewer sub-agents. Each sees all 5 anonymized responses and answers:&lt;/p&gt;</p>
+<ol><li>Which response is the <strong>strongest</strong> and why? (pick one)</li><li>Which response has the <strong>biggest blind spot</strong> and what is it?</li><li>What did <strong>ALL responses miss</strong> that the council should consider?</li></ol>
+<p>&lt;p&gt;	```javascript&lt;/p&gt;</p>
+<p>&lt;p&gt;Reviewer prompt template:&lt;/p&gt;</p>
+<p>&lt;p&gt;You are reviewing the outputs of an LLM Council. Five advisors independently answered this question:&lt;/p&gt;</p>
+<hr>
+<p>&lt;p&gt;[framed question]&lt;/p&gt;</p>
+<hr>
+<p>&lt;p&gt;[Response A through E]&lt;/p&gt;</p>
+<p>&lt;p&gt;Answer these three questions. Be specific. Reference responses by letter.&lt;/p&gt;</p>
+<ol><li>Which response is the strongest? Why?</li><li>Which response has the biggest blind spot? What is it missing?</li><li>What did ALL five responses miss that the council should consider?</li></ol>
+<p>&lt;p&gt;Keep your review under 200 words. Be direct.&lt;/p&gt;</p>
+<p>&lt;p&gt;	```&lt;/p&gt;&lt;/div&gt;&lt;/details&gt;</p>
+<details><summary>Step 4 — Chairman Synthesis</summary><div class="details-body"><p>One final agent gets everything (question + all 5 advisor responses de-anonymized + all 5 peer reviews) and produces the <strong>Council Verdict</strong>:</p>
+<p>&lt;p&gt;	```javascript&lt;/p&gt;</p>
+<p>&lt;h2&gt;Where the Council Agrees&lt;/h2&gt;</p>
+<p>&lt;p&gt;[Points multiple advisors converged on independently — high-confidence signals]&lt;/p&gt;</p>
+<p>&lt;h2&gt;Where the Council Clashes&lt;/h2&gt;</p>
+<p>&lt;p&gt;[Genuine disagreements. Present both sides. Explain why reasonable advisors disagree.]&lt;/p&gt;</p>
+<p>&lt;h2&gt;Blind Spots the Council Caught&lt;/h2&gt;</p>
+<p>&lt;p&gt;[Things that only emerged through peer review]&lt;/p&gt;</p>
+<p>&lt;h2&gt;The Recommendation&lt;/h2&gt;</p>
+<p>&lt;p&gt;[A clear, direct recommendation. Not "it depends." A real answer with reasoning.]&lt;/p&gt;</p>
+<p>&lt;h2&gt;The One Thing to Do First&lt;/h2&gt;</p>
+<p>&lt;p&gt;[A single concrete next step. Not a list. One thing.]&lt;/p&gt;</p>
+<p>&lt;p&gt;	```&lt;/p&gt;</p>
+<p>&lt;p&gt;	&amp;gt; The chairman &lt;strong&gt;can disagree with the majority&lt;/strong&gt; if the reasoning supports it.&lt;/p&gt;&lt;/div&gt;&lt;/details&gt;</p>
+<details><summary>Step 5 — Generate the Council Report</summary><div class="details-body"><p>Save a visual HTML report: <code>council-report-[timestamp].html</code></p>
+<p>&lt;p&gt;	The report includes:&lt;/p&gt;</p>
+<ul><li>The question at the top</li><li>Chairman's verdict prominently displayed</li><li>Agreement/disagreement visual (grid or spectrum showing advisor positions)</li><li>Collapsible sections for each advisor's full response</li><li>Collapsible section for peer review highlights</li><li>Footer with timestamp</li></ul>
+<p>&lt;p&gt;	Clean styling: white background, subtle borders, system sans-serif font, soft accent colors per advisor. Professional briefing document aesthetic.&lt;/p&gt;&lt;/div&gt;&lt;/details&gt;</p>
+<details><summary>Step 6 — Save the Full Transcript</summary><div class="details-body"><p>Save <code>council-transcript-[timestamp].md</code> with:</p>
+<ul><li>Original question</li><li>Framed question</li><li>All 5 advisor responses</li><li>All 5 peer reviews (with anonymization mapping revealed)</li><li>Chairman's full synthesis</li></ul>
+<p>&lt;p&gt;	This is the artifact. Use it to track how thinking evolves across sessions.&lt;/p&gt;&lt;/div&gt;&lt;/details&gt;</p>
+<hr>
+<h2>📋 Output Files</h2>
+<pre><code>council-report-[timestamp].html      # visual report for scanning
+council-transcript-[timestamp].md    # full transcript for reference</code></pre>
+<hr>
+<h2>💡 Example: Counciling a Product Decision</h2>
+<p><strong>User:</strong> <em>"Council this: I'm thinking of building a $297 course on Claude Code for beginners. My audience is mostly non-technical solopreneurs. Is this the right move?"</em></p>
+<p><strong>Contrarian:</strong> The market is flooded with Claude courses. At $297 you're competing with free YouTube content. Your non-technical audience means high support burden and refund risk...</p>
+<p><strong>First Principles Thinker:</strong> What are you actually trying to achieve? If it's revenue, a course is one of the slowest paths. If it's authority, a free resource might do more...</p>
+<p><strong>Expansionist:</strong> Beginner Claude for solopreneurs is a massive underserved market. Everyone's teaching advanced stuff. If you nail the beginner angle, you own the entry point to this space. The $297 might be too low...</p>
+<p><strong>Outsider:</strong> I don't know what Claude Code is. If I saw "$297 course on Claude Code for beginners," I wouldn't know if this is for me. The name means nothing to someone outside your world...</p>
+<p><strong>Executor:</strong> A full course takes 4–8 weeks to produce. Before building anything, run a live workshop at $97 to 50 people. Validate demand, generate testimonials, create raw material for the course...</p>
+<hr>
+<p><strong>Chairman's Verdict:</strong></p>
+<ul><li><strong>Agrees:</strong> The beginner solopreneur angle has real demand, but the framing (Claude Code course) is too tool-specific and won't resonate with non-technical buyers.</li><li><strong>Clashes:</strong> Price. Contrarian says $297 is too high. Expansionist says it's too low. Resolution depends on support/community bundled in.</li><li><strong>Blind spot caught:</strong> The Outsider's point that "Claude Code" means nothing to the target buyer is the single most important insight.</li><li><strong>Recommendation:</strong> Don't build the course yet. Reframe entirely: sell the outcome, not the tool.</li><li><strong>One thing to do first:</strong> Run a $97 live workshop called "How to automate your first business task with AI" to 50 people. Don't mention Claude Code in the title.</li></ul>
+<hr>
+<h2>⚠️ Important Rules</h2>
+<ul><li><strong>Always spawn all 5 advisors in parallel</strong> — sequential spawning lets earlier responses bleed into later ones</li><li><strong>Always anonymize for peer review</strong> — reviewers must evaluate on merit, not defer to certain thinking styles</li><li><strong>The chairman can disagree with the majority</strong> — if the 1 dissenter's reasoning is strongest, side with them</li><li><strong>Don't council trivial questions</strong> — if there's one right answer, just answer it</li><li><strong>The visual report matters</strong> — most users will scan the report, not read the full transcript</li></ul></article></main><footer class="border-t border-[#161616]" style="background:#0A0A0A"><div class="max-w-6xl mx-auto px-6 pt-8 pb-4 flex flex-col md:flex-row items-center justify-between gap-5"><div class="flex items-center gap-2.5"><img src="nikhil2.png" alt="Nikhil" class="w-6 h-6 rounded-full object-cover border border-[#2E4060]" style="object-position:center 35%;"><span class="text-sm font-semibold text-white">Nikhil</span></div><div class="flex flex-wrap items-center justify-center gap-6 text-sm text-[#8A9AB0]"><a href="index.html" class="hover:text-white">Home</a><a href="resources.html" class="hover:text-white">Resources</a><a href="ai-solutions.html" class="hover:text-white">Consulting</a><a href="partnerships.html" class="hover:text-white">Partnerships</a><a href="newsletter.html" class="hover:text-white">Newsletter</a></div></div><div class="max-w-6xl mx-auto px-6 pb-6 mt-2 flex items-center justify-between"><p class="text-[#6F8298] text-xs">© 2026 Nikhil Naglapur</p><p class="text-[#6F8298] text-xs">Email: <a href="mailto:niknaglapur@gmail.com" class="text-[#00B4FF] hover:underline">niknaglapur@gmail.com</a></p></div></footer></body></html>

@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>Nikhil Naglapur — AI Creator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://subscribe-forms.beehiiv.com" crossorigin>
+  <link rel="dns-prefetch" href="//subscribe-forms.beehiiv.com">
+  <link rel="prefetch" href="newsletter.html">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: '#00B4FF',
+            'accent-dark': '#0090CC',
+            teal: '#00E5A0',
+          },
+          fontFamily: {
+            serif: ['Outfit', 'system-ui', 'sans-serif'],
+            sans: ['Outfit', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { background-color: #131C2B; color: #F2F2F2; }
+
+    /* Nav */
+    nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); background-color: rgba(19,28,43,0.92) !important; }
+    .nav-link { position: relative; color: #8A9AB0; transition: color 0.18s ease; }
+    .nav-link:hover { color: #F2F2F2; }
+    .nav-link::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: #00B4FF; transition: width 0.22s ease; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: #F2F2F2; }
+    .mobile-topbar {
+      background: #131C2B;
+      color: #F2F2F2;
+      border-bottom: 1px solid #1E2D42;
+    }
+    .mobile-topbar .avatar { width: 42px; height: 42px; border-radius: 9999px; object-fit: cover; object-position: center 35%; border: 1px solid #2E4060; }
+    .mobile-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.38);
+      z-index: 70;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .mobile-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(92vw, 380px);
+      height: 100dvh;
+      background: #e9e9e9;
+      color: #15171a;
+      z-index: 80;
+      transform: translateX(100%);
+      transition: transform 0.24s ease;
+      box-shadow: -16px 0 36px rgba(0,0,0,0.2);
+      padding: 22px;
+      overflow: visible;
+      display: flex;
+      flex-direction: column;
+    }
+    .mobile-drawer.open { transform: translateX(0); }
+    .mobile-drawer-header {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      flex-shrink: 0;
+    }
+    .mobile-drawer-close {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .mobile-drawer-content {
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+      touch-action: pan-y;
+      padding-bottom: 1.25rem;
+      flex: 1;
+      min-height: 0;
+    }
+    .mobile-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-size: 1.02rem;
+      color: #5f6670;
+      padding: 0.95rem 1rem;
+      border-radius: 0.9rem;
+    }
+    .mobile-nav-item.active {
+      background: #dedede;
+      color: #171a1f;
+      font-weight: 600;
+    }
+
+    /* Buttons */
+    .btn-blue { background: #00B4FF; color: #fff; transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease; }
+    .btn-blue:hover { background: #0090CC; box-shadow: 0 0 24px rgba(0,180,255,0.4); transform: translateY(-1px); }
+    .btn-outline { border: 1px solid #2E4060; color: #F2F2F2; transition: border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease; }
+    .btn-outline:hover { border-color: #00B4FF; color: #00B4FF; box-shadow: 0 0 16px rgba(0,180,255,0.1); }
+
+    /* Cursor blink */
+    .cursor { display: inline-block; width: 2px; height: 0.85em; background: #00B4FF; margin-left: 2px; vertical-align: middle; animation: blink 1s step-end infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+
+    /* Float */
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    .hero-float { animation: float 7s ease-in-out infinite; }
+
+    /* Photo glow pulse */
+    .photo-glow { border-radius: 1rem; }
+
+    /* Background orb drift */
+    @keyframes orb-drift { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(25px,-15px) scale(1.06)} 66%{transform:translate(-12px,20px) scale(0.96)} }
+    .orb { animation: orb-drift 14s ease-in-out infinite; pointer-events: none; }
+
+    /* Cards */
+    .card { transition: border-color 0.28s ease, box-shadow 0.28s ease, transform 0.22s ease; }
+    .card:hover { border-color: rgba(0,180,255,0.28) !important; box-shadow: 0 0 35px rgba(0,180,255,0.07); transform: translateY(-3px); }
+
+    /* Social icons */
+    .social-icon { color: #5A6E80; transition: color 0.18s ease, transform 0.18s ease; }
+    .social-icon:hover { color: #00B4FF; transform: translateY(-2px); }
+    .logo-marquee {
+      position: relative;
+      overflow: hidden;
+      background: #111C2A;
+    }
+    .logo-track {
+      display: flex;
+      width: max-content;
+      align-items: center;
+      gap: 4rem;
+      padding: 1.1rem 0;
+      animation: logo-scroll 20s linear infinite;
+      will-change: transform;
+    }
+    .logo-item {
+      flex: 0 0 auto;
+      width: 170px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      transition: transform 0.2s ease;
+    }
+    .logo-item:hover {
+      transform: translateY(-2px);
+    }
+    .logo-item img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .logo-item img.jobright-logo {
+      transform: scale(2.25);
+      transform-origin: center;
+    }
+    @keyframes logo-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-33.3333%); }
+    }
+    @media (max-width: 768px) {
+      .logo-track { gap: 2.2rem; padding: 0.9rem 0; }
+      .logo-item { width: 130px; height: 36px; }
+      .newsletter-embed { min-height: 196px; }
+      .newsletter-embed iframe[src*="subscribe-forms.beehiiv.com"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 196px !important;
+        min-height: 196px !important;
+        margin: 0 !important;
+        transform: none !important;
+      }
+    }
+
+    /* EV teal button */
+    .ev-btn { background: #00E5A0; color: #131C2B; font-weight: 700; transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease; }
+    .ev-btn:hover { background: #00C88A; box-shadow: 0 0 22px rgba(0,229,160,0.4); transform: translateY(-1px); }
+    .newsletter-embed {
+      width: 100%;
+      min-height: 190px;
+      overflow: visible;
+      position: relative;
+      border-radius: 0.75rem;
+      background: transparent;
+    }
+    .newsletter-embed iframe[src*="subscribe-forms.beehiiv.com"] {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: 196px !important;
+      min-height: 196px !important;
+      border: 0 !important;
+      display: block !important;
+      margin: 0 !important;
+      position: relative;
+      z-index: 2;
+      background: transparent !important;
+      border-radius: 0.75rem !important;
+    }
+    /* Divider gradient line */
+    .gradient-divider { height: 1px; background: linear-gradient(90deg, transparent, #263545, transparent); }
+
+    /* Stats number */
+    .stat-num { background: linear-gradient(135deg, #00B4FF, #7DD3FC); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  </style>
+</head>
+<body class="font-sans">
+
+  <!-- NAV -->
+  <nav class="sticky top-0 z-50 border-b border-[#1E2D42]">
+    <div class="max-w-6xl mx-auto px-6 py-4 items-center justify-between hidden md:flex">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <img src="nikhil2.png" alt="Nikhil" class="w-8 h-8 rounded-full object-cover border border-[#2E4060]" style="object-position:center 35%;">
+        <span class="font-semibold text-sm text-white">Nikhil</span>
+      </a>
+      <div class="hidden md:flex items-center gap-7 text-sm">
+        <a href="index.html" class="nav-link active font-medium">Home</a>
+        <a href="partnerships.html" class="nav-link">Partnerships</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="ai-solutions.html" class="nav-link">Consulting</a>
+        <a href="newsletter.html" class="nav-link">Newsletter</a>
+      </div>
+      <a href="newsletter.html#newsletter-signup" class="btn-blue text-sm font-semibold px-5 py-2.5 rounded-full">
+        Sign up to newsletter
+      </a>
+    </div>
+
+    <div class="mobile-topbar md:hidden px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="nikhil2.png" alt="Nikhil" class="avatar">
+        <p class="text-[1.8rem] leading-none font-semibold tracking-tight">Nikhil Naglapur</p>
+      </div>
+      <button id="mobile-drawer-open" aria-label="Open menu" class="p-2">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F2F2F2" stroke-width="2.3" stroke-linecap="round">
+          <path d="M4 7h16"></path>
+          <path d="M4 12h16"></path>
+          <path d="M4 17h16"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div id="mobile-drawer-overlay" class="mobile-drawer-overlay md:hidden"></div>
+  <aside id="mobile-drawer" class="mobile-drawer md:hidden">
+    <div class="mobile-drawer-header">
+      <p class="text-3xl font-medium tracking-tight">niknaglapur.com</p>
+      <button id="mobile-drawer-close" aria-label="Close menu" class="mobile-drawer-close text-[#616770] text-5xl leading-none">&times;</button>
+    </div>
+
+    <div class="mobile-drawer-content">
+    <div class="bg-[#efefef] border border-[#dfdfdf] rounded-[2rem] p-6">
+      <img src="nikhil2.png" alt="Nikhil Naglapur" class="w-44 h-44 rounded-full object-cover object-center mx-auto mb-6" style="object-position:center 35%;">
+      <h3 class="text-center text-[2.2rem] font-semibold tracking-tight">Nikhil Naglapur</h3>
+      <p class="text-center text-[#7a7a7a] text-2xl mb-8">AI Creator</p>
+
+      <div class="space-y-2">
+        <a href="index.html" class="mobile-nav-item active">
+          <span>Home</span>
+        </a>
+        <a href="resources.html" class="mobile-nav-item"><span>Resources</span></a>
+        <a href="ai-solutions.html" class="mobile-nav-item"><span>Consulting</span></a>
+        <a href="partnerships.html" class="mobile-nav-item"><span>Partnerships</span></a>
+        <a href="newsletter.html" class="mobile-nav-item"><span>Newsletter</span></a>
+      </div>
+    </div>
+    </div>
+  </aside>
+
+  <!-- HERO -->
+  <section class="max-w-6xl mx-auto px-6 pt-20 pb-12 relative overflow-hidden">
+
+<div class="flex flex-col md:flex-row items-center justify-between gap-12 relative">
+      <!-- Left -->
+      <div class="flex-1 max-w-lg">
+        <div class="flex items-center gap-2.5 mb-6">
+          <span class="w-2 h-2 rounded-full bg-[#00B4FF] inline-block" style="box-shadow:0 0 8px rgba(0,180,255,0.8);animation:blink 2s ease-in-out infinite;"></span>
+          <p class="text-[#00B4FF] text-xs font-semibold uppercase tracking-[0.18em]">AI Creator</p>
+        </div>
+        <h1 class="font-serif text-6xl md:text-7xl font-bold leading-[1.04] mb-6 text-white">
+          Hey, I'm<br>Nikhil.
+        </h1>
+        <p class="text-[#8A9AB0] text-base leading-relaxed mb-9 max-w-sm">
+          Making AI easy for all through tools and news. Whether you're a creator, founder, or just someone eager to learn.
+        </p>
+        <div class="flex items-center gap-4 flex-wrap">
+          <a href="resources.html"
+             class="btn-blue inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-full">
+            Browse Resources
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Photo -->
+      <div class="flex-shrink-0 relative">
+        <div class="photo-glow">
+          <img src="nikhil2.png" alt="Nikhil Naglapur"
+               class="object-cover rounded-2xl"
+               style="width:310px;height:400px;object-position:center 18%;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="flex items-center gap-6 mt-14">
+      <a href="https://www.tiktok.com/@niknagl" target="_blank" aria-label="TikTok" class="social-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.26 8.26 0 004.83 1.55V6.78a4.85 4.85 0 01-1.06-.09z"/></svg>
+      </a>
+      <a href="https://youtube.com/@niknaglapur" target="_blank" aria-label="YouTube" class="social-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 002.12 2.14c1.84.55 9.38.55 9.38.55s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.38V8.62L15.86 12l-6.11 3.38z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/niknaglapur" target="_blank" aria-label="Instagram" class="social-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+      </a>
+      <a href="https://x.com/niknaglapur" target="_blank" aria-label="X / Twitter" class="social-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="mailto:niknaglapur@gmail.com" aria-label="Email" class="social-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FREE RESOURCES -->
+  <section class="max-w-6xl mx-auto px-6 py-20">
+    <div class="text-center mb-14 reveal">
+      <p class="text-[#00B4FF] text-xs font-semibold uppercase tracking-[0.18em] mb-4">Free Resources</p>
+      <h2 class="font-serif text-4xl md:text-5xl font-bold leading-[1.1] mb-5 text-white">
+        Free <em><span id="type-word"></span><span class="cursor"></span></em> to help you get ahead.
+      </h2>
+      <p class="text-[#7A8EA0] text-base max-w-lg mx-auto">
+        Thousands of hours of testing distilled into prompts, guides, and workflows you can use today.
+      </p>
+    </div>
+
+    <div id="featured-resources" class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+      <p class="text-[#6A7D90] text-sm col-span-full text-center">Loading resources...</p>
+    </div>
+
+    <div class="text-center">
+      <a href="resources.html" class="btn-outline inline-flex items-center gap-2 text-sm font-medium px-6 py-3 rounded-full">
+        See All Resources
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER — Escape Velocity branded -->
+  <section style="background:#0F1825;border-top:1px solid #1E2D42;border-bottom:1px solid #1E2D42;" class="py-8 md:py-16">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center md:items-end gap-8 md:gap-14">
+
+        <!-- EV Brand Panel -->
+        <div class="flex-shrink-0 text-center md:text-left">
+          <!-- EV Monogram -->
+          <div class="mb-6" style="font-family:'Inter',sans-serif;font-weight:800;font-size:80px;line-height:1;letter-spacing:-6px;">
+            <span style="color:#E8E8E8;">E</span><span style="color:#00E5A0;">V</span>
+          </div>
+          <p class="text-white font-bold text-lg mb-1 tracking-tight">Escape Velocity</p>
+          <p class="text-[#6A7D90] text-sm leading-relaxed mb-5 max-w-[200px]">Everything worth knowing<br>in AI, in five minutes or less.</p>
+          <div class="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#5A6E80]">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#00E5A0] inline-block" style="box-shadow:0 0 6px rgba(0,229,160,0.7);"></span>
+            <span>News</span>
+            <span class="text-[#2E4060]">/</span>
+            <span>Tools</span>
+            <span class="text-[#2E4060]">/</span>
+            <span>Strategy</span>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="hidden md:block w-px bg-[#253040] self-stretch"></div>
+
+        <!-- Signup -->
+        <div class="flex-1 max-w-md self-end">
+          <p class="text-[#00E5A0] text-xs font-semibold uppercase tracking-[0.18em] mb-4">Newsletter</p>
+          <h2 class="font-serif text-3xl md:text-4xl font-bold leading-[1.1] mb-4 text-white">
+            AI news that you'll actually want to read
+          </h2>
+          <p class="text-[#7A8EA0] text-sm leading-relaxed mb-7">
+            I send a short email every Monday breaking down the latest AI news and tools, and it's completely <span class="font-semibold text-[#B7C4D2]">free</span>.
+          </p>
+          <div class="newsletter-embed mb-2">
+            <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="2c14917b-1e03-4208-93ea-8ad67dfe38db"></script>
+          </div>
+          <p class="text-[#5A6E80] text-xs mt-0 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#00E5A0] inline-block"></span>
+            1000+ readers · No spam · Unsubscribe anytime
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI SOLUTIONS -->
+  <section class="max-w-6xl mx-auto px-6 py-20">
+    <div class="flex flex-col md:flex-row gap-16 items-start">
+      <div class="flex-none md:w-80">
+        <p class="text-[#00B4FF] text-xs font-semibold uppercase tracking-[0.18em] mb-4">For Content Creators</p>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold leading-[1.1] mb-4 text-white">
+          AI solutions to help you grow on social media
+        </h2>
+        <p class="text-[#7A8EA0] text-sm leading-relaxed mb-6">
+          I work 1:1 with content creators to help you build out content strategy, systems, and automations to help you maximize your social media growth
+        </p>
+        <a href="ai-solutions.html" class="btn-blue inline-flex items-center gap-2 text-sm font-semibold px-5 py-3 rounded-full">
+      Let's Work →
+    </a>
+      </div>
+      <div class="flex-1 grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-7 pt-2">
+        <div class="border-t border-[#253548] pt-5">
+          <h4 class="font-semibold text-sm mb-2 text-white">Daily Content System</h4>
+          <p class="text-[#6A7D90] text-xs leading-relaxed">Automate your workflow with Claude + Notion so you can post consistently with repeatable systems.</p>
+        </div>
+        <div class="border-t border-[#253548] pt-5">
+          <h4 class="font-semibold text-sm mb-2 text-white">Platform Automations</h4>
+          <p class="text-[#6A7D90] text-xs leading-relaxed">Use ManyChat and funnel automations to convert views into followers, emails, and product leads.</p>
+        </div>
+        <div class="border-t border-[#253548] pt-5">
+          <h4 class="font-semibold text-sm mb-2 text-white">Content Strategy</h4>
+          <p class="text-[#6A7D90] text-xs leading-relaxed">Build stronger hooks, storytelling, and funnel-based messaging across TOFU, MOFU, and BOFU content.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND PARTNERSHIPS -->
+  <section class="border-t border-[#1E2D42] py-20" style="background:#111C2A;">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-14 reveal">
+        <p class="text-[#00B4FF] text-xs font-semibold uppercase tracking-[0.18em] mb-4">Brand Partnerships</p>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold leading-[1.1] mb-5 text-white">
+          Trusted by brands at the forefront of AI
+        </h2>
+        <p class="text-[#6A7D90] text-base max-w-md mx-auto">
+          If you're interested in partnering, let's chat!
+        </p>
+        <a href="partnerships.html" class="btn-blue inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-full mt-7">
+          Let's Work
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="logo-marquee rounded-xl">
+        <div class="logo-track">
+          <div class="logo-item"><img src="assets/logos/microsoft.webp" alt="Microsoft"></div>
+          <div class="logo-item"><img src="assets/logos/replit.svg" alt="Replit"></div>
+          <div class="logo-item"><img src="assets/logos/airia-transparent.png" alt="Airia"></div>
+          <div class="logo-item"><img class="jobright-logo" src="assets/logos/jobright-transparent.png" alt="Jobright"></div>
+          <div class="logo-item"><img src="assets/logos/extra.avif" alt="Partner logo"></div>
+          <div class="logo-item"><img src="assets/logos/microsoft.webp" alt="Microsoft"></div>
+          <div class="logo-item"><img src="assets/logos/replit.svg" alt="Replit"></div>
+          <div class="logo-item"><img src="assets/logos/airia-transparent.png" alt="Airia"></div>
+          <div class="logo-item"><img class="jobright-logo" src="assets/logos/jobright-transparent.png" alt="Jobright"></div>
+          <div class="logo-item"><img src="assets/logos/extra.avif" alt="Partner logo"></div>
+          <div class="logo-item"><img src="assets/logos/microsoft.webp" alt="Microsoft"></div>
+          <div class="logo-item"><img src="assets/logos/replit.svg" alt="Replit"></div>
+          <div class="logo-item"><img src="assets/logos/airia-transparent.png" alt="Airia"></div>
+          <div class="logo-item"><img class="jobright-logo" src="assets/logos/jobright-transparent.png" alt="Jobright"></div>
+          <div class="logo-item"><img src="assets/logos/extra.avif" alt="Partner logo"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-[#1E2D42]" style="background:#131C2B;">
+    <div class="max-w-6xl mx-auto px-6 pt-8 pb-4 flex flex-col md:flex-row items-center justify-between gap-5">
+      <div class="flex items-center gap-2.5">
+        <img src="nikhil2.png" alt="Nikhil" class="w-6 h-6 rounded-full object-cover border border-[#263545]" style="object-position:center 35%;">
+        <span class="text-sm font-semibold text-white">Nikhil</span>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-[#5A6E80]">
+        <a href="index.html" class="hover:text-white transition-colors">Home</a>
+        <a href="resources.html" class="hover:text-white transition-colors">Resources</a>
+        <a href="ai-solutions.html" class="hover:text-white transition-colors">Consulting</a>
+        <a href="partnerships.html" class="hover:text-white transition-colors">Partnerships</a>
+        <a href="newsletter.html" class="hover:text-white transition-colors">Newsletter</a>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pb-6 flex flex-col md:flex-row items-center justify-between gap-3 mt-2">
+      <p class="text-[#4A5E70] text-xs">© 2026 Nikhil Naglapur</p>
+      <p class="text-[#4A5E70] text-xs">Email: <a href="mailto:niknaglapur@gmail.com" class="text-[#00B4FF] hover:underline">niknaglapur@gmail.com</a></p>
+      <div class="flex items-center gap-4 text-[#4A5E70]">
+        <a href="https://www.instagram.com/niknaglapur" target="_blank" class="hover:text-[#00B4FF] transition-colors"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+        <a href="https://www.tiktok.com/@niknagl" target="_blank" class="hover:text-[#00B4FF] transition-colors"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.26 8.26 0 004.83 1.55V6.78a4.85 4.85 0 01-1.06-.09z"/></svg></a>
+        <a href="https://youtube.com/@niknaglapur" target="_blank" class="hover:text-[#00B4FF] transition-colors"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 002.12 2.14c1.84.55 9.38.55 9.38.55s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.38V8.62L15.86 12l-6.11 3.38z"/></svg></a>
+        <a href="https://x.com/niknaglapur" target="_blank" class="hover:text-[#00B4FF] transition-colors"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const openBtn = document.getElementById('mobile-drawer-open');
+      const closeBtn = document.getElementById('mobile-drawer-close');
+      const drawer = document.getElementById('mobile-drawer');
+      const overlay = document.getElementById('mobile-drawer-overlay');
+      if (!openBtn || !closeBtn || !drawer || !overlay) return;
+
+      const openDrawer = () => {
+        drawer.classList.add('open');
+        overlay.classList.add('open');
+      };
+      const closeDrawer = () => {
+        drawer.classList.remove('open');
+        overlay.classList.remove('open');
+      };
+
+      openBtn.addEventListener('click', openDrawer);
+      closeBtn.addEventListener('click', closeDrawer);
+      overlay.addEventListener('click', closeDrawer);
+      drawer.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeDrawer));
+    })();
+
+    
+    // Typing animation for the resources heading
+    (function() {
+      const words = ['guides', 'tools', 'prompts'];
+      const el = document.getElementById('type-word');
+      let wordIndex = 0, charIndex = 0, deleting = false;
+      function tick() {
+        const word = words[wordIndex];
+        if (deleting) {
+          charIndex--;
+          el.textContent = word.slice(0, charIndex);
+          if (charIndex === 0) {
+            deleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            setTimeout(tick, 400);
+            return;
+          }
+          setTimeout(tick, 60);
+        } else {
+          charIndex++;
+          el.textContent = word.slice(0, charIndex);
+          if (charIndex === word.length) {
+            setTimeout(() => { deleting = true; tick(); }, 1800);
+            return;
+          }
+          setTimeout(tick, 100);
+        }
+      }
+      tick();
+    })();
+
+    let featuredResourcesSignature = '';
+
+    async function loadFeaturedResources() {
+      const grid = document.getElementById('featured-resources');
+      if (!grid) return;
+
+      const iconSvg = {
+        beginner: '<span aria-hidden="true" style="font-size:52px;line-height:1;filter:drop-shadow(0 0 8px rgba(0,180,255,0.2));">📈</span>',
+        memory: '<svg width="88" height="88" viewBox="0 0 90 90" fill="none"><rect x="18" y="15" width="54" height="54" rx="12" fill="rgba(0,180,255,0.08)" stroke="rgba(0,180,255,0.28)"/><path d="M34 31C30 31 27 34 27 38C27 41 29 43 32 44" stroke="#4BC2FF" stroke-width="2.6" stroke-linecap="round"/><path d="M56 31C60 31 63 34 63 38C63 41 61 43 58 44" stroke="#4BC2FF" stroke-width="2.6" stroke-linecap="round"/><path d="M32 44C33.5 49 38 54 45 57C52 54 56.5 49 58 44" stroke="#4BC2FF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="39" cy="39" r="2" fill="#4BC2FF"/><circle cx="51" cy="39" r="2" fill="#4BC2FF"/></svg>',
+        migration: '<svg width="88" height="88" viewBox="0 0 90 90" fill="none"><rect x="18" y="15" width="54" height="54" rx="12" fill="rgba(0,180,255,0.08)" stroke="rgba(0,180,255,0.28)"/><rect x="28" y="28" width="13" height="28" rx="3" stroke="#4BC2FF" stroke-width="2.3"/><rect x="49" y="28" width="13" height="28" rx="3" stroke="#4BC2FF" stroke-width="2.3"/><path d="M39 42H51" stroke="#4BC2FF" stroke-width="2.6" stroke-linecap="round"/><path d="M47 38L51 42L47 46" stroke="#4BC2FF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+        default: '<svg width="88" height="88" viewBox="0 0 90 90" fill="none"><rect x="18" y="15" width="54" height="54" rx="12" fill="rgba(0,180,255,0.08)" stroke="rgba(0,180,255,0.28)"/><path d="M30 33H60" stroke="#4BC2FF" stroke-width="2.6" stroke-linecap="round"/><path d="M30 43H55" stroke="#4BC2FF" stroke-width="2.6" stroke-linecap="round" opacity="0.8"/><path d="M30 53H47" stroke="#4BC2FF" stroke-width="2.6" stroke-linecap="round" opacity="0.65"/></svg>'
+      };
+
+      function getResourceVisual(resource) {
+        const title = (resource.title || '').toLowerCase();
+        if (title.includes('beginner')) return { icon: iconSvg.beginner, badge: 'Claude' };
+        if (title.includes('perfect memory') || title.includes('3 layer')) return { icon: '<span aria-hidden="true" style="font-size:52px;line-height:1;filter:drop-shadow(0 0 8px rgba(0,180,255,0.2));">🧠</span>', badge: 'Preferences' };
+        if (title.includes('switching memory') || title.includes('chatgpt')) return { icon: '<span aria-hidden="true" style="font-size:52px;line-height:1;filter:drop-shadow(0 0 8px rgba(0,180,255,0.2));">➡️</span>', badge: 'Migration' };
+        return { icon: iconSvg.default, badge: resource.category };
+      }
+
+      try {
+        const response = await fetch(`resources.html?v=${Date.now()}`, { cache: 'no-store' });
+        const html = await response.text();
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        const items = [...doc.querySelectorAll('#resource-list .resource-item')]
+          .map((item) => {
+            const category = item.dataset.category || 'default';
+            const title = item.querySelector('h3')?.textContent?.trim();
+            const description = item.querySelector('h3 + p')?.textContent?.trim();
+            const href = item.querySelector('a[href]')?.getAttribute('href');
+            return { category, title, description, href };
+          })
+          .filter((item) => item.title && item.description && item.href)
+          .slice(0, 3);
+
+        if (!items.length) throw new Error('No resources found');
+
+        const signature = JSON.stringify(items);
+        if (signature === featuredResourcesSignature) return;
+        featuredResourcesSignature = signature;
+
+        grid.innerHTML = items.map((item, index) => {
+          const visual = getResourceVisual(item);
+          return `
+          <a href="${item.href}" class="card bg-[#1A2436] rounded-2xl overflow-hidden border border-[#253548] reveal ${index === 1 ? 'reveal-d1' : index === 2 ? 'reveal-d2' : ''}">
+            <div class="h-44 flex items-center justify-center relative" style="background:radial-gradient(circle at 82% 0%,rgba(50,108,171,0.16),transparent 48%),radial-gradient(circle at 8% 110%,rgba(27,80,126,0.22),transparent 52%),linear-gradient(135deg,#0D1A2A,#142540);">
+              <span class="absolute top-4 right-4 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#D7F1FF] border border-[#2A5D7D] rounded-full px-2 py-1" style="background:rgba(17,48,72,0.72);">${visual.badge}</span>
+              ${visual.icon}
+            </div>
+            <div class="p-5">
+              <p class="text-[#00B4FF] text-[10px] font-semibold uppercase tracking-wider mb-2">${item.category}</p>
+              <h3 class="font-semibold text-[15px] leading-snug mb-2 text-white">${item.title}</h3>
+              <p class="text-[#6A7D90] text-[13px] leading-relaxed">${item.description}</p>
+            </div>
+          </a>
+        `}).join('');
+
+        grid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      } catch (error) {
+        grid.innerHTML = '<p class="text-[#6A7D90] text-sm col-span-full text-center">Resources are available on the Resources page.</p>';
+      }
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    loadFeaturedResources();
+    setInterval(loadFeaturedResources, 10000);
+
+    
+
+  </script>
+  <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
+</body>
+</html>
