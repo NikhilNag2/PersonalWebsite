@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="favicon.png"><title>Claude for Small Business — Prompts &amp; Workflow Guide — Nikhil Naglapur</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={theme:{extend:{fontFamily:{serif:['Outfit','system-ui','sans-serif'],sans:['Outfit','system-ui','sans-serif']}}}}</script><style>body{background:#131C2B;color:#F2F2F2}nav{backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background-color:rgba(19,28,43,.92)!important}.nav-link{position:relative;color:#777;transition:color .18s ease}.nav-link:hover,.nav-link.active{color:#F2F2F2}.nav-link::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:#00B4FF;transition:width .22s ease}.nav-link:hover::after{width:100%}.btn-blue{background:#00B4FF;color:#fff;transition:all .18s ease}.btn-blue:hover{background:#0090CC;box-shadow:0 0 24px rgba(0,180,255,.4);transform:translateY(-1px)}.content h1{font-size:2.1rem;line-height:1.1;font-weight:800;color:#fff;margin:2.5rem 0 1rem}.content h2{font-size:1.55rem;line-height:1.2;font-weight:750;color:#fff;margin:2.35rem 0 .85rem}.content h3{font-size:1.15rem;font-weight:700;color:#E8E8E8;margin:1.65rem 0 .6rem}.content p,.content li{color:#9A9A9A;line-height:1.78;font-size:15px}.content p{margin-bottom:1rem}.content strong{color:#DCDCDC;font-weight:700}.content em{color:#C8C8C8}.content ul,.content ol{margin:0 0 1.2rem 1.35rem}.content ul{list-style:disc}.content ol{list-style:decimal}.content li{margin:.35rem 0}.content hr{border:0;border-top:1px solid #1E2D42;margin:2rem 0}.content blockquote{border-left:3px solid #00B4FF;background:rgba(0,180,255,.06);border-radius:0 8px 8px 0;padding:1rem 1.15rem;margin:1.4rem 0;color:#CFCFCF;line-height:1.7}.content pre{background:#142540;border:1px solid #2E4060;border-radius:8px;padding:1rem;overflow:auto;margin:1.25rem 0;color:#D6D6D6;font-size:14px;line-height:1.65}.content code{background:#162A45;border:1px solid #2E4060;border-radius:5px;padding:.1rem .28rem;color:#E6E6E6;font-size:.92em}.content pre code{background:transparent;border:0;padding:0;color:inherit}.content table{width:100%;border-collapse:collapse;margin:1.4rem 0;border:1px solid #2A3A52;border-radius:8px;overflow:hidden;display:table}.content tr{border-bottom:1px solid #2A3A52}.content tr:last-child{border-bottom:0}.content td{border-right:1px solid #2A3A52;padding:.8rem;vertical-align:top;color:#999;font-size:14px;line-height:1.55}.content td:last-child{border-right:0}.content tr:first-child td{color:#F2F2F2;font-weight:700;background:#142540}.content details{border:1px solid #2A3A52;border-radius:8px;margin:1rem 0;background:#122238}.content summary{cursor:pointer;padding:1rem;color:#F2F2F2;font-weight:650;list-style:none}.content summary::-webkit-details-marker{display:none}.content summary::before{content:"+ ";color:#00B4FF}.content details[open] summary::before{content:"− ";color:#00B4FF}.content .details-body{padding:0 1rem 1rem}@media(max-width:640px){.content table{display:block;overflow-x:auto}.content h1{font-size:1.7rem}}</style></head>
+<body class="font-sans">
+  <nav class="sticky top-0 z-50 border-b border-[#1E2D42]">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <img src="nikhil2.png" alt="Nikhil" class="w-8 h-8 rounded-full object-cover border border-[#2E4060]" style="object-position:center 35%;">
+        <span class="font-semibold text-sm text-white">Nikhil</span>
+      </a>
+      <div class="hidden md:flex items-center gap-7 text-sm">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="resources.html" class="nav-link active">Resources</a>
+        <a href="ai-solutions.html" class="nav-link">Consulting</a>
+        <a href="partnerships.html" class="nav-link">Partnerships</a>
+        <a href="newsletter.html" class="nav-link">Newsletter</a>
+      </div>
+      <a href="newsletter.html#newsletter-signup" class="btn-blue text-sm font-semibold px-5 py-2.5 rounded-full">Sign up to newsletter</a>
+    </div>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-6 py-14">
+    <a href="resources.html" class="inline-flex items-center gap-1.5 text-[#00B4FF] text-sm font-medium mb-10 hover:underline">← Back to Resources</a>
+    <div class="flex items-center gap-2.5 mb-4">
+      <span class="w-2 h-2 rounded-full bg-[#00B4FF]" style="box-shadow:0 0 8px rgba(0,180,255,.8);"></span>
+      <p class="text-[#00B4FF] text-xs font-semibold uppercase tracking-[0.18em]">Prompts</p>
+    </div>
+    <h1 class="font-serif text-4xl md:text-5xl font-bold leading-[1.08] mb-10 text-white">Claude for Small Business — Prompts &amp; Workflow Guide</h1>
+
+    <article class="content">
+      <h2>🏪 What This Is</h2>
+<p>Claude for Small Business connects Claude directly into the tools you already use — QuickBooks, PayPal, HubSpot, Canva, Docusign, Google Workspace, and Microsoft 365. It runs inside Claude Cowork with 15 ready-to-run agentic workflows and 15 built-in skills.</p>
+<p>This guide gives you copy-paste prompts for each major use case so you can get results immediately.</p>
+<hr>
+<h2>📊 The 5 Core Workflow Categories</h2>
+<table>
+<tr><td>Category</td><td>What Claude Handles</td></tr>
+<tr><td>💰 Finance</td><td>Payroll planning, month-end close, cash flow, reconciliation</td></tr>
+<tr><td>📣 Marketing</td><td>Campaign strategy, content creation, Canva asset generation</td></tr>
+<tr><td>🤝 Sales</td><td>Lead triage, pipeline pulse, campaign attribution</td></tr>
+<tr><td>⚖️ Operations</td><td>Contract review, invoice chasing, margin analysis</td></tr>
+<tr><td>👥 HR &amp; Customer</td><td>Onboarding, customer pulse, dispute handling</td></tr>
+</table>
+<hr>
+<h2>💬 Copy-Paste Prompts by Use Case</h2>
+<details><summary>💰 Finance — Payroll Planning</summary><div class="details-body"><pre><code class="language-javascript">I need help planning payroll for this period. Here’s our current QuickBooks cash position: [PASTE BALANCE]. We have the following upcoming settlements from PayPal: [PASTE AMOUNTS + DATES]. Please:
+1. Tell me if we have enough cash to cover payroll on [DATE]
+2. Flag any gaps or timing issues
+3. Draft a 30-day cash forecast
+4. List any overdue payments I should chase first</code></pre>
+</div></details>
+<details><summary>📊 Finance — Month-End Close</summary><div class="details-body"><pre><code class="language-javascript">Help me close this month’s books. I’ll paste in our QuickBooks transactions and PayPal settlement report. Please:
+1. Reconcile and flag anything that doesn’t match
+2. Write a plain-English summary of our P&amp;L
+3. Identify the top 3 expense categories driving cost this month
+4. Draft a close packet summary I can forward to my accountant
+
+[PASTE TRANSACTIONS / REPORT]</code></pre>
+</div></details>
+<details><summary>📅 Finance — Business Pulse Dashboard</summary><div class="details-body"><pre><code class="language-javascript">Give me a business health snapshot for this week. Pull from what I share below and summarize:
+- Cash position (from QuickBooks)
+- Sales trend vs. last month
+- Pipeline movement (from HubSpot)
+- This week’s key commitments
+- Any open invoices more than 14 days overdue
+
+[PASTE DATA OR CONNECT INTEGRATIONS]</code></pre>
+</div></details>
+<details><summary>📣 Marketing — Run a Campaign</summary><div class="details-body"><pre><code class="language-javascript">I want to run a promotional campaign. Here’s context:
+- Business type: [YOUR BUSINESS TYPE]
+- Current slow period: [MONTH/SEASON]
+- Past campaign performance from HubSpot: [PASTE METRICS]
+- Target audience: [DESCRIBE CUSTOMER]
+
+Please:
+1. Recommend a promo strategy for this slow period
+2. Draft the campaign messaging (email subject, body, CTA)
+3. Suggest 3 Canva asset formats I should create
+4. Give me a send schedule</code></pre>
+</div></details>
+<details><summary>🤝 Sales — Lead Triage</summary><div class="details-body"><pre><code class="language-javascript">Here are my current leads from HubSpot. Please score and triage them:
+[PASTE LEAD LIST OR EXPORT]
+
+For each lead, tell me:
+1. How likely they are to convert based on their activity
+2. What stage of the pipeline they should be in
+3. Recommended next action (call, email, proposal, etc.)
+4. Which 3 leads I should prioritize this week and why</code></pre>
+</div></details>
+<details><summary>⚖️ Operations — Invoice Chaser</summary><div class="details-body"><pre><code class="language-javascript">Here are my outstanding invoices: [PASTE INVOICE LIST WITH AMOUNTS + DUE DATES]
+
+Please:
+1. Flag any overdue by more than 7 days
+2. Draft a polite but firm follow-up email for each overdue invoice
+3. Suggest which ones to escalate and how
+4. Tell me the total cash I’m owed and the expected collection timeline</code></pre>
+</div></details>
+<details><summary>⚖️ Operations — Contract Review</summary><div class="details-body"><pre><code class="language-javascript">Review this contract before I sign it. Focus on:
+1. Any unusual or unfavorable terms
+2. Automatic renewal clauses
+3. Liability or indemnification language
+4. Payment terms and late fee provisions
+5. Exit or termination conditions
+
+Flag anything I should negotiate or ask a lawyer about.
+
+[PASTE CONTRACT TEXT]</code></pre>
+</div></details>
+<details><summary>📉 Finance — Margin Analyzer</summary><div class="details-body"><pre><code class="language-javascript">Analyze my profit margins for this period. Here’s our revenue and cost data:
+[PASTE DATA]
+
+Please:
+1. Calculate gross and net margin by product/service line
+2. Identify which offerings are most and least profitable
+3. Flag any costs that seem out of proportion
+4. Recommend 2–3 specific actions to improve margins this quarter</code></pre>
+</div></details>
+<details><summary>🧹 Operations — Tax Season Prep</summary><div class="details-body"><pre><code class="language-javascript">Help me prepare for tax season. I’ll share our QuickBooks data and expense records. Please:
+1. Categorize and summarize all deductible expenses
+2. Flag any transactions that need receipts or documentation
+3. Identify any missed deduction categories I should explore with my accountant
+4. Give me a checklist of what to gather before our accountant meeting
+
+[PASTE DATA]</code></pre>
+</div></details>
+<hr>
+<h2>🔗 The Connected Tools — What Each One Does in Claude</h2>
+<table>
+<tr><td>Tool</td><td>What Claude Can Do With It</td></tr>
+<tr><td>💳 QuickBooks</td><td>Payroll planning, month close, cash flow, reconciliation, tax prep</td></tr>
+<tr><td>💵 PayPal</td><td>Settlements, invoicing, dispute handling, refund tracking</td></tr>
+<tr><td>📧 HubSpot</td><td>Lead triage, campaign attribution, pipeline pulse, customer data</td></tr>
+<tr><td>🎨 Canva</td><td>Generate on-brand content assets, publish across channels, track performance</td></tr>
+<tr><td>✍️ Docusign</td><td>Send contracts for signature, track status, file executed copies</td></tr>
+<tr><td>📊 Google Workspace</td><td>Docs, Sheets, Gmail workflows, Drive file management</td></tr>
+<tr><td>💼 Microsoft 365</td><td>Word, Excel, Outlook, Teams-based workflows</td></tr>
+</table>
+<hr>
+<h2>🏦 Free Resources Anthropic Launched Alongside This</h2>
+<blockquote><strong>AI Fluency for Small Business</strong> — a free on-demand course with PayPal, taught by real small business owners. Available now at: <a href="http://anthropic.skilljar.com/ai-fluency-for-small-businesses" target="_blank" rel="noopener">anthropic.skilljar.com/ai-fluency-for-small-businesses</a></blockquote>
+<blockquote><strong>The Claude SMB Tour</strong> — free half-day live workshops in 10 cities. 100 seats per stop. Attendees get 1 month of Claude Max free. Cities include Chicago, Dallas, Salt Lake City, Baltimore, San Jose, Indianapolis, and more.</blockquote>
+<hr>
+<h2>🛡️ Built-In Trust &amp; Permissions</h2>
+<ul><li>You approve every action before anything sends, posts, or pays</li><li>Employee permissions from QuickBooks and Drive carry over — Claude can’t see what they can’t see</li><li>Anthropic does not train on your business data (Team and Enterprise plans)</li></ul><hr>
+<h2>👥 Who This Is For</h2>
+<table>
+<tr><td>Role</td><td>Best Starting Point</td></tr>
+<tr><td>Solo operator / freelancer</td><td>Invoice chaser + margin analyzer + contract reviewer</td></tr>
+<tr><td>Retail / e-commerce owner</td><td>Campaign runner + PayPal settlements + inventory pulse</td></tr>
+<tr><td>Service business (agency, consultant)</td><td>Lead triage + month-end close + contract sender</td></tr>
+<tr><td>Restaurant / local business</td><td>Cash flow dashboard + payroll planner + campaign assets</td></tr>
+<tr><td>Growth-stage SMB (5–50 employees)</td><td>Full stack: all 15 workflows across finance, ops, sales, marketing</td></tr>
+</table>
+
+    </article>
+  </main>
+
+  <footer class="border-t border-[#1E2D42]" style="background:#131C2B;">
+    <div class="max-w-6xl mx-auto px-6 pt-8 pb-4 flex flex-col md:flex-row items-center justify-between gap-5">
+      <div class="flex items-center gap-2.5">
+        <img src="nikhil2.png" alt="Nikhil" class="w-6 h-6 rounded-full object-cover border border-[#2E4060]" style="object-position:center 35%;">
+        <span class="text-sm font-semibold text-white">Nikhil</span>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-[#8A9AB0]">
+        <a href="index.html" class="hover:text-white transition-colors">Home</a>
+        <a href="resources.html" class="hover:text-white transition-colors">Resources</a>
+        <a href="ai-solutions.html" class="hover:text-white transition-colors">Consulting</a>
+        <a href="partnerships.html" class="hover:text-white transition-colors">Partnerships</a>
+        <a href="newsletter.html" class="hover:text-white transition-colors">Newsletter</a>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pb-6 mt-2 flex items-center justify-between">
+      <p class="text-[#6F8298] text-xs">© 2026 Nikhil Naglapur</p>
+      <p class="text-[#6F8298] text-xs">Email: <a href="mailto:niknaglapur@gmail.com" class="text-[#00B4FF] hover:underline">niknaglapur@gmail.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>

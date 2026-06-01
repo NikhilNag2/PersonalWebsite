@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="favicon.png"><title>Automated Weekly Content Calendar — Setup Guide &amp; Prompts — Nikhil Naglapur</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={theme:{extend:{fontFamily:{serif:['Outfit','system-ui','sans-serif'],sans:['Outfit','system-ui','sans-serif']}}}}</script><style>body{background:#131C2B;color:#F2F2F2}nav{backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background-color:rgba(19,28,43,.92)!important}.nav-link{position:relative;color:#777;transition:color .18s ease}.nav-link:hover,.nav-link.active{color:#F2F2F2}.nav-link::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:#00B4FF;transition:width .22s ease}.nav-link:hover::after{width:100%}.btn-blue{background:#00B4FF;color:#fff;transition:all .18s ease}.btn-blue:hover{background:#0090CC;box-shadow:0 0 24px rgba(0,180,255,.4);transform:translateY(-1px)}.content h1{font-size:2.1rem;line-height:1.1;font-weight:800;color:#fff;margin:2.5rem 0 1rem}.content h2{font-size:1.55rem;line-height:1.2;font-weight:750;color:#fff;margin:2.35rem 0 .85rem}.content h3{font-size:1.15rem;font-weight:700;color:#E8E8E8;margin:1.65rem 0 .6rem}.content p,.content li{color:#9A9A9A;line-height:1.78;font-size:15px}.content p{margin-bottom:1rem}.content strong{color:#DCDCDC;font-weight:700}.content em{color:#C8C8C8}.content ul,.content ol{margin:0 0 1.2rem 1.35rem}.content ul{list-style:disc}.content ol{list-style:decimal}.content li{margin:.35rem 0}.content hr{border:0;border-top:1px solid #1E2D42;margin:2rem 0}.content blockquote{border-left:3px solid #00B4FF;background:rgba(0,180,255,.06);border-radius:0 8px 8px 0;padding:1rem 1.15rem;margin:1.4rem 0;color:#CFCFCF;line-height:1.7}.content pre{background:#142540;border:1px solid #2E4060;border-radius:8px;padding:1rem;overflow:auto;margin:1.25rem 0;color:#D6D6D6;font-size:14px;line-height:1.65}.content code{background:#162A45;border:1px solid #2E4060;border-radius:5px;padding:.1rem .28rem;color:#E6E6E6;font-size:.92em}.content pre code{background:transparent;border:0;padding:0;color:inherit}.content table{width:100%;border-collapse:collapse;margin:1.4rem 0;border:1px solid #2A3A52;border-radius:8px;overflow:hidden;display:table}.content tr{border-bottom:1px solid #2A3A52}.content tr:last-child{border-bottom:0}.content td{border-right:1px solid #2A3A52;padding:.8rem;vertical-align:top;color:#999;font-size:14px;line-height:1.55}.content td:last-child{border-right:0}.content tr:first-child td{color:#F2F2F2;font-weight:700;background:#142540}.content details{border:1px solid #2A3A52;border-radius:8px;margin:1rem 0;background:#122238}.content summary{cursor:pointer;padding:1rem;color:#F2F2F2;font-weight:650;list-style:none}.content summary::-webkit-details-marker{display:none}.content summary::before{content:"+ ";color:#00B4FF}.content details[open] summary::before{content:"− ";color:#00B4FF}.content .details-body{padding:0 1rem 1rem}@media(max-width:640px){.content table{display:block;overflow-x:auto}.content h1{font-size:1.7rem}}</style></head>
+<body class="font-sans">
+  <nav class="sticky top-0 z-50 border-b border-[#1E2D42]">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <img src="nikhil2.png" alt="Nikhil" class="w-8 h-8 rounded-full object-cover border border-[#2E4060]" style="object-position:center 35%;">
+        <span class="font-semibold text-sm text-white">Nikhil</span>
+      </a>
+      <div class="hidden md:flex items-center gap-7 text-sm">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="resources.html" class="nav-link active">Resources</a>
+        <a href="ai-solutions.html" class="nav-link">Consulting</a>
+        <a href="partnerships.html" class="nav-link">Partnerships</a>
+        <a href="newsletter.html" class="nav-link">Newsletter</a>
+      </div>
+      <a href="newsletter.html#newsletter-signup" class="btn-blue text-sm font-semibold px-5 py-2.5 rounded-full">Sign up to newsletter</a>
+    </div>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-6 py-14">
+    <a href="resources.html" class="inline-flex items-center gap-1.5 text-[#00B4FF] text-sm font-medium mb-10 hover:underline">← Back to Resources</a>
+    <div class="flex items-center gap-2.5 mb-4">
+      <span class="w-2 h-2 rounded-full bg-[#00B4FF]" style="box-shadow:0 0 8px rgba(0,180,255,.8);"></span>
+      <p class="text-[#00B4FF] text-xs font-semibold uppercase tracking-[0.18em]">Prompts</p>
+    </div>
+    <h1 class="font-serif text-4xl md:text-5xl font-bold leading-[1.08] mb-10 text-white">Automated Weekly Content Calendar — Setup Guide &amp; Prompts</h1>
+
+    <article class="content">
+      <blockquote>🎯 <strong>What you're building:</strong> A Claude Cowork task that runs automatically every Monday morning, uses Claude for Chrome to study viral content on TikTok and Instagram in your niche, compares it against your own account, and saves a full week's content calendar as a Notion page — with the content type, title, hook, outline, and caption for every single day.</blockquote>
+<hr>
+<h2>⚡ How It Works (60-Second Overview)</h2>
+<pre><code class="language-javascript">Scheduled task fires (Mon 9 AM)
+        ↓
+Claude for Chrome opens TikTok + Instagram
+        ↓
+Studies top-performing content in your niche
+        ↓
+Cross-references with YOUR account (gaps + weak spots)
+        ↓
+Cowork creates a 7-day content calendar page in Notion</code></pre>
+<p>Each scheduled run spins up a fresh Cowork session with full access to your connectors, files, and the Chrome extension — the same as a manual session.</p>
+<hr>
+<h2>✅ Before You Start (Prerequisites)</h2>
+<table>
+<tr><td>Requirement</td><td>Detail</td></tr>
+<tr><td>💳 Plan</td><td>Paid plan required (Pro, Max, Team, or Enterprise)</td></tr>
+<tr><td>🖥️ App</td><td><strong>Claude Desktop app</strong> (macOS or Windows) — scheduled tasks do NOT exist in the browser version</td></tr>
+<tr><td>🌐 Browser</td><td>Google <strong>Chrome</strong> or Microsoft <strong>Edge</strong> (Brave / Arc / WSL are not supported)</td></tr>
+<tr><td>🔌 Extension</td><td>Claude for Chrome (beta / research preview)</td></tr>
+<tr><td>🔑 Logins</td><td>Be <strong>logged into TikTok and Instagram in Chrome</strong> — logged-out feeds show almost nothing</td></tr>
+<tr><td>📔 Notion</td><td>Connect the <strong>Notion connector</strong> in Claude Desktop so Cowork can save the calendar there</td></tr>
+</table>
+<blockquote>⚠️ <strong>The single most important limitation:</strong> Scheduled tasks only run while <strong>your computer is awake AND Claude Desktop is open</strong>. If your machine is asleep at 9 AM Monday, the task is skipped and runs the next time you open the app. Turn on <strong>Keep awake</strong> (top-right of the Scheduled panel) and adjust your sleep settings if you want it to fire reliably.</blockquote>
+<hr>
+<h2>🛠️ Step-by-Step Setup</h2>
+<details><summary>&lt;strong&gt;Step 1 — Open Cowork in the Desktop app&lt;/strong&gt;</summary><div class="details-body"><ol><li>Open the <strong>Claude Desktop</strong> app.</li><li>At the top, you'll see tabs: <strong>Chat · Cowork · Code</strong>. Click <strong>Cowork</strong>.</li><li>The left sidebar shows: New task, Search, Scheduled, Dispatch, Ideas, Customize, Projects.</li></ol><p><em>📸 Screenshot placeholder: Desktop app with the Cowork tab highlighted</em></p>
+</div></details>
+<details><summary>&lt;strong&gt;Step 2 — Install Claude for Chrome&lt;/strong&gt;</summary><div class="details-body"><ol><li>Go to the Chrome Web Store and search for <strong>&quot;Claude&quot;</strong> (or use the link in the Quick Links section below).</li><li>Click <strong>Add to Chrome</strong> and confirm.</li><li>Pin it: click the puzzle-piece icon in your toolbar → click the thumbtack next to <strong>Claude</strong>.</li><li>Grant the permissions it asks for so Claude can read and act on pages.</li><li>In Claude Desktop, enable <strong>Claude in Chrome as a connector</strong> so Cowork can drive the browser.</li></ol><blockquote>This extension is what lets Claude actually scroll and read TikTok/Instagram. Without it, Cowork can't see the feeds.</blockquote>
+<p><em>📸 Screenshot placeholder: Chrome extension pinned + permission dialog</em></p>
+</div></details>
+<details><summary>&lt;strong&gt;Step 3 — Log into your social accounts in Chrome&lt;/strong&gt;</summary><div class="details-body"><p>In the <strong>same Chrome profile</strong> the extension is installed on:</p>
+<ol><li>Open <code>tiktok.com</code> and log in.</li><li>Open <code>instagram.com</code> and log in.</li></ol><p>This matters a lot. Logged-out TikTok and Instagram show stripped-down feeds, so the agent won't see your real &quot;For You&quot; / niche content unless you're signed in.</p>
+</div></details>
+<details><summary>&lt;strong&gt;Step 4 — Create the scheduled task&lt;/strong&gt;</summary><div class="details-body"><p><strong>Option A (easiest):</strong></p>
+<ol><li>Click <strong>Scheduled</strong> in the left sidebar → <strong>+ New task</strong> (upper right).</li><li>Fill in the modal:</li><li>Click <strong>Save</strong>.</li></ol><p><strong>Option B (via command):</strong></p>
+<ol><li>Start a new Cowork task, paste the Master Prompt, and run it once to confirm it works.</li><li>Type <code>/schedule</code> in the chat input and set it to Weekly / Monday / 9 AM.</li></ol><blockquote>💡 <strong>Run it manually once first.</strong> Don't wait until Monday to find out something's broken. Run the prompt on demand, watch what Claude does, fix the prompt, then schedule it.</blockquote>
+<p><em>📸 Screenshot placeholder: Create scheduled task modal with weekly/Monday/9AM</em></p>
+</div></details>
+<hr>
+<h2>📋 The Master Prompt (Copy-Paste)</h2>
+<blockquote>Replace the <strong>[BRACKETED]</strong> parts with your details before saving. This is the prompt that goes in the scheduled task.</blockquote>
+<pre><code class="language-javascript">You are my content strategist. Use Claude for Chrome to do real browser research, 
+then save a content calendar to Notion. Work autonomously and do not stop to 
+ask me questions — make reasonable assumptions and note them in the output.
+
+MY DETAILS
+- Niche / topic: [e.g. AI productivity tips for creators]
+- My Instagram handle: [@yourhandle]
+- My TikTok handle: [@yourhandle]
+- Target audience: [e.g. solopreneurs and small business owners]
+- My goal: [e.g. grow followers + drive comments]
+- Posting capacity: [e.g. 1 post/day, mix of Reels and carousels]
+
+STEP 1 — STUDY WHAT'S WORKING (TikTok + Instagram)
+Using Claude for Chrome, browse TikTok and Instagram. Search my niche hashtags and 
+keywords. Identify 10-15 top-performing posts/Reels from the last ~30 days (high 
+views/likes/comments relative to the account size). For each, capture:
+- The hook (first line / first 3 seconds)
+- The format (talking head, carousel, listicle, tutorial, skit, etc.)
+- The topic/angle
+- Why it likely performed well
+Look for repeating PATTERNS across them, not just one-offs.
+
+STEP 2 — ANALYZE MY ACCOUNT
+Visit my Instagram and TikTok profiles. Review my recent posts. Identify:
+- My current best-performing content and why
+- Content gaps (formats/topics that work in my niche but I'm not doing)
+- Weak spots (weak hooks, inconsistent posting, low-engagement formats)
+
+STEP 3 — BUILD THE CALENDAR
+Cross-reference the viral patterns with my account's gaps. Build a 7-day content 
+calendar (Mon–Sun). For EACH day include:
+- Content type / format
+- Title / concept
+- Hook (the exact opening line)
+- Outline (3-5 beats or bullet points)
+- Caption (ready to paste, with a CTA)
+- 5-8 relevant hashtags
+Prioritize ideas that close my biggest gaps and ride current niche trends.
+
+STEP 4 — SAVE THE OUTPUT
+Using the Notion connector, create a new Notion page titled
+&quot;Content Calendar — {date}&quot; inside my &quot;Content Calendars&quot; page/database
+(create that parent if it doesn't exist yet).
+Start the page with a 5-bullet &quot;What's trending in my niche this week&quot; summary,
+then the day-by-day calendar as a table, then a short &quot;Assumptions I made&quot; note.</code></pre>
+<hr>
+<h2>🧪 Testing Checklist (Do This Before Trusting the Schedule)</h2>
+<hr>
+<h2>🔧 Troubleshooting &amp; Honest Expectations</h2>
+<table>
+<tr><td>Problem</td><td>Likely cause / fix</td></tr>
+<tr><td>Task didn't run Monday</td><td>Computer was asleep or Desktop was closed. Turn on <strong>Keep awake</strong>; it'll re-run on next open</td></tr>
+<tr><td>Claude sees almost nothing on the feeds</td><td>Not logged in, or platform blocked the agent. Log in first; let it scroll slowly</td></tr>
+<tr><td>Browsing is slow / gets stuck</td><td>Social feeds are infinite-scroll and anti-bot heavy — see fallback below</td></tr>
+<tr><td>No Notion page was created</td><td>Confirm the <strong>Notion connector</strong> is connected in Desktop and the parent page/database exists</td></tr>
+<tr><td>Output is generic</td><td>Add more specifics to MY DETAILS, and name exact competitor accounts to study</td></tr>
+</table>
+<blockquote>💡 <strong>Reality check for your test:</strong> TikTok and Instagram are the <em>hardest</em> sites to automate — they use infinite scroll, lazy loading, and bot detection. Browser research here is real but can be flaky run-to-run. If it struggles, use the fallback below; it's more reliable and still gives you 80% of the value.</blockquote>
+<details><summary>🛡️ Fallback prompt (more reliable if live browsing is flaky)</summary><div class="details-body"><p>Instead of relying purely on live scrolling, point Claude at specific creators and let it study a handful of profiles directly:</p>
+<pre><code class="language-javascript">Using Claude for Chrome, visit these creator profiles in my niche one at a time:
+[@competitor1], [@competitor2], [@competitor3] on both TikTok and Instagram.
+For each, read their last 9-12 posts and note the hook, format, and engagement.
+Then visit my profile [@yourhandle], compare, and build the 7-day calendar 
+exactly as specified, saving it as a Notion page in my &quot;Content Calendars&quot; location.
+If a page won't load or blocks you, skip it and continue with the others.</code></pre>
+<p>Naming exact accounts is far more reliable than asking it to &quot;find&quot; viral content, because it skips the unpredictable discovery/search step.</p>
+</div></details>
+<hr>
+<h2>🚀 Make It Even Better</h2>
+<ul><li><strong>Prefer a local file or Google Drive?</strong> Swap Step 4 to save a Markdown file to <code>~/Documents/ContentCalendar/</code>, or add the Google Drive connector and point it there instead.</li><li><strong>Add a Slack/email ping</strong> at the end: <code>&quot;...then send me a one-line summary so I know it ran.&quot;</code></li><li><strong>Audit trail:</strong> end the prompt with <code>&quot;...and write a what-changed.md noting what trends shifted vs last week.&quot;</code></li><li><strong>Tighten the niche</strong> every few weeks as you learn which formats actually convert for you.</li></ul><hr>
+<h2>🔗 Quick Links</h2>
+<ul><li>Claude for Chrome (Chrome Web Store): <a href="https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn" target="_blank" rel="noopener">https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn</a></li><li>Get started with Claude in Chrome: <a href="https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome" target="_blank" rel="noopener">https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome</a></li><li>Schedule recurring tasks in Cowork: <a href="https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork" target="_blank" rel="noopener">https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork</a></li><li>Claude for Chrome overview: <a href="https://claude.com/claude-for-chrome" target="_blank" rel="noopener">https://claude.com/claude-for-chrome</a></li></ul>
+    </article>
+  </main>
+
+  <footer class="border-t border-[#1E2D42]" style="background:#131C2B;">
+    <div class="max-w-6xl mx-auto px-6 pt-8 pb-4 flex flex-col md:flex-row items-center justify-between gap-5">
+      <div class="flex items-center gap-2.5">
+        <img src="nikhil2.png" alt="Nikhil" class="w-6 h-6 rounded-full object-cover border border-[#2E4060]" style="object-position:center 35%;">
+        <span class="text-sm font-semibold text-white">Nikhil</span>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-[#8A9AB0]">
+        <a href="index.html" class="hover:text-white transition-colors">Home</a>
+        <a href="resources.html" class="hover:text-white transition-colors">Resources</a>
+        <a href="ai-solutions.html" class="hover:text-white transition-colors">Consulting</a>
+        <a href="partnerships.html" class="hover:text-white transition-colors">Partnerships</a>
+        <a href="newsletter.html" class="hover:text-white transition-colors">Newsletter</a>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pb-6 mt-2 flex items-center justify-between">
+      <p class="text-[#6F8298] text-xs">© 2026 Nikhil Naglapur</p>
+      <p class="text-[#6F8298] text-xs">Email: <a href="mailto:niknaglapur@gmail.com" class="text-[#00B4FF] hover:underline">niknaglapur@gmail.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>

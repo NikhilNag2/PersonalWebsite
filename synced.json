@@ -1,30 +1,229 @@
 {
-  "36a2539e-3629-8194-8435-dd035ffe38b8": { "title": "Graphify — Slash Claude Code Token Usage with a Knowledge Graph", "filename": "graphify.html", "category": "prompts", "syncedAt": "2026-05-30T00:00:00.000Z", "createdAt": "2026-05-30T17:18:19.000Z" },
-  "3612539e-3629-8189-9fa0-e9cd39ab9bdc": { "title": "15 Claude Cheat Codes That Actually Work", "filename": "claude-cheat-codes.html", "category": "prompts", "note": "pre-existing" },
-  "35b2539e-3629-8135-a230-fbe232919569": { "title": "Prompt Master — Generate Any Prompt Instantly Inside Claude", "filename": "scripts/the-prompt-master.html", "category": "skills", "note": "pre-existing" },
-  "35b2539e-3629-8197-97e7-cd24a59b82f5": { "title": "Claude Code Routines – Setup Guide", "filename": "scripts/claude-code-routines.html", "category": "workflows", "note": "pre-existing" },
-  "35b2539e-3629-819d-8095-d60aa5055977": { "title": "Claude Finance Agents — 3 Tools That Collapse the Retail vs Institutional Gap", "filename": "scripts/claude-finance-agents.html", "category": "tools", "note": "pre-existing" },
-  "3552539e-3629-81f8-a465-c7ad524fb678": { "title": "5 Free Certifications Every Student Needs on Their Resume", "filename": "scripts/free-certifications.html", "category": "learning", "note": "pre-existing" },
-  "3482539e-3629-814f-8796-f2493e505f05": { "title": "The Claude Council — Multi-Agent Prompt System", "filename": "claude-council-prompt.html", "category": "prompts", "note": "pre-existing" },
-  "3522539e-3629-81a7-b10a-ebffafa5c481": { "title": "Claude Language Tutor — Project Setup", "filename": "scripts/claude-language-tutor.html", "category": "skills", "note": "pre-existing" },
-  "3522539e-3629-818a-935c-d56656b21c63": { "title": "STRICT Fitness Coach — Claude Skill", "filename": "scripts/no-excuses-fitness-coach.html", "category": "skills", "note": "pre-existing" },
-  "3522539e-3629-8162-bc4f-de7fd3851bab": { "title": "How to Give Claude Perfect Memory — 3 Layer System", "filename": "claude-memory-system.html", "category": "learning", "note": "pre-existing" },
-  "3482539e-3629-8161-8301-e4b7e215ca76": { "title": "Claude Just Killed Marketing Agencies — 29 Free Skills", "filename": "marketing-skills.html", "category": "skills", "note": "pre-existing" },
-  "3482539e-3629-81b5-88f0-d0716f506bbe": { "title": "Claude Design — Quick Start Guide + 5 Prompts", "filename": "claude-design-guide.html", "category": "tools", "note": "pre-existing" },
-  "3202539e-3629-8049-bce1-d94537cf934f": { "title": "$380B Marketing Workflow", "filename": "claude-marketing-agency.html", "category": "skills", "note": "pre-existing" },
-  "3492539e-3629-8169-ad5f-f6921dc0a967": { "title": "Animated Short-Form Videos with Claude Code + Remotion", "filename": "scripts/claude-can-animate.html", "category": "workflows", "note": "pre-existing" },
-  "3482539e-3629-819c-9740-fc4bc937ad59": { "title": "Claude Secret Codes — 100 Prompt Shortcuts", "filename": "prompt-shortcuts.html", "category": "prompts", "note": "pre-existing" },
-  "3482539e-3629-81a7-a29e-cc619d6b7727": { "title": "Claude Code Can Now Redesign Rooms — 2026 Edition", "filename": "scripts/claude-interior-designer.html", "category": "tools", "note": "pre-existing" },
-  "3482539e-3629-8144-8854-cc26fed9fa25": { "title": "ChatGPT Reveal Prompts — What It Actually Knows About You", "filename": "scripts/chatgpt-reveal.html", "category": "prompts", "note": "pre-existing" },
-  "3482539e-3629-81f8-bddc-e7339301348b": { "title": "Remotion Setup Guide — Claude Code Video Skill", "filename": "remotion-setup.html", "category": "workflows", "note": "pre-existing" },
-  "3212539e-3629-80ea-8b0c-eed79984719e": { "title": "Viral Prompts Library", "filename": "viral-prompts.html", "category": "prompts", "note": "pre-existing" },
-  "3442539e-3629-8066-ae70-d05c15b6530a": { "title": "Claude Guide w/ Templates", "filename": "claude-beginners-guide.html", "category": "learning", "note": "pre-existing" },
-  "33a2539e-3629-802e-a8c6-ca516053765e": { "title": "10 Things to Stop Hitting Claude's Rate Limits", "note": "pre-existing, not on site" },
-  "3392539e-3629-8035-8429-cf7cb649dcc3": { "title": "Resume Prompt", "note": "pre-existing, not on site" },
-  "3352539e-3629-8099-860b-d8e0f0cf8e07": { "title": "How To Set Up Automated Carousels", "note": "pre-existing, not on site" },
-  "3242539e-3629-80e4-936c-ea3df1ca7ef7": { "title": "Truth Prompt", "note": "pre-existing, not on site" },
-  "35d2539e-3629-8191-950a-c1365a1a770a": { "title": "Day 19 – 20 Free Student Subscriptions", "note": "pre-existing, not on site" },
-  "35d2539e-3629-8147-983c-e21aebee4c0e": { "title": "Day 18 – Claude Chat vs Cowork vs Code vs Design", "note": "pre-existing, not on site" },
-  "3632539e-3629-8158-ab4e-cf3d49f49d2d": { "title": "Top Claude Code Design Skills – Full Setup Guide", "filename": "top-claude-code-design-skills.html", "category": "skills", "syncedAt": "2026-05-17T00:00:00.000Z" },
-  "3632539e-3629-8185-a056-d92e9a779f61": { "title": "AI Outfit Picker Skill – Setup Guide", "filename": "ai-outfit-picker-skill.html", "category": "skills", "syncedAt": "2026-05-17T00:00:00.000Z" }
+  "36a2539e-3629-8194-8435-dd035ffe38b8": {
+    "title": "Graphify — Slash Claude Code Token Usage with a Knowledge Graph",
+    "filename": "graphify.html",
+    "category": "prompts",
+    "syncedAt": "2026-05-30T00:00:00.000Z",
+    "createdAt": "2026-05-30T17:18:19.000Z"
+  },
+  "3612539e-3629-8189-9fa0-e9cd39ab9bdc": {
+    "title": "15 Claude Cheat Codes That Actually Work",
+    "filename": "claude-cheat-codes.html",
+    "category": "prompts",
+    "note": "pre-existing"
+  },
+  "35b2539e-3629-8135-a230-fbe232919569": {
+    "title": "Prompt Master — Generate Any Prompt Instantly Inside Claude",
+    "filename": "scripts/the-prompt-master.html",
+    "category": "skills",
+    "note": "pre-existing"
+  },
+  "35b2539e-3629-8197-97e7-cd24a59b82f5": {
+    "title": "Claude Code Routines – Setup Guide",
+    "filename": "scripts/claude-code-routines.html",
+    "category": "workflows",
+    "note": "pre-existing"
+  },
+  "35b2539e-3629-819d-8095-d60aa5055977": {
+    "title": "Claude Finance Agents — 3 Tools That Collapse the Retail vs Institutional Gap",
+    "filename": "scripts/claude-finance-agents.html",
+    "category": "tools",
+    "note": "pre-existing"
+  },
+  "3552539e-3629-81f8-a465-c7ad524fb678": {
+    "title": "5 Free Certifications Every Student Needs on Their Resume",
+    "filename": "scripts/free-certifications.html",
+    "category": "learning",
+    "note": "pre-existing"
+  },
+  "3482539e-3629-814f-8796-f2493e505f05": {
+    "title": "The Claude Council — Multi-Agent Prompt System",
+    "filename": "claude-council-prompt.html",
+    "category": "prompts",
+    "note": "pre-existing"
+  },
+  "3522539e-3629-81a7-b10a-ebffafa5c481": {
+    "title": "Claude Language Tutor — Project Setup",
+    "filename": "scripts/claude-language-tutor.html",
+    "category": "skills",
+    "note": "pre-existing"
+  },
+  "3522539e-3629-818a-935c-d56656b21c63": {
+    "title": "STRICT Fitness Coach — Claude Skill",
+    "filename": "scripts/no-excuses-fitness-coach.html",
+    "category": "skills",
+    "note": "pre-existing"
+  },
+  "3522539e-3629-8162-bc4f-de7fd3851bab": {
+    "title": "How to Give Claude Perfect Memory — 3 Layer System",
+    "filename": "claude-memory-system.html",
+    "category": "learning",
+    "note": "pre-existing"
+  },
+  "3482539e-3629-8161-8301-e4b7e215ca76": {
+    "title": "Claude Just Killed Marketing Agencies — 29 Free Skills",
+    "filename": "marketing-skills.html",
+    "category": "skills",
+    "note": "pre-existing"
+  },
+  "3482539e-3629-81b5-88f0-d0716f506bbe": {
+    "title": "Claude Design — Quick Start Guide + 5 Prompts",
+    "filename": "claude-design-guide.html",
+    "category": "tools",
+    "note": "pre-existing"
+  },
+  "3202539e-3629-8049-bce1-d94537cf934f": {
+    "title": "$380B Marketing Workflow",
+    "filename": "claude-marketing-agency.html",
+    "category": "skills",
+    "note": "pre-existing"
+  },
+  "3492539e-3629-8169-ad5f-f6921dc0a967": {
+    "title": "Animated Short-Form Videos with Claude Code + Remotion",
+    "filename": "scripts/claude-can-animate.html",
+    "category": "workflows",
+    "note": "pre-existing"
+  },
+  "3482539e-3629-819c-9740-fc4bc937ad59": {
+    "title": "Claude Secret Codes — 100 Prompt Shortcuts",
+    "filename": "prompt-shortcuts.html",
+    "category": "prompts",
+    "note": "pre-existing"
+  },
+  "3482539e-3629-81a7-a29e-cc619d6b7727": {
+    "title": "Claude Code Can Now Redesign Rooms — 2026 Edition",
+    "filename": "scripts/claude-interior-designer.html",
+    "category": "tools",
+    "note": "pre-existing"
+  },
+  "3482539e-3629-8144-8854-cc26fed9fa25": {
+    "title": "ChatGPT Reveal Prompts — What It Actually Knows About You",
+    "filename": "scripts/chatgpt-reveal.html",
+    "category": "prompts",
+    "note": "pre-existing"
+  },
+  "3482539e-3629-81f8-bddc-e7339301348b": {
+    "title": "Remotion Setup Guide — Claude Code Video Skill",
+    "filename": "remotion-setup.html",
+    "category": "workflows",
+    "note": "pre-existing"
+  },
+  "3212539e-3629-80ea-8b0c-eed79984719e": {
+    "title": "Viral Prompts Library",
+    "filename": "viral-prompts.html",
+    "category": "prompts",
+    "note": "pre-existing"
+  },
+  "3442539e-3629-8066-ae70-d05c15b6530a": {
+    "title": "Claude Guide w/ Templates",
+    "filename": "claude-beginners-guide.html",
+    "category": "learning",
+    "note": "pre-existing"
+  },
+  "33a2539e-3629-802e-a8c6-ca516053765e": {
+    "title": "10 Things to Stop Hitting Claude's Rate Limits",
+    "note": "pre-existing, not on site"
+  },
+  "3392539e-3629-8035-8429-cf7cb649dcc3": {
+    "title": "Resume Prompt",
+    "note": "pre-existing, not on site"
+  },
+  "3352539e-3629-8099-860b-d8e0f0cf8e07": {
+    "title": "How To Set Up Automated Carousels",
+    "note": "pre-existing, not on site"
+  },
+  "3242539e-3629-80e4-936c-ea3df1ca7ef7": {
+    "title": "Truth Prompt",
+    "note": "pre-existing, not on site"
+  },
+  "35d2539e-3629-8191-950a-c1365a1a770a": {
+    "title": "Day 19 – 20 Free Student Subscriptions",
+    "note": "pre-existing, not on site"
+  },
+  "35d2539e-3629-8147-983c-e21aebee4c0e": {
+    "title": "Day 18 – Claude Chat vs Cowork vs Code vs Design",
+    "note": "pre-existing, not on site"
+  },
+  "3632539e-3629-8158-ab4e-cf3d49f49d2d": {
+    "title": "Top Claude Code Design Skills – Full Setup Guide",
+    "filename": "top-claude-code-design-skills.html",
+    "category": "skills",
+    "syncedAt": "2026-05-17T00:00:00.000Z"
+  },
+  "3632539e-3629-8185-a056-d92e9a779f61": {
+    "title": "AI Outfit Picker Skill – Setup Guide",
+    "filename": "ai-outfit-picker-skill.html",
+    "category": "skills",
+    "syncedAt": "2026-05-17T00:00:00.000Z"
+  },
+  "3712539e-3629-8141-905e-c8956bc6cca9": {
+    "title": "Claude for Small Business — Prompts & Workflow Guide",
+    "filename": "claude-for-small-business-prompts-workflow-guide.html",
+    "category": "prompts",
+    "syncedAt": "2026-06-01T15:30:53.742Z",
+    "createdAt": "2026-05-31T21:50:00.000Z"
+  },
+  "3712539e-3629-8130-bb92-cddd471ec2d1": {
+    "title": "Anthropic's Claude Cowork Sales Playbook — 3 Plays from the Head of Sales",
+    "filename": "anthropics-claude-cowork-sales-playbook-3-plays-from-the-hea.html",
+    "category": "prompts",
+    "syncedAt": "2026-06-01T15:30:55.109Z",
+    "createdAt": "2026-05-31T21:41:00.000Z"
+  },
+  "3712539e-3629-81af-b409-f1e90f1a8bb7": {
+    "title": "Automated Weekly Content Calendar — Setup Guide & Prompts",
+    "filename": "automated-weekly-content-calendar-setup-guide-prompts.html",
+    "category": "prompts",
+    "syncedAt": "2026-06-01T15:30:57.323Z",
+    "createdAt": "2026-05-31T21:18:00.000Z"
+  },
+  "3712539e-3629-81a8-93cd-d19e7c54db6b": {
+    "title": "5 Free AI Certifications Resource Guide",
+    "filename": "5-free-ai-certifications-resource-guide.html",
+    "category": "prompts",
+    "syncedAt": "2026-06-01T15:30:59.028Z",
+    "createdAt": "2026-05-31T21:02:00.000Z"
+  },
+  "36a2539e-3629-812e-b2c7-c2a9a0228ba0": {
+    "title": "3 Free Microsoft & LinkedIn AI Certifications That Pay Off on Your Resume",
+    "filename": "3-free-microsoft-linkedin-ai-certifications-that-pay-off-on.html",
+    "category": "prompts",
+    "syncedAt": "2026-06-01T15:31:02.104Z",
+    "createdAt": "2026-05-24T06:57:00.000Z"
+  },
+  "36a2539e-3629-81ec-912a-daf6c98f7481": {
+    "title": "Claude Co-Work: Automated Weekly Content Calendar",
+    "filename": "claude-co-work-automated-weekly-content-calendar.html",
+    "category": "prompts",
+    "syncedAt": "2026-06-01T15:31:05.671Z",
+    "createdAt": "2026-05-24T06:09:00.000Z"
+  },
+  "3552539e-3629-813d-a278-cf4c7727f443": {
+    "title": "Day 19 – 10 Claude Artifacts to Build This Weekend",
+    "filename": "day-19-10-claude-artifacts-to-build-this-weekend.html",
+    "category": "prompts",
+    "syncedAt": "2026-06-01T15:31:07.666Z",
+    "createdAt": "2026-05-03T16:58:00.000Z"
+  },
+  "33b2539e-3629-80a6-86b5-c8cf4f98462d": {
+    "title": "Switching Memory from ChatGPT to Claude",
+    "filename": "switching-memory-from-chatgpt-to-claude.html",
+    "category": "prompts",
+    "syncedAt": "2026-06-01T15:31:07.941Z",
+    "createdAt": "2026-04-07T00:37:00.000Z"
+  },
+  "3302539e-3629-80d4-8d28-df6df89d3ed8": {
+    "title": "Haircut Prompt",
+    "filename": "haircut-prompt.html",
+    "category": "prompts",
+    "syncedAt": "2026-06-01T15:31:08.375Z",
+    "createdAt": "2026-03-27T00:56:00.000Z"
+  },
+  "3242539e-3629-8031-94b5-c5a0926155cd": {
+    "title": "FREE/DISCOUNTED TOOLS LIST",
+    "filename": "freediscounted-tools-list.html",
+    "category": "prompts",
+    "syncedAt": "2026-06-01T15:31:09.127Z",
+    "createdAt": "2026-03-15T19:49:00.000Z"
+  }
 }
