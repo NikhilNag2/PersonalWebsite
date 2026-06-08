@@ -225,5 +225,19 @@
     "category": "prompts",
     "syncedAt": "2026-06-01T15:31:09.127Z",
     "createdAt": "2026-03-15T19:49:00.000Z"
+  },
+  "3792539e-3629-8112-a6c6-f36ad43df5c0": {
+    "title": "Connect Claude to Every Social Media Platform with Metricool",
+    "filename": "connect-claude-to-every-social-media-platform-with-metricool.html",
+    "category": "prompts",
+    "syncedAt": "2026-06-08T13:13:41.163Z",
+    "createdAt": "2026-06-08T12:12:00.000Z"
+  },
+  "3792539e-3629-81b6-b31d-c77649af80b4": {
+    "title": "How to Stop Hitting Your Claude Weekly Limit",
+    "filename": "how-to-stop-hitting-your-claude-weekly-limit.html",
+    "category": "prompts",
+    "syncedAt": "2026-06-08T13:13:43.933Z",
+    "createdAt": "2026-06-08T12:08:00.000Z"
   }
 }
