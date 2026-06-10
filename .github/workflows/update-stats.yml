@@ -1,0 +1,38 @@
+name: Update Site Stats
+
+on:
+  schedule:
+    - cron: '0 10 * * *'   # daily at 10 AM UTC
+  workflow_dispatch:        # allow manual trigger from GitHub UI
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run stats updater
+        env:
+          FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
+        run: node update-stats.js
+
+      - name: Commit and push if anything changed
+        run: |
+          git config user.name  "stats-sync[bot]"
+          git config user.email "stats-sync[bot]@users.noreply.github.com"
+          git add partnerships.html about.html
+          if git diff --staged --quiet; then
+            echo "Stats unchanged — nothing to commit."
+          else
+            git commit -m "chore: auto-update site stats from Beacons"
+            git push
+          fi
