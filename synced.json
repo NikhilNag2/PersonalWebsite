@@ -260,5 +260,19 @@
     "category": "prompts",
     "syncedAt": "2026-06-15T15:22:43.590Z",
     "createdAt": "2026-06-15T02:32:00.000Z"
+  },
+  "3812539e-3629-8162-8196-d1d844aaafa3": {
+    "title": "5 Things to Do the Second You Open Claude Cowork",
+    "filename": "5-things-to-do-the-second-you-open-claude-cowork.html",
+    "category": "prompts",
+    "syncedAt": "2026-06-16T14:23:01.135Z",
+    "createdAt": "2026-06-16T00:38:00.000Z"
+  },
+  "3812539e-3629-810d-9e68-fa13c9621bcf": {
+    "title": "The Claude Code Health Bar That Tracks Your Context in Real Time",
+    "filename": "the-claude-code-health-bar-that-tracks-your-context-in-real.html",
+    "category": "prompts",
+    "syncedAt": "2026-06-16T14:23:05.054Z",
+    "createdAt": "2026-06-16T00:37:00.000Z"
   }
 }

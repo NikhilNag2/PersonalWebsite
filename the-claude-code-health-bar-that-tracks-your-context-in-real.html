@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="favicon.png"><title>The Claude Code Health Bar That Tracks Your Context in Real Time — Nikhil Naglapur</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={theme:{extend:{fontFamily:{serif:['Outfit','system-ui','sans-serif'],sans:['Outfit','system-ui','sans-serif']}}}}</script><style>body{background:#131C2B;color:#F2F2F2}nav{backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background-color:rgba(19,28,43,.92)!important}.nav-link{position:relative;color:#777;transition:color .18s ease}.nav-link:hover,.nav-link.active{color:#F2F2F2}.nav-link::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:#00B4FF;transition:width .22s ease}.nav-link:hover::after{width:100%}.btn-blue{background:#00B4FF;color:#fff;transition:all .18s ease}.btn-blue:hover{background:#0090CC;box-shadow:0 0 24px rgba(0,180,255,.4);transform:translateY(-1px)}.content h1{font-size:2.1rem;line-height:1.1;font-weight:800;color:#fff;margin:2.5rem 0 1rem}.content h2{font-size:1.55rem;line-height:1.2;font-weight:750;color:#fff;margin:2.35rem 0 .85rem}.content h3{font-size:1.15rem;font-weight:700;color:#E8E8E8;margin:1.65rem 0 .6rem}.content p,.content li{color:#9A9A9A;line-height:1.78;font-size:15px}.content p{margin-bottom:1rem}.content strong{color:#DCDCDC;font-weight:700}.content em{color:#C8C8C8}.content ul,.content ol{margin:0 0 1.2rem 1.35rem}.content ul{list-style:disc}.content ol{list-style:decimal}.content li{margin:.35rem 0}.content hr{border:0;border-top:1px solid #1E2D42;margin:2rem 0}.content blockquote{border-left:3px solid #00B4FF;background:rgba(0,180,255,.06);border-radius:0 8px 8px 0;padding:1rem 1.15rem;margin:1.4rem 0;color:#CFCFCF;line-height:1.7}.content pre{background:#142540;border:1px solid #2E4060;border-radius:8px;padding:1rem;overflow:auto;margin:1.25rem 0;color:#D6D6D6;font-size:14px;line-height:1.65}.content code{background:#162A45;border:1px solid #2E4060;border-radius:5px;padding:.1rem .28rem;color:#E6E6E6;font-size:.92em}.content pre code{background:transparent;border:0;padding:0;color:inherit}.content table{width:100%;border-collapse:collapse;margin:1.4rem 0;border:1px solid #2A3A52;border-radius:8px;overflow:hidden;display:table}.content tr{border-bottom:1px solid #2A3A52}.content tr:last-child{border-bottom:0}.content td{border-right:1px solid #2A3A52;padding:.8rem;vertical-align:top;color:#999;font-size:14px;line-height:1.55}.content td:last-child{border-right:0}.content tr:first-child td{color:#F2F2F2;font-weight:700;background:#142540}.content details{border:1px solid #2A3A52;border-radius:8px;margin:1rem 0;background:#122238}.content summary{cursor:pointer;padding:1rem;color:#F2F2F2;font-weight:650;list-style:none}.content summary::-webkit-details-marker{display:none}.content summary::before{content:"+ ";color:#00B4FF}.content details[open] summary::before{content:"− ";color:#00B4FF}.content .details-body{padding:0 1rem 1rem}@media(max-width:640px){.content table{display:block;overflow-x:auto}.content h1{font-size:1.7rem}}</style></head>
+<body class="font-sans">
+  <nav class="sticky top-0 z-50 border-b border-[#1E2D42]">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <img src="nikhil2.png" alt="Nikhil" class="w-8 h-8 rounded-full object-cover border border-[#2E4060]" style="object-position:center 35%;">
+        <span class="font-semibold text-sm text-white">Nikhil</span>
+      </a>
+      <div class="hidden md:flex items-center gap-7 text-sm">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="resources.html" class="nav-link active">Resources</a>
+        <a href="ai-solutions.html" class="nav-link">Consulting</a>
+        <a href="partnerships.html" class="nav-link">Partnerships</a>
+        <a href="newsletter.html" class="nav-link">Newsletter</a>
+      </div>
+      <a href="newsletter.html#newsletter-signup" class="btn-blue text-sm font-semibold px-5 py-2.5 rounded-full">Sign up to newsletter</a>
+    </div>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-6 py-14">
+    <a href="resources.html" class="inline-flex items-center gap-1.5 text-[#00B4FF] text-sm font-medium mb-10 hover:underline">← Back to Resources</a>
+    <div class="flex items-center gap-2.5 mb-4">
+      <span class="w-2 h-2 rounded-full bg-[#00B4FF]" style="box-shadow:0 0 8px rgba(0,180,255,.8);"></span>
+      <p class="text-[#00B4FF] text-xs font-semibold uppercase tracking-[0.18em]">Prompts</p>
+    </div>
+    <h1 class="font-serif text-4xl md:text-5xl font-bold leading-[1.08] mb-10 text-white">The Claude Code Health Bar That Tracks Your Context in Real Time</h1>
+
+    <article class="content">
+      <p>Stop interrupting your own builds to ask &quot;where am I?&quot; This guide turns the bottom of your terminal into a live status line — folder, branch, model, and context — so you never break flow again.</p>
+<blockquote>💡 Think of it like a video game HUD. Your health, your map, your loadout — all visible at a glance, no menus required.</blockquote>
+<hr>
+<h2>🧭 Overview</h2>
+<p>Every time you type <code>/status</code>, <code>/usage</code>, or <code>/model</code>, you're stopping mid-build just to check your bearings. That's friction. A <strong>status line</strong> puts all the critical agent metrics in one fixed spot so they're impossible to miss.</p>
+<h3>What goes on your health bar</h3>
+<table>
+<tr><td>🧩 Metric</td><td>Why it matters</td></tr>
+<tr><td>📁 <strong>Current folder</strong></td><td>Know exactly where your agent is working</td></tr>
+<tr><td>🌿 <strong>Git branch</strong></td><td>Avoid committing to the wrong branch</td></tr>
+<tr><td>🤖 <strong>Model name</strong></td><td>Confirm you're on the right model for the job</td></tr>
+<tr><td>📊 <strong>Context %</strong></td><td>See how much context you've burned — with a progress bar</td></tr>
+</table>
+<blockquote>💡 These are the key metrics that determine <em>how</em> you should be using your agents. Burn through context blind and your agent quietly gets dumber. Watch the bar instead.</blockquote>
+<hr>
+<h2>⚙️ Step-by-Step Setup</h2>
+<h3>1️⃣ Open the status line command</h3>
+<p>In Claude Code, type:</p>
+<pre><code class="language-javascript">/statusline</code></pre>
+<p>This kicks off the setup flow where you describe what you want shown.</p>
+<h3>2️⃣ Describe your ideal health bar</h3>
+<p>Tell Claude Code exactly what to display. Paste this:</p>
+<pre><code class="language-javascript">Set up my status line to show, on a single line at the bottom of the terminal:
+- The current working folder (just the folder name, not the full path)
+- The active git branch
+- The model name I'm currently using
+- My context usage as a percentage with a visual progress bar
+
+Keep it compact and readable. Use clear separators between each item.</code></pre>
+<h3>3️⃣ Confirm the layout</h3>
+<p>Your goal is one clean line:</p>
+<pre><code class="language-javascript">📁 my-project  🌿 main  🤖 Sonnet  📊 [████░░░░] 42%</code></pre>
+<p>That's it. Folder, branch, model, context — one line, always visible.</p>
+<h3>4️⃣ Verify it sticks</h3>
+<p>Run a quick command and confirm the bar stays pinned at the bottom and updates live as you work.</p>
+<hr>
+<h2>📝 Prompt Library</h2>
+<details><summary>🎨 Minimal status line (clean + compact)</summary><div class="details-body"><pre><code class="language-javascript">Configure my status line as a single compact row showing:
+folder name | git branch | model name | context % with a short progress bar.
+Use vertical bar separators and keep it minimal — no extra labels or icons.</code></pre>
+</div></details>
+<details><summary>🚀 Power-user status line (max info)</summary><div class="details-body"><pre><code class="language-javascript">Set up a detailed status line on one line with:
+- 📁 folder name
+- 🌿 git branch (show &quot;detached&quot; if not on a branch)
+- 🤖 model name
+- 📊 context percentage with an 8-block progress bar
+- ⚠️ a warning marker when context usage exceeds 80%
+Use emoji icons before each item and keep everything on a single line.</code></pre>
+</div></details>
+<details><summary>🎯 Context-focused status line</summary><div class="details-body"><pre><code class="language-javascript">Build a status line that emphasizes context usage. Show:
+folder name and git branch on the left,
+then a prominent context progress bar with percentage on the right.
+Make the bar wider (12 blocks) so I can read remaining capacity at a glance.</code></pre>
+</div></details>
+<details><summary>🌈 Color-coded health bar</summary><div class="details-body"><pre><code class="language-javascript">Configure my status line to color-code the context bar:
+green under 50%, yellow 50–80%, red above 80%.
+Display folder, branch, and model name as well, all on one line.</code></pre>
+</div></details>
+<hr>
+<h2>📊 Before vs. After</h2>
+<table>
+<tr><td></td><td>❌ Without a status line</td><td>✅ With a status line</td></tr>
+<tr><td><strong>Check folder</strong></td><td>Type <code>/status</code>, read, scroll back</td><td>Always visible</td></tr>
+<tr><td><strong>Check branch</strong></td><td>Stop, run a git command</td><td>Always visible</td></tr>
+<tr><td><strong>Check model</strong></td><td>Type <code>/model</code> mid-build</td><td>Always visible</td></tr>
+<tr><td><strong>Check context</strong></td><td>Type <code>/usage</code>, lose focus</td><td>Live progress bar</td></tr>
+<tr><td><strong>Flow</strong></td><td>Constantly interrupted</td><td>Uninterrupted</td></tr>
+</table>
+<hr>
+<h2>🆚 Status Line vs. Slash Commands</h2>
+<table>
+<tr><td>Method</td><td>Speed</td><td>Interrupts flow?</td><td>Live updates?</td></tr>
+<tr><td>🎮 <strong>Status line</strong></td><td>Instant</td><td>No</td><td>Yes</td></tr>
+<tr><td>⌨️ <code>/status</code></td><td>Slow</td><td>Yes</td><td>No</td></tr>
+<tr><td>⌨️ <code>/usage</code></td><td>Slow</td><td>Yes</td><td>No</td></tr>
+<tr><td>⌨️ <code>/model</code></td><td>Slow</td><td>Yes</td><td>No</td></tr>
+</table>
+<blockquote>💡 Slash commands aren't useless — they're just the wrong tool for info you need <em>constantly</em>. Pin the always-on stuff to your status line and save the commands for one-off checks.</blockquote>
+<hr>
+<h2>🏆 Pro Tips</h2>
+<details><summary>💎 Keep the bar short enough to never wrap</summary><div class="details-body"><p>If your status line wraps to two lines it defeats the purpose. Use short folder names and a small progress bar (6–8 blocks) so it always fits on one row, even in a narrow terminal.</p>
+</div></details>
+<details><summary>💎 Set a context warning threshold</summary><div class="details-body"><p>Ask Claude Code to flag you when context crosses 80%. That's your cue to wrap up, summarize, or start a fresh session before quality drops.</p>
+</div></details>
+<details><summary>💎 Match the model display to your workflow</summary><div class="details-body"><p>If you switch models often, keep the model name front and center. If you rarely change it, push it to the end of the line and give context the prime real estate.</p>
+</div></details>
+<details><summary>💎 Test it on a real build, not a fresh session</summary><div class="details-body"><p>A fresh session always shows low context. Trigger the setup, then run a few real commands so you can confirm the progress bar actually moves and reads correctly under load.</p>
+</div></details>
+<hr>
+<h2>✅ Quick Recap</h2>
+<ol><li>Type <code>/statusline</code> 🎮</li><li>Tell Claude Code to show <strong>folder, branch, model, context %</strong> with a bar 📊</li><li>Confirm it's one clean line at the bottom 📌</li><li>Set a warning at 80% context ⚠️</li><li>Stop typing <code>/status</code> ever again 🚫</li></ol><blockquote>💡 One line at the bottom of your terminal. Folder, branch, model, context. That's the whole game.</blockquote>
+
+    </article>
+  </main>
+
+  <footer class="border-t border-[#1E2D42]" style="background:#131C2B;">
+    <div class="max-w-6xl mx-auto px-6 pt-8 pb-4 flex flex-col md:flex-row items-center justify-between gap-5">
+      <div class="flex items-center gap-2.5">
+        <img src="nikhil2.png" alt="Nikhil" class="w-6 h-6 rounded-full object-cover border border-[#2E4060]" style="object-position:center 35%;">
+        <span class="text-sm font-semibold text-white">Nikhil</span>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-[#8A9AB0]">
+        <a href="index.html" class="hover:text-white transition-colors">Home</a>
+        <a href="resources.html" class="hover:text-white transition-colors">Resources</a>
+        <a href="ai-solutions.html" class="hover:text-white transition-colors">Consulting</a>
+        <a href="partnerships.html" class="hover:text-white transition-colors">Partnerships</a>
+        <a href="newsletter.html" class="hover:text-white transition-colors">Newsletter</a>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pb-6 mt-2 flex items-center justify-between">
+      <p class="text-[#6F8298] text-xs">© 2026 Nikhil Naglapur</p>
+      <p class="text-[#6F8298] text-xs">Email: <a href="mailto:niknaglapur@gmail.com" class="text-[#00B4FF] hover:underline">niknaglapur@gmail.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>
