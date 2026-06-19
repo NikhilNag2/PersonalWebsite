@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="favicon.png"><title>I Built a Claude Skill That Predicts Viral Posts (200K Views Proof) — Nikhil Naglapur</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={theme:{extend:{fontFamily:{serif:['Outfit','system-ui','sans-serif'],sans:['Outfit','system-ui','sans-serif']}}}}</script><style>body{background:#131C2B;color:#F2F2F2}nav{backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background-color:rgba(19,28,43,.92)!important}.nav-link{position:relative;color:#777;transition:color .18s ease}.nav-link:hover,.nav-link.active{color:#F2F2F2}.nav-link::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:#00B4FF;transition:width .22s ease}.nav-link:hover::after{width:100%}.btn-blue{background:#00B4FF;color:#fff;transition:all .18s ease}.btn-blue:hover{background:#0090CC;box-shadow:0 0 24px rgba(0,180,255,.4);transform:translateY(-1px)}.content h1{font-size:2.1rem;line-height:1.1;font-weight:800;color:#fff;margin:2.5rem 0 1rem}.content h2{font-size:1.55rem;line-height:1.2;font-weight:750;color:#fff;margin:2.35rem 0 .85rem}.content h3{font-size:1.15rem;font-weight:700;color:#E8E8E8;margin:1.65rem 0 .6rem}.content p,.content li{color:#9A9A9A;line-height:1.78;font-size:15px}.content p{margin-bottom:1rem}.content strong{color:#DCDCDC;font-weight:700}.content em{color:#C8C8C8}.content ul,.content ol{margin:0 0 1.2rem 1.35rem}.content ul{list-style:disc}.content ol{list-style:decimal}.content li{margin:.35rem 0}.content hr{border:0;border-top:1px solid #1E2D42;margin:2rem 0}.content blockquote{border-left:3px solid #00B4FF;background:rgba(0,180,255,.06);border-radius:0 8px 8px 0;padding:1rem 1.15rem;margin:1.4rem 0;color:#CFCFCF;line-height:1.7}.content pre{background:#142540;border:1px solid #2E4060;border-radius:8px;padding:1rem;overflow:auto;margin:1.25rem 0;color:#D6D6D6;font-size:14px;line-height:1.65}.content code{background:#162A45;border:1px solid #2E4060;border-radius:5px;padding:.1rem .28rem;color:#E6E6E6;font-size:.92em}.content pre code{background:transparent;border:0;padding:0;color:inherit}.content table{width:100%;border-collapse:collapse;margin:1.4rem 0;border:1px solid #2A3A52;border-radius:8px;overflow:hidden;display:table}.content tr{border-bottom:1px solid #2A3A52}.content tr:last-child{border-bottom:0}.content td{border-right:1px solid #2A3A52;padding:.8rem;vertical-align:top;color:#999;font-size:14px;line-height:1.55}.content td:last-child{border-right:0}.content tr:first-child td{color:#F2F2F2;font-weight:700;background:#142540}.content details{border:1px solid #2A3A52;border-radius:8px;margin:1rem 0;background:#122238}.content summary{cursor:pointer;padding:1rem;color:#F2F2F2;font-weight:650;list-style:none}.content summary::-webkit-details-marker{display:none}.content summary::before{content:"+ ";color:#00B4FF}.content details[open] summary::before{content:"− ";color:#00B4FF}.content .details-body{padding:0 1rem 1rem}@media(max-width:640px){.content table{display:block;overflow-x:auto}.content h1{font-size:1.7rem}}</style></head>
+<body class="font-sans">
+  <nav class="sticky top-0 z-50 border-b border-[#1E2D42]">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <img src="nikhil2.png" alt="Nikhil" class="w-8 h-8 rounded-full object-cover border border-[#2E4060]" style="object-position:center 35%;">
+        <span class="font-semibold text-sm text-white">Nikhil</span>
+      </a>
+      <div class="hidden md:flex items-center gap-7 text-sm">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="resources.html" class="nav-link active">Resources</a>
+        <a href="ai-solutions.html" class="nav-link">Consulting</a>
+        <a href="partnerships.html" class="nav-link">Partnerships</a>
+        <a href="newsletter.html" class="nav-link">Newsletter</a>
+      </div>
+      <a href="newsletter.html#newsletter-signup" class="btn-blue text-sm font-semibold px-5 py-2.5 rounded-full">Sign up to newsletter</a>
+    </div>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-6 py-14">
+    <a href="resources.html" class="inline-flex items-center gap-1.5 text-[#00B4FF] text-sm font-medium mb-10 hover:underline">← Back to Resources</a>
+    <div class="flex items-center gap-2.5 mb-4">
+      <span class="w-2 h-2 rounded-full bg-[#00B4FF]" style="box-shadow:0 0 8px rgba(0,180,255,.8);"></span>
+      <p class="text-[#00B4FF] text-xs font-semibold uppercase tracking-[0.18em]">Prompts</p>
+    </div>
+    <h1 class="font-serif text-4xl md:text-5xl font-bold leading-[1.08] mb-10 text-white">I Built a Claude Skill That Predicts Viral Posts (200K Views Proof)</h1>
+
+    <article class="content">
+      <blockquote>💡 I built a Claude skill that predicts exactly what you need to post to go viral. I ran it on my last post and pulled <strong>200K+ views</strong> — and it did the same for my clients. This is the full breakdown of how it works and how you can build it yourself.</blockquote>
+<hr>
+<h2>🎯 Overview</h2>
+<p>This skill scrapes the top-performing content in your niche, transcribes it, analyzes the visual format, and hands you a clean report of exactly what's working right now.</p>
+<h3>What You Get 📊</h3>
+<table>
+<tr><td>Output</td><td>What It Tells You</td></tr>
+<tr><td>📝 Full transcripts</td><td>Word-for-word breakdown of every top post</td></tr>
+<tr><td>👁️ Visual analysis</td><td>How each video is shot, edited, and structured</td></tr>
+<tr><td>❤️ Like count</td><td>Raw engagement signal</td></tr>
+<tr><td>🪝 Hook</td><td>The exact opening line that stopped the scroll</td></tr>
+<tr><td>💬 Comment count</td><td>Conversation + algorithm fuel</td></tr>
+<tr><td>📈 Outlier score</td><td>How far a post overperformed vs. the account's baseline</td></tr>
+<tr><td>🎠 Format support</td><td>Works for <strong>Reels AND Carousels</strong></td></tr>
+</table>
+<blockquote>💡 The outlier score is the secret weapon — it surfaces posts that beat an account's normal performance, not just accounts that are already big.</blockquote>
+<hr>
+<h2>🧩 How It Works — The 3-Phase System</h2>
+<h3>Phase 1: Scrape &amp; Rank 🔎</h3>
+<ol><li>The skill checks your saved competitor list — <strong>or</strong> you drop in a specific list of accounts you want to scrape.</li><li>It calls <strong>Apify</strong> to pull the last week's worth of posts for each account.</li><li>A Python script ranks every post and selects the <strong>top 3 per creator</strong>.</li></ol><h3>Phase 2: Fan Out Sub-Agents 🤖</h3>
+<ul><li>Claude spins up multiple sub-agents in parallel.</li><li>Each sub-agent analyzes the <strong>visual format</strong> of a single video.</li><li>It also pulls the <strong>full transcript</strong>.</li></ul><blockquote>💡 Fanning out sub-agents is what makes this fast. Instead of analyzing one video at a time, Claude handles them all at once.</blockquote>
+<h3>Phase 3: Orchestrate &amp; Report 📄</h3>
+<ul><li>Once the sub-agents finish, the <strong>main orchestrator agent</strong> gathers all the data.</li><li>It writes up a clean <strong>HTML report</strong> with everything in one place — transcripts, hooks, scores, and visual notes.</li></ul><hr>
+<h2>⚙️ Step-by-Step Setup</h2>
+<p>&lt;details&gt;&lt;summary&gt;🛠️ Full setup walkthrough&lt;/summary&gt;</p>
+<ol><li><strong>Build your competitor list</strong> — Collect the handles of 5–15 accounts crushing it in your niche.</li><li><strong>Connect Apify</strong> — Set up an Apify account and grab your API token for the scraper actor.</li><li><strong>Configure the Claude skill</strong> — Point the skill at your competitor list and Apify connection.</li><li><strong>Set the scrape window</strong> — Default is the last 7 days; adjust as needed.</li><li><strong>Set ranking rules</strong> — Tune the Python ranking logic (likes, comments, outlier score weighting).</li><li><strong>Enable sub-agent fan-out</strong> — Allow Claude to dispatch parallel analysis agents.</li><li><strong>Choose your output</strong> — HTML report is cleanest, but you can export to Markdown too.</li><li><strong>Run it</strong> — Trigger the skill and let all three phases execute end to end.</li></ol><p>&lt;/details&gt;</p>
+<hr>
+<h2>📚 Prompt Library</h2>
+<p>Use these to build or run each phase yourself. Improved and ready to copy.</p>
+<h3>🔎 Phase 1 — Scrape &amp; Rank Prompt</h3>
+<pre><code class="language-javascript">You are a content research orchestrator.
+
+INPUT: A list of competitor account handles in my niche.
+
+TASK:
+1. For each account, call the Apify scraper to retrieve all posts
+   from the last 7 days (Reels and Carousels).
+2. For each post, capture: post URL, type (Reel/Carousel),
+   like count, comment count, posted date, and caption.
+3. Calculate an OUTLIER SCORE for each post = post engagement
+   divided by that account's median engagement over the window.
+4. Rank posts per creator by outlier score.
+5. Return the TOP 3 posts per creator as a structured list.
+
+OUTPUT: A clean table grouped by creator, sorted by outlier score.</code></pre>
+<h3>🤖 Phase 2 — Sub-Agent Analysis Prompt</h3>
+<pre><code class="language-javascript">You are a single-video analysis sub-agent.
+
+INPUT: One post (URL + type).
+
+TASK:
+1. Pull the full transcript of the video.
+2. Identify the HOOK (the first spoken or on-screen line).
+3. Analyze the VISUAL FORMAT:
+   - Shot type (talking head, b-roll, screen recording, text-on-screen)
+   - Editing pace and pattern
+   - Text/caption styling
+   - For Carousels: slide count, layout, and narrative flow
+4. Note the content structure (problem → solution, listicle,
+   story, demo, etc.).
+
+OUTPUT: A compact analysis object with transcript, hook,
+visual notes, and structure label.</code></pre>
+<h3>📄 Phase 3 — Orchestrator Report Prompt</h3>
+<pre><code class="language-javascript">You are the main orchestrator agent.
+
+INPUT: All sub-agent analysis objects.
+
+TASK:
+1. Merge every analysis into one dataset.
+2. Surface the patterns: most common hooks, dominant formats,
+   recurring structures across top performers.
+3. Generate 3-5 actionable recommendations for what I should
+   post next, based directly on the data.
+4. Render everything as a clean, well-structured HTML report
+   with sections, tables, and the raw transcripts in collapsible
+   blocks.
+
+OUTPUT: A single HTML report file.</code></pre>
+<hr>
+<h2>📊 Format Support Comparison</h2>
+<table>
+<tr><td>Feature</td><td>Reels 🎬</td><td>Carousels 🎠</td></tr>
+<tr><td>Transcript pull</td><td>✅ Audio-based</td><td>✅ Slide text-based</td></tr>
+<tr><td>Visual analysis</td><td>✅ Shot + edit pacing</td><td>✅ Layout + slide flow</td></tr>
+<tr><td>Hook detection</td><td>✅ First line</td><td>✅ First slide</td></tr>
+<tr><td>Outlier scoring</td><td>✅</td><td>✅</td></tr>
+<tr><td>Recommendation engine</td><td>✅</td><td>✅</td></tr>
+</table>
+<hr>
+<h2>🛠️ Tool Stack At a Glance</h2>
+<table>
+<tr><td>Tool</td><td>Role</td></tr>
+<tr><td>🤖 Claude</td><td>Orchestration, sub-agents, analysis, report writing</td></tr>
+<tr><td>🕷️ Apify</td><td>Scrapes posts from your competitor list</td></tr>
+<tr><td>🐍 Python script</td><td>Ranks posts + calculates outlier scores</td></tr>
+<tr><td>📄 HTML report</td><td>Final deliverable with all insights</td></tr>
+</table>
+<hr>
+<h2>💡 Pro Tips</h2>
+<p>&lt;details&gt;&lt;summary&gt;🎯 Tip 1 — Curate your competitor list ruthlessly&lt;/summary&gt;</p>
+<p>Don't just add the biggest accounts. Add accounts at <em>your</em> size that occasionally blow up. Their outliers are far more replicable than a mega-account's baseline.</p>
+<p>&lt;/details&gt;</p>
+<p>&lt;details&gt;&lt;summary&gt;📈 Tip 2 — Trust the outlier score over raw likes&lt;/summary&gt;</p>
+<p>A post with 50K likes on an account that averages 500K underperformed. A post with 20K likes on an account that averages 2K is a goldmine. Always sort by outlier score first.</p>
+<p>&lt;/details&gt;</p>
+<p>&lt;details&gt;&lt;summary&gt;🪝 Tip 3 — Study hooks as a group&lt;/summary&gt;</p>
+<p>When you see the same hook structure across multiple top performers, that's a proven pattern. Build your next post around the <em>shared</em> formula, not a single example.</p>
+<p>&lt;/details&gt;</p>
+<p>&lt;details&gt;&lt;summary&gt;⚡ Tip 4 — Re-run weekly&lt;/summary&gt;</p>
+<p>Trends move fast. A weekly scrape keeps your recommendations fresh and catches new formats before your niche saturates them.</p>
+<p>&lt;/details&gt;</p>
+<hr>
+<h2>📦 Get the Full Build</h2>
+<blockquote>💡 All the files, all the code, and the complete setup guide live inside my Skool community if you want to grab the whole thing ready to go.</blockquote>
+<p>🎁 <strong>Want a free video breakdown</strong> on exactly how this works and how to build it yourself? Comment <strong>&quot;skill&quot;</strong> and I'll send the video your way.</p>
+<p>Peace. ✌️</p>
+
+    </article>
+  </main>
+
+  <footer class="border-t border-[#1E2D42]" style="background:#131C2B;">
+    <div class="max-w-6xl mx-auto px-6 pt-8 pb-4 flex flex-col md:flex-row items-center justify-between gap-5">
+      <div class="flex items-center gap-2.5">
+        <img src="nikhil2.png" alt="Nikhil" class="w-6 h-6 rounded-full object-cover border border-[#2E4060]" style="object-position:center 35%;">
+        <span class="text-sm font-semibold text-white">Nikhil</span>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-[#8A9AB0]">
+        <a href="index.html" class="hover:text-white transition-colors">Home</a>
+        <a href="resources.html" class="hover:text-white transition-colors">Resources</a>
+        <a href="ai-solutions.html" class="hover:text-white transition-colors">Consulting</a>
+        <a href="partnerships.html" class="hover:text-white transition-colors">Partnerships</a>
+        <a href="newsletter.html" class="hover:text-white transition-colors">Newsletter</a>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pb-6 mt-2 flex items-center justify-between">
+      <p class="text-[#6F8298] text-xs">© 2026 Nikhil Naglapur</p>
+      <p class="text-[#6F8298] text-xs">Email: <a href="mailto:niknaglapur@gmail.com" class="text-[#00B4FF] hover:underline">niknaglapur@gmail.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>
