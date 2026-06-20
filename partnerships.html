@@ -60,8 +60,7 @@
     }
     .logo-item {
       flex: 0 0 auto;
-      width: 170px;
-      height: 44px;
+      height: 36px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -72,18 +71,12 @@
       transform: translateY(-2px);
     }
     .logo-item img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
+      height: 100%;
+      width: auto;
       display: block;
     }
     .logo-item img.jobright-logo {
-      transform: scale(2.25);
-      transform-origin: center;
-    }
-    .logo-item img.sofi-logo {
-      transform: scale(1.75);
-      transform-origin: center;
+      height: 24px;
     }
     @keyframes logo-scroll {
       from { transform: translateX(0); }
@@ -91,7 +84,8 @@
     }
     @media (max-width: 768px) {
       .logo-track { gap: 2.2rem; padding: 0.9rem 0; }
-      .logo-item { width: 130px; height: 36px; }
+      .logo-item { height: 28px; }
+      .logo-item img.jobright-logo { height: 13px; }
     }
     .stat-num { background: linear-gradient(135deg, #00B4FF, #7DD3FC); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     @keyframes orb-drift { 0%,100%{transform:translate(0,0)} 50%{transform:translate(20px,-15px)} }
@@ -329,7 +323,7 @@
           <div class="logo-item"><img src="assets/logos/extra.avif" alt="Partner logo"></div>
           <div class="logo-item"><img src="assets/logos/perplexity.svg" alt="Perplexity"></div>
           <div class="logo-item"><img src="assets/logos/asana.svg" alt="Asana"></div>
-          <div class="logo-item"><img class="sofi-logo" src="assets/logos/sofi.png" alt="SoFi"></div>
+          <div class="logo-item"><img src="assets/logos/sofi.png" alt="SoFi"></div>
           <div class="logo-item"><img src="assets/logos/microsoft.webp" alt="Microsoft"></div>
           <div class="logo-item"><img src="assets/logos/replit.svg" alt="Replit"></div>
           <div class="logo-item"><img src="assets/logos/airia-transparent.png" alt="Airia"></div>
@@ -337,7 +331,7 @@
           <div class="logo-item"><img src="assets/logos/extra.avif" alt="Partner logo"></div>
           <div class="logo-item"><img src="assets/logos/perplexity.svg" alt="Perplexity"></div>
           <div class="logo-item"><img src="assets/logos/asana.svg" alt="Asana"></div>
-          <div class="logo-item"><img class="sofi-logo" src="assets/logos/sofi.png" alt="SoFi"></div>
+          <div class="logo-item"><img src="assets/logos/sofi.png" alt="SoFi"></div>
           <div class="logo-item"><img src="assets/logos/microsoft.webp" alt="Microsoft"></div>
           <div class="logo-item"><img src="assets/logos/replit.svg" alt="Replit"></div>
           <div class="logo-item"><img src="assets/logos/airia-transparent.png" alt="Airia"></div>
@@ -345,7 +339,7 @@
           <div class="logo-item"><img src="assets/logos/extra.avif" alt="Partner logo"></div>
           <div class="logo-item"><img src="assets/logos/perplexity.svg" alt="Perplexity"></div>
           <div class="logo-item"><img src="assets/logos/asana.svg" alt="Asana"></div>
-          <div class="logo-item"><img class="sofi-logo" src="assets/logos/sofi.png" alt="SoFi"></div>
+          <div class="logo-item"><img src="assets/logos/sofi.png" alt="SoFi"></div>
         </div>
       </div>
     </div>
