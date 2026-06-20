@@ -137,12 +137,26 @@
   </div>
 
   <!-- FILTER TABS -->
-  <div class="max-w-3xl mx-auto px-6 mb-8">
+  <div class="max-w-3xl mx-auto px-6 mb-4">
     <div class="flex flex-wrap gap-2">
       <button class="filter-btn active text-sm font-medium px-4 py-1.5 rounded-full" data-filter="all">All</button>
       <button class="filter-btn text-sm font-medium px-4 py-1.5 rounded-full" data-filter="learning">Learning</button>
       <button class="filter-btn text-sm font-medium px-4 py-1.5 rounded-full" data-filter="resources">Resources</button>
     </div>
+  </div>
+
+  <!-- SEARCH BAR -->
+  <div class="max-w-3xl mx-auto px-6 mb-8">
+    <div class="relative">
+      <svg class="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input id="resource-search" type="text" placeholder="Search resources…" autocomplete="off"
+        class="w-full bg-[#0D1825] border border-[#1E2D42] rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-[#3A4D60] outline-none transition-all"
+        style="caret-color:#00B4FF;"
+        onfocus="this.style.borderColor='rgba(0,180,255,0.4)'"
+        onblur="this.style.borderColor=''"
+      >
+    </div>
+    <p id="search-no-results" class="text-[#3A4D60] text-sm mt-4 hidden">No resources match your search.</p>
   </div>
 
   <!-- RESOURCE LIST -->
@@ -931,21 +945,43 @@ Variation rules for the 3x3 grid:
       drawer.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeDrawer));
     })();
 
+    const groupedCategories = { resources: ['prompts', 'skills', 'tools', 'workflows'] };
+    let activeFilter = 'all';
+    let searchQuery = '';
+
+    function applyFilters() {
+      const items = document.querySelectorAll('.resource-item');
+      let visible = 0;
+      items.forEach(item => {
+        const category = item.dataset.category;
+        const text = item.textContent.toLowerCase();
+        const categoryMatch = activeFilter === 'all' || category === activeFilter || groupedCategories[activeFilter]?.includes(category);
+        const searchMatch = !searchQuery || text.includes(searchQuery);
+        const show = categoryMatch && searchMatch;
+        item.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      const noResults = document.getElementById('search-no-results');
+      if (noResults) noResults.classList.toggle('hidden', visible > 0);
+    }
+
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        const groupedCategories = {
-          resources: ['prompts', 'skills', 'tools', 'workflows']
-        };
-        document.querySelectorAll('.resource-item').forEach(item => {
-          const category = item.dataset.category;
-          const isGroupedMatch = groupedCategories[filter]?.includes(category);
-          item.style.display = (filter === 'all' || category === filter || isGroupedMatch) ? '' : 'none';
-        });
+        activeFilter = btn.dataset.filter;
+        applyFilters();
       });
     });
+
+    const searchInput = document.getElementById('resource-search');
+    if (searchInput) {
+      searchInput.addEventListener('input', () => {
+        searchQuery = searchInput.value.toLowerCase().trim();
+        applyFilters();
+      });
+    }
+
     function toggleResource(el) { el.classList.toggle('expanded'); }
 
     // Resource rows navigate directly to their content page.
