@@ -1,10 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112 36" fill="none">
-  <!-- Top circle -->
-  <circle cx="18" cy="9" r="7" fill="#F06A6A"/>
-  <!-- Bottom left circle -->
-  <circle cx="8" cy="25" r="7" fill="#F06A6A"/>
-  <!-- Bottom right circle -->
-  <circle cx="28" cy="25" r="7" fill="#F06A6A"/>
-  <!-- asana wordmark -->
-  <text x="41" y="27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="21" font-weight="500" fill="white" letter-spacing="-0.3">asana</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none">
+  <circle cx="22" cy="10" r="9" fill="#F06A6A"/>
+  <circle cx="10" cy="30" r="9" fill="#F06A6A"/>
+  <circle cx="34" cy="30" r="9" fill="#F06A6A"/>
+  <text x="49" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="30" font-weight="500" fill="white" letter-spacing="-0.5">asana</text>
 </svg>
