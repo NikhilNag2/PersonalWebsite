@@ -1,11 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none">
-  <!-- Asana three circles (coral color) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112 36" fill="none">
   <!-- Top circle -->
-  <circle cx="24" cy="12" r="7" fill="#F06A6A"/>
+  <circle cx="18" cy="9" r="7" fill="#F06A6A"/>
   <!-- Bottom left circle -->
-  <circle cx="14" cy="28" r="7" fill="#F06A6A"/>
+  <circle cx="8" cy="25" r="7" fill="#F06A6A"/>
   <!-- Bottom right circle -->
-  <circle cx="34" cy="28" r="7" fill="#F06A6A"/>
+  <circle cx="28" cy="25" r="7" fill="#F06A6A"/>
   <!-- asana wordmark -->
-  <text x="48" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="500" fill="white" letter-spacing="-0.3">asana</text>
+  <text x="41" y="27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="21" font-weight="500" fill="white" letter-spacing="-0.3">asana</text>
 </svg>
