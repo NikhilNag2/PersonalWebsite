@@ -27,7 +27,201 @@
     <h1 class="font-serif text-4xl md:text-5xl font-bold leading-[1.08] mb-10 text-white">Claude Carousel Automation</h1>
 
     <article class="content">
-      
+      <blockquote>🎠 <strong>What this is:</strong> a repeatable automation that turns <strong>Claude Code + Paper</strong> into a carousel factory. You describe the post, Claude researches it, writes a slide-by-slide script for your approval, designs every slide on a real design canvas, scrapes real web assets, and exports finished Instagram carousels (and even animated video slides). This guide covers the one-time setup, then exactly how to run it.</blockquote>
+
+<hr>
+
+<h2>⚡ The 30-second version</h2>
+<ol>
+<li><strong>Set up once</strong> — install Claude Code, drop in the framework file + <code>/carousel</code> skill, and connect 4 tools (Paper, Firecrawl, a components library, and a tiny video-export script).</li>
+<li><strong>Run it</strong> — type <code>/carousel</code>. Claude asks a short intake (topic, audience, format, <strong>and your 3 reference carousels</strong>), researches, and writes a script.</li>
+<li><strong>Approve the script</strong> — nothing gets designed until you say go.</li>
+<li><strong>Claude builds + exports</strong> — finished PNGs (and MP4s for animated slides) land in a dated folder, with a caption.</li>
+</ol>
+
+<hr>
+
+<h2>🧰 Part 1 · What you'll need</h2>
+<table>
+<tr><td>Thing</td><td>Why</td><td>Cost</td></tr>
+<tr><td><strong>Claude Code</strong> (CLI / desktop app)</td><td>The brain that runs the whole workflow</td><td>Claude plan</td></tr>
+<tr><td><strong>Paper</strong> (<a href="http://paper.design" target="_blank" rel="noopener">paper.design</a> desktop app)</td><td>The design canvas Claude draws each slide on</td><td>Free tier works</td></tr>
+<tr><td><strong>Firecrawl API key</strong></td><td>Scrapes real logos / screenshots / copy off live sites</td><td>Free tier works</td></tr>
+<tr><td><strong>A component/shader library</strong> (e.g. <a href="http://21st.dev" target="_blank" rel="noopener">21st.dev</a> · Magic MCP)</td><td>Gives Claude real, polished UI to drop in instead of reinventing it</td><td>Free tier works</td></tr>
+<tr><td><strong>Node.js + ffmpeg + Google Chrome</strong></td><td>The headless pipeline that exports animated slides to MP4</td><td>Free</td></tr>
+<tr><td><strong>3 reference carousels you love</strong></td><td>Defines the visual style Claude will match (see Part 3)</td><td>—</td></tr>
+</table>
+
+<hr>
+
+<h2>🔧 Part 2 · Setup (one time, ~30 min)</h2>
+
+<h3>Step 1 — Install Claude Code</h3>
+<p>Install Claude Code (CLI, desktop, or IDE extension) and sign in. Create a dedicated project folder for your carousels, e.g. <code>CarouselWorkflow/</code>, and open it in Claude Code.</p>
+<pre><code>mkdir CarouselWorkflow && cd CarouselWorkflow</code></pre>
+
+<h3>Step 2 — Add the framework file + the /carousel skill</h3>
+<p>Two files make the automation repeatable:</p>
+<ul>
+<li><strong><code>CAROUSEL-FRAMEWORK.md</code></strong> at the project root — the "source of truth" that defines the pipeline, the craft rules, slide archetypes, and your style system. Claude reads this before every build.</li>
+<li><strong>A <code>/carousel</code> skill</strong> (in <code>.claude/skills/carousel/</code>) — a short instruction file that tells Claude to follow the framework: run intake → research → get script approval → build in Paper → QA → export.</li>
+</ul>
+<blockquote>💡 The skill enforces two hard gates: <strong>never skip intake</strong>, and <strong>never build before you approve the script.</strong> That's what keeps results on-brand.</blockquote>
+
+<h3>Step 3 — Connect Paper (the design canvas)</h3>
+<p>Install the Paper desktop app and connect its MCP plugin to Claude Code (the <code>paper-desktop</code> plugin). This lets Claude <strong>read and write every node on the canvas</strong> — text, color, layout, images. Once connected, Claude can create artboards (1080×1350), lay out slides in HTML, screenshot its own work, and export PNGs.</p>
+<blockquote>🔑 <strong>The key distinction:</strong> Claude can't touch a design file on its own — the <strong>Paper MCP</strong> is the bridge that gives it hands on the canvas.</blockquote>
+
+<h3>Step 4 — Connect Firecrawl (real assets)</h3>
+<p>Get a Firecrawl API key and add the Firecrawl MCP server to Claude Code:</p>
+<pre><code>claude mcp add firecrawl -e FIRECRAWL_API_KEY=fc-your-key-here -- npx -y firecrawl-mcp</code></pre>
+<p>Now Claude can scrape a real site and pull back its <strong>logo, a full-page screenshot, and clean markdown</strong> — so your slides use real web assets instead of placeholder gray boxes. (Verify it works by asking Claude to scrape one site before you rely on it.)</p>
+
+<h3>Step 5 — Connect a component / shader library</h3>
+<p>Wire in a UI component source such as <a href="http://21st.dev" target="_blank" rel="noopener"><strong>21st.dev</strong></a><strong> (via the Magic MCP)</strong> plus a shader/background library (e.g. shadcn/ui for primitives, ShaderGradient for animated gradients). This gives Claude real, polished components to embed — buttons, cards, gradients — instead of hand-rolling everything.</p>
+
+<h3>Step 6 — Set up the MP4 export pipeline (for animated slides)</h3>
+<p>Animated slides are built as self-contained HTML files. To turn them into crisp MP4s <strong>without screen recording</strong>, use a tiny headless pipeline:</p>
+<pre><code># one-time, inside your project
+npm init -y && npm i puppeteer-core@23
+# (requires Google Chrome + ffmpeg installed)</code></pre>
+<p>A small <code>capture.js</code> script renders each animation frame-by-frame in headless Chrome at 2× and stitches them with ffmpeg into an exact <strong>1080×1350 h.264 MP4</strong>. One command per animated slide:</p>
+<pre><code>node capture.js "file://$PWD/slide1.html" slide1.mp4 poster.png 12 30 4
+# args: &lt;url&gt; &lt;out.mp4&gt; &lt;poster.png&gt; &lt;durationSec&gt; &lt;fps&gt; &lt;cssOffsetSec&gt;</code></pre>
+<blockquote>✅ This replaces screen-recording entirely — it's sharper, exactly the right size, and repeatable.</blockquote>
+
+<hr>
+
+<h2>🚀 Part 3 · How to run a carousel</h2>
+<p>Type <code>/carousel</code> in Claude Code. The pipeline always runs in this order:</p>
+<p><strong>INTAKE → RESEARCH → SCRIPT (you approve) → BUILD → QA → EXPORT</strong></p>
+
+<h3>3a · Intake — the questions Claude asks first</h3>
+<p>Claude batches a few quick questions before anything is designed:</p>
+<ol>
+<li><strong>Topic + angle</strong> — what's the story, and what's your take? (news drop / tutorial / listicle / hot take / case study)</li>
+<li><strong>Audience + payoff</strong> — who's it for, and what's the one thing they walk away with?</li>
+<li><strong>Hook feeling</strong> — should slide 1 trigger curiosity, FOMO, controversy, or "save this" utility?</li>
+<li><strong>Format</strong> — platform + ratio (default Instagram 1080×1350), slide count, and whether any slide is animated.</li>
+<li><strong>CTA</strong> — follow / save / comment a keyword / link in bio?</li>
+<li><strong>Real assets</strong> — any URLs to scrape, screenshots to embed, stats, or handles to credit.</li>
+</ol>
+
+<h3>3b · 💬 The reference-carousels question (this defines your look)</h3>
+<p>This is the most important style question. Claude will ask:</p>
+<blockquote>💬 <strong>"Can you give me maybe three reference carousels to work off of so that I can get the desired carousel that you want for theme designs?"</strong></blockquote>
+<p>Drop in <strong>3 carousels whose style you want to emulate</strong> (screenshots or links). Claude studies them and locks a reusable <strong>style preset</strong> from them — palette, type scale, background/texture, a recurring character or masthead, and the small "furniture" that repeats on every slide. Everything after this stays consistent with those references.</p>
+<blockquote>📌 Tip: pick references that actually share a vibe. Three wildly different looks give a muddy result; three cohesive ones give a crisp, on-brand system.</blockquote>
+
+<h3>3c · Research → Script → Approval</h3>
+<ul>
+<li><strong>Research:</strong> Claude pulls live sources (and scrapes real assets via Firecrawl), saving a topic summary with stats + sources.</li>
+<li><strong>Script:</strong> Claude writes a <strong>per-slide script</strong> — for each slide: archetype, headline, support copy, the artifact + its data, and the source.</li>
+<li><strong>Approval gate:</strong> you review and approve the script <strong>before</strong> Claude opens Paper. Tweak freely here; it's cheap to change words, expensive to rebuild slides.</li>
+</ul>
+
+<h3>3d · Build → QA → Export</h3>
+<ul>
+<li><strong>Build:</strong> Claude creates the artboards, builds a consistent masthead/footer once, then lays out each slide, screenshotting and self-critiquing as it goes.</li>
+<li><strong>QA:</strong> full-deck pass — overlaps, contrast, alignment, consistent margins, an artifact on every slide, the squint test on slide 1.</li>
+<li><strong>Export:</strong> finished <code>slide_1.png … slide_N.png</code> (plus <code>.mp4</code> for any animated slide) land in a dated folder with a ready-to-paste <code>caption.txt</code>.</li>
+</ul>
+
+<hr>
+
+<h2>🎨 Part 4 · What kind of carousels do you want to make?</h2>
+<p>Before (or during) intake, decide the shape of the post. These choices, plus your 3 references, fully define the output.</p>
+
+<h3>Style</h3>
+<ul>
+<li><strong>Visual theme</strong> — defined by your <strong>3 reference carousels</strong> (Part 3b). Claude derives the palette, fonts, texture/background, recurring character, and repeating furniture from them.</li>
+<li><strong>Density</strong> — <em>airy</em> (one idea per slide, big margins) or <em>dense</em> (stacked artifacts, busy margins).</li>
+<li><strong>Voice</strong> — cozy/lowercase, or confident/editorial. (Usually follows your references.)</li>
+</ul>
+
+<h3>Format</h3>
+<ul>
+<li><strong>Slide count</strong> — news drops ≈ 7; tutorials ≈ 8–9; listicles = hook + N items + recap + CTA.</li>
+<li><strong>Motion</strong> — keep it all static PNGs, or make 1–2 slides animated MP4s (great for launches / hype posts).</li>
+</ul>
+
+<h3>Common carousel types</h3>
+<table>
+<tr><td>Type</td><td>What it's good for</td></tr>
+<tr><td><strong>News drop</strong></td><td>A launch or announcement, with numbers + proof</td></tr>
+<tr><td><strong>Tutorial</strong></td><td>A step-by-step "how to do X"</td></tr>
+<tr><td><strong>Listicle</strong></td><td>"N tools / tips / skills," one per slide</td></tr>
+<tr><td><strong>Hot take</strong></td><td>A strong opinion + evidence</td></tr>
+<tr><td><strong>Case study</strong></td><td>A result + how it was achieved</td></tr>
+</table>
+
+<hr>
+
+<h2>✋ Part 5 · The craft rules (why it doesn't look AI-generated)</h2>
+<p>These are baked into the framework so every carousel feels authored, not auto-generated:</p>
+<ol>
+<li><strong>Every slide ships an artifact</strong> — a prompt card, UI mockup, real screenshot, chart, or character scene. A typography-only slide is a draft, not a slide.</li>
+<li><strong>Texture or furniture, always</strong> — a background texture or consistent corner/masthead system. Flat default-white reads as generated.</li>
+<li><strong>A recurring character or masthead</strong> — makes the whole feed feel like one author made it.</li>
+<li><strong>Plausible specificity</strong> — real handles, real numbers, real dates. Generic "Lorem / User123" kills it.</li>
+<li><strong>Imperfection on purpose</strong> — slight rotations, an overlapping sticker, a hand-drawn underline, an aside in parentheses.</li>
+<li><strong>Max 3 typefaces</strong>, but extreme scale contrast (tiny mono label next to a giant headline).</li>
+<li><strong>One accent color</strong> does the heavy lifting; dark slabs act as the "second color."</li>
+<li><strong>Copy sounds like a person</strong> — contractions, asides, second person; never "In today's fast-paced world."</li>
+<li><strong>Banned:</strong> purple gradients, Inter-only, centered-everything, symmetric 3-icon grids, generic 🚀🔥, drop shadows on text.</li>
+<li><strong>The squint test</strong> — at thumbnail size, slide 1 must still read its 3–5 word promise.</li>
+</ol>
+
+<hr>
+
+<h2>🧩 Part 6 · Slide archetypes & story arcs</h2>
+<p>Claude picks one <strong>archetype</strong> per slide (each has a known layout recipe):</p>
+<ul>
+<li><strong>Cover / Hook</strong> — big claim + one visual anchor + a teaser line</li>
+<li><strong>Setup / Problem</strong> — short headline + an artifact showing the pain</li>
+<li><strong>Prompt Card</strong> — a dark mono card with the actual copy-pasteable prompt</li>
+<li><strong>UI Mockup</strong> — a realistic product interface built in HTML</li>
+<li><strong>Stat / Chart</strong> — one hero number + a real bar chart</li>
+<li><strong>Comparison / Diagram</strong> — stacked cards connected with arrows</li>
+<li><strong>Listicle Item</strong> — number + name + image grid + one-liner</li>
+<li><strong>Quote / Proof</strong> — a pull-quote slab with real attribution</li>
+<li><strong>Steps / Recipe</strong> — numbered rows, one line each</li>
+<li><strong>CTA</strong> — the ask (save / follow / comment), character, what's next</li>
+</ul>
+
+<p><strong>Story arcs:</strong></p>
+<ul>
+<li><em>News drop:</em> Hook → What it is → Why it matters (numbers) → Proof → What you can do → Catch → CTA</li>
+<li><em>Tutorial:</em> Hook → First step → Build pages (×3–4) → Result → CTA</li>
+<li><em>Listicle:</em> Hook → Item ×N → Recap grid → CTA</li>
+</ul>
+
+<hr>
+
+<h2>🎬 Part 7 · Animating slides → MP4 (no screen recording)</h2>
+<p>Instagram carousels can mix video and image slides. The workflow makes the thumb-stopping motion slide painless:</p>
+<ol>
+<li>Claude builds the animated slide as a self-contained <strong>HTML file</strong> (same 1080×1350 design, with CSS/JS animation — a logo drawing in, a character bouncing, a gradient drifting, or a real screen-recording playing inside a browser window).</li>
+<li>The <strong><code>capture.js</code></strong> headless pipeline (Part 2, Step 6) renders it frame-perfect and exports a crisp <strong>1080×1350 MP4</strong> — no manual screen recording, exact dimensions, repeatable.</li>
+<li>Post the MP4 as that slide, PNGs for the rest.</li>
+</ol>
+<blockquote>🎥 You can also drop a real screen recording into a slide (e.g. show the deck being edited live) — Claude composites it into the slide's frame and exports the MP4 the same way.</blockquote>
+
+<hr>
+
+<h2>🛠️ Part 8 · Gotchas & troubleshooting</h2>
+<ul>
+<li><strong>Always approve the script first.</strong> It's the cheapest place to change direction.</li>
+<li><strong>No slide counters.</strong> Don't add page number pill — Instagram already shows this.</li>
+<li><strong>Backgrounds must be full-bleed.</strong> If a texture shows a grid/checkerboard at the edges, it's a transparency cutout — scale the background up and center it so the margins crop off-canvas.</li>
+<li><strong>Inline colored words can flatten</strong> when laying out text — split accent words into their own text nodes so the color sticks.</li>
+<li><strong>Verify Firecrawl before relying on it</strong> — run one scrape to confirm the key + connection work.</li>
+<li><strong>Animated-slide filenames from macOS screen recordings</strong> contain a hidden character — copy them with a wildcard/<code>find</code>, not a literal path.</li>
+</ul>
+
+<hr>
+
+<blockquote>✅ <strong>That's the whole system.</strong> Set up once (Part 2), then every post is: <code>/carousel</code> → answer intake (give your <strong>3 reference carousels</strong>) → approve the script → collect finished slides. Want a tutorial, a news drop, or a listicle next? Just say the topic and hand over your references.</blockquote>
     </article>
   </main>
 

@@ -395,6 +395,12 @@ async function main() {
       continue;
     }
 
+    // ── Guard: skip if no content blocks found ─────────────────────────────
+    if (blocks.length === 0) {
+      console.warn(`  ⚠ No content blocks found for "${title}" (content page: ${contentPageId}). Make sure the Script Database is shared with the integration. Skipping.`);
+      continue;
+    }
+
     // ── Generate descriptions ──────────────────────────────────────────────
     const { shortDesc, longDesc } = extractDescriptions(commentsText, blocks);
 
