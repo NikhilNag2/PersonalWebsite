@@ -30,7 +30,7 @@ if (!NOTION_API_KEY) {
 
 // Notion Prompt Database UUID — taken from the database page URL:
 // https://www.notion.so/3482539e36298078bcebc8be87a06b8a
-const DB_ID = process.env.NOTION_DB_ID || '3482539e-3629-8078-bceb-c8be87a06b8a';
+const DB_ID = process.env.NOTION_DB_ID || '3372539e-3629-80b3-9a38-000bfa4cb108';
 
 const ROOT         = __dirname;
 const SYNCED_FILE  = path.join(ROOT, 'synced.json');
@@ -346,7 +346,7 @@ async function main() {
       start_cursor: cursor,
       page_size: 100,
       sorts: [{ timestamp: 'created_time', direction: 'descending' }],
-      filter: { property: 'Add to website', checkbox: { equals: true } },
+      filter: { property: 'Add to Website', checkbox: { equals: true } },
     });
     pages.push(...res.results);
     cursor = res.has_more ? res.next_cursor : null;
@@ -364,7 +364,7 @@ async function main() {
     }
 
     // ── Extract title ──────────────────────────────────────────────────────
-    const titleArr = page.properties?.Prompts?.title || [];
+    const titleArr = page.properties?.['Video Idea']?.title || [];
     const title = titleArr.map(t => t.plain_text).join('').trim();
     if (!title) {
       console.log(`Skipping ${pageId}: no title`);
@@ -384,10 +384,12 @@ async function main() {
     const category      = catMatch ? catMatch[1].toLowerCase() : 'prompts';
     const categoryLabel = category.charAt(0).toUpperCase() + category.slice(1);
 
-    // ── Fetch page blocks ──────────────────────────────────────────────────
+    // ── Fetch page blocks (follow Scripts relation for content) ───────────
     let blocks = [];
+    const scriptsRelation = page.properties?.Scripts?.relation || [];
+    const contentPageId = scriptsRelation.length > 0 ? scriptsRelation[0].id : pageId;
     try {
-      blocks = await fetchBlocks(pageId);
+      blocks = await fetchBlocks(contentPageId);
     } catch (err) {
       console.error(`Failed to fetch blocks for "${title}":`, err.message);
       continue;
