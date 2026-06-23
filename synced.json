@@ -281,5 +281,12 @@
     "category": "prompts",
     "syncedAt": "2026-06-19T12:52:42.991Z",
     "createdAt": "2026-06-19T01:23:00.000Z"
+  },
+  "3882539e-3629-81a4-baa4-e0da0ee2c674": {
+    "title": "Claude Carousel Automation",
+    "filename": "claude-carousel-automation.html",
+    "category": "prompts",
+    "syncedAt": "2026-06-23T20:30:13.415Z",
+    "createdAt": "2026-06-23T19:38:00.000Z"
   }
 }
