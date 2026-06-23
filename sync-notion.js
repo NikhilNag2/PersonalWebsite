@@ -30,7 +30,7 @@ if (!NOTION_API_KEY) {
 
 // Notion Prompt Database UUID — taken from the database page URL:
 // https://www.notion.so/3482539e36298078bcebc8be87a06b8a
-const DB_ID = process.env.NOTION_DB_ID || '3372539e-3629-80b3-9a38-000bfa4cb108';
+const DB_ID = process.env.NOTION_DB_ID || '3372539e-3629-8083-8e88-f635c894eca2';
 
 const ROOT         = __dirname;
 const SYNCED_FILE  = path.join(ROOT, 'synced.json');
