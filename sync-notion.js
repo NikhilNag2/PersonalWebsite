@@ -346,6 +346,7 @@ async function main() {
       start_cursor: cursor,
       page_size: 100,
       sorts: [{ timestamp: 'created_time', direction: 'descending' }],
+      filter: { property: 'Add to website', checkbox: { equals: true } },
     });
     pages.push(...res.results);
     cursor = res.has_more ? res.next_cursor : null;
