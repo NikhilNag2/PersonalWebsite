@@ -384,10 +384,15 @@ async function main() {
     const category      = catMatch ? catMatch[1].toLowerCase() : 'prompts';
     const categoryLabel = category.charAt(0).toUpperCase() + category.slice(1);
 
-    // ── Fetch page blocks (follow Scripts relation for content) ───────────
+    // ── Fetch page blocks ──────────────────────────────────────────────────
+    // Prefer the Prompts relation (the actual resource/guide); fall back to
+    // the Scripts relation (video voiceover), then the page itself.
     let blocks = [];
+    const promptsRelation = page.properties?.Prompts?.relation || [];
     const scriptsRelation = page.properties?.Scripts?.relation || [];
-    const contentPageId = scriptsRelation.length > 0 ? scriptsRelation[0].id : pageId;
+    const contentPageId =
+      promptsRelation.length > 0 ? promptsRelation[0].id :
+      scriptsRelation.length > 0 ? scriptsRelation[0].id : pageId;
     try {
       blocks = await fetchBlocks(contentPageId);
     } catch (err) {
@@ -397,7 +402,7 @@ async function main() {
 
     // ── Guard: skip if no content blocks found ─────────────────────────────
     if (blocks.length === 0) {
-      console.warn(`  ⚠ No content blocks found for "${title}" (content page: ${contentPageId}). Make sure the Script Database is shared with the integration. Skipping.`);
+      console.warn(`  ⚠ No content blocks found for "${title}" (content page: ${contentPageId}). Make sure the Prompt/Script Database is shared with the integration. Skipping.`);
       continue;
     }
 
