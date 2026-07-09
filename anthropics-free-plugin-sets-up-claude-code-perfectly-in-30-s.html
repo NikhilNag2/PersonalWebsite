@@ -27,16 +27,66 @@
     <h1 class="font-serif text-4xl md:text-5xl font-bold leading-[1.08] mb-10 text-white">Anthropic's Free Plugin Sets Up Claude Code Perfectly in 30 Seconds</h1>
 
     <article class="content">
-      <p>Most people are using Claude Code completely wrong.</p>
-<p>They install random plugins and skills that have nothing to do with what they're actually building.</p>
-<p>That's a waste of time and this bloat can actually make your setup worse.</p>
-<p>So to fix this Anthropic just dropped an official free plugin called Claude Code Setup.</p>
-<p>You install it once, then just ask it to scan your codebase.</p>
-<p>It reads your entire project like an expert and will take a look at your language, your frameworks, your dependencies, and more.</p>
-<p>Then it recommends the exact skills, subagents, hooks, and MCP servers that actually fit what you’re building.</p>
-<p>So if it spots security issues for example, it’ll recommend sub agents you can install to prevent these vulnerabilities</p>
-<p>The whole scan takes under 30 seconds, and uses only one command</p>
-<p>If you want the exact plugin name and install command, comment &quot;plugin&quot; and I'll send it to you.</p>
+      <h2>🤖 Claude Code Setup: Stop Guessing, Start Optimizing</h2>
+<p>Most people install Claude Code the wrong way — dumping random plugins and skills into their setup that have zero to do with what they're actually building. That bloat slows you down and can genuinely make your workflow worse.</p>
+<p>This guide walks you through the free official plugin from Anthropic that fixes all of it in one scan.</p>
+<hr>
+<h2>🎯 What This Actually Does</h2>
+<p><strong>Claude Code Setup</strong> is an official, Anthropic-verified plugin that reads your codebase like a senior engineer would — then recommends only the automations that fit <em>your</em> project.</p>
+<p>It looks at your:</p>
+<ul><li>🗂️ Project structure and directory layout</li><li>💻 Programming language(s)</li><li>🧩 Frameworks and dependencies (via <code>package.json</code>, language files, etc.)</li><li>🔍 Code patterns (like authentication logic)</li></ul>
+<p>Then it surfaces the highest-value picks across five categories.</p>
+<blockquote>💡 It's <strong>read-only</strong>. It analyzes and recommends — it never touches or modifies your files. Zero risk.</blockquote>
+<hr>
+<h2>🧱 The Five Categories It Recommends</h2>
+<table>
+<tr><td>Category</td><td>What It Is</td><td>Example Recommendation</td></tr>
+<tr><td>🔌 <strong>MCP Servers</strong></td><td>External integrations</td><td>Context7 for live docs, Playwright for frontend testing</td></tr>
+<tr><td>🎓 <strong>Skills</strong></td><td>Packaged expertise</td><td>Frontend-design, planning agents</td></tr>
+<tr><td>⚡ <strong>Hooks</strong></td><td>Automatic actions</td><td>Auto-format, auto-lint, block sensitive files</td></tr>
+<tr><td>🛡️ <strong>Subagents</strong></td><td>Specialized reviewers</td><td>Security, performance, accessibility checks</td></tr>
+<tr><td>⌨️ <strong>Slash Commands</strong></td><td>Quick workflows</td><td><code>/test</code>, <code>/pr-review</code>, <code>/explain</code></td></tr>
+</table>
+<p>By default it gives you the <strong>top 1–2 picks per category</strong> so you don't get overwhelmed.</p>
+<hr>
+<h2>⚙️ Setup (Under 30 Seconds)</h2>
+<p><strong>Install the plugin</strong> in Claude Code (Anthropic-verified, free): <a href="https://claude.com/plugins/claude-code-setup" target="_blank" rel="noopener">claude.com/plugins/claude-code-setup</a></p>
+<ol><li><strong>Open your project</strong> in Claude Code.</li><li><strong>Ask it to scan</strong> using one of the prompts below.</li><li><strong>Review the recommendations</strong> and install only what makes sense.</li></ol>
+<p>That's it. One command, one scan, done.</p>
+<hr>
+<h2>📋 Prompt Library</h2>
+<p>Copy-paste these straight into Claude Code.</p>
+<details><summary>🚀 Full project scan (start here)</summary><div class="details-body"><pre><code>Scan this entire codebase and recommend the highest-value Claude Code automations for my specific stack. Cover MCP servers, skills, hooks, subagents, and slash commands. For each recommendation, tell me why it fits my project and what problem it solves.</code></pre></div></details>
+<details><summary>🛡️ Security-focused audit</summary><div class="details-body"><pre><code>Analyze my codebase for authentication, secrets handling, and other security-sensitive areas. Recommend subagents and hooks that would catch vulnerabilities before they ship. Explain what each one protects against.</code></pre></div></details>
+<details><summary>🔌 MCP servers only (expanded list)</summary><div class="details-body"><pre><code>Based on my tech stack and dependencies, what MCP servers should I install? Give me 3–5 options ranked by impact, with a one-line reason for each.</code></pre></div></details>
+<details><summary>⚡ Hooks only</summary><div class="details-body"><pre><code>Look at my project setup and recommend hooks that would automate repetitive tasks — formatting, linting, and protecting sensitive files. Tell me exactly when each hook would trigger.</code></pre></div></details>
+<details><summary>🎓 Skills + subagents for my framework</summary><div class="details-body"><pre><code>Detect my primary framework and recommend the skills and subagents that best support building, reviewing, and testing in it. Prioritize ones that reduce manual review work.</code></pre></div></details>
+<hr>
+<h2>🆚 Default Scan vs. Category Deep-Dive</h2>
+<table>
+<tr><td></td><td>Default Scan</td><td>Category-Specific Ask</td></tr>
+<tr><td><strong>Prompt</strong></td><td>&quot;recommend automations for this project&quot;</td><td>&quot;what MCP servers should I use?&quot;</td></tr>
+<tr><td><strong>Output</strong></td><td>Top 1–2 per category</td><td>3–5 expanded options</td></tr>
+<tr><td><strong>Best for</strong></td><td>First-time setup</td><td>Filling a specific gap</td></tr>
+<tr><td><strong>Speed</strong></td><td>~30 seconds</td><td>~30 seconds</td></tr>
+</table>
+<hr>
+<h2>🔗 Plugins Worth Pairing With It</h2>
+<table>
+<tr><td>Plugin</td><td>What It Adds</td></tr>
+<tr><td>🎨 <strong>Frontend Design</strong></td><td>Production-grade UIs that skip the generic AI look</td></tr>
+<tr><td>🦸 <strong>Superpowers</strong></td><td>Brainstorming, TDD, debugging, subagent workflows with code review</td></tr>
+<tr><td>👀 <strong>Code Review</strong></td><td>AI PR reviews with confidence-based filtering</td></tr>
+<tr><td>📚 <strong>Context7</strong></td><td>Live, version-specific docs pulled straight into context</td></tr>
+</table>
+<hr>
+<h2>💎 Pro Tips</h2>
+<details><summary>🎯 Run the scan on every new project</summary><div class="details-body"><p>Your stack changes project to project. A React app needs different automations than a Python API. Re-scan each time instead of copying your old setup over.</p></div></details>
+<details><summary>🧹 Less is more</summary><div class="details-body"><p>Just because it recommends something doesn't mean you need it. Install the top pick per category first, then add more only when you hit a real bottleneck.</p></div></details>
+<details><summary>🔁 Ask &quot;why&quot; on anything you're unsure about</summary><div class="details-body"><p>Since the plugin explains its reasoning, follow up with &quot;why did you recommend this?&quot; before installing. Great way to actually learn what each automation does.</p></div></details>
+<details><summary>🛡️ Prioritize security subagents if you handle auth</summary><div class="details-body"><p>If your project touches login, tokens, or user data, install the security subagent recommendations first. Catching vulnerabilities early beats patching them later.</p></div></details>
+<hr>
+<blockquote>💡 <strong>Bottom line:</strong> Stop guessing what to install. One scan, tailored recommendations, zero file changes — and a setup that actually matches what you're building.</blockquote>
 
     </article>
   </main>
