@@ -2,7 +2,7 @@ name: Sync Notion Prompts
 
 on:
   schedule:
-    - cron: '0 9 * * *'   # once a day at 9 AM UTC
+    - cron: '0 * * * *'   # every hour, on the hour
   workflow_dispatch:        # allow manual trigger from GitHub UI
 
 jobs:
