@@ -1,8 +1,10 @@
 name: Sync Notion Prompts
 
 on:
+  repository_dispatch:
+    types: [notion-sync]    # fired by the Notion automation when "Add to Website" is checked
   schedule:
-    - cron: '0 * * * *'   # every hour, on the hour
+    - cron: '0 9 * * *'     # daily fallback in case a webhook is ever missed
   workflow_dispatch:        # allow manual trigger from GitHub UI
 
 jobs:
