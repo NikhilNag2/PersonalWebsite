@@ -1,8 +1,10 @@
 name: Sync Notion Prompts
 
 on:
+  repository_dispatch:
+    types: [notion-sync]    # fired via relay by the "Push Resource to Site" button for instant publishing
   schedule:
-    - cron: '*/5 * * * *'   # publish rows the "Push Resource to Site" button marked as Pushing
+    - cron: '*/5 * * * *'   # fallback: publish rows marked Pushing if a webhook is ever missed
   workflow_dispatch:        # allow manual trigger from GitHub UI
 
 jobs:
