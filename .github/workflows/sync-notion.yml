@@ -1,8 +1,8 @@
 name: Sync Notion Prompts
 
 on:
-  repository_dispatch:
-    types: [notion-sync]    # fired by the "Push resources to website" button in Notion
+  schedule:
+    - cron: '*/5 * * * *'   # publish rows queued by the "Push Resource to Site" button
   workflow_dispatch:        # allow manual trigger from GitHub UI
 
 jobs:
