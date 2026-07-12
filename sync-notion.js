@@ -3,11 +3,11 @@
  * sync-notion.js
  *
  * Checks the Tool Video Ideas database for rows queued via the
- * "Push Resource to Site" button (which checks "Queued for Website") and:
+ * "Push Resource to Site" button (which sets Website = "Pushing") and:
  *   1. Generates an HTML resource page from the Notion content
  *   2. Inserts an entry at the top of resources.html
  *   3. Saves the page ID to synced.json so it's never processed twice
- *   4. Un-checks "Queued for Website" so the queue clears itself
+ *   4. Sets Website = "Live" (green) so the row shows it's published
  *
  * Run manually:  node sync-notion.js
  * GitHub Action: runs hourly via .github/workflows/sync-notion.yml
@@ -330,20 +330,20 @@ function extractDescriptions(commentsText, blocks) {
   return { shortDesc, longDesc };
 }
 
-// ─── Queue flag ───────────────────────────────────────────────────────────────
+// ─── Website status ───────────────────────────────────────────────────────────
 
-// Checked by the "Push Resource to Site" button in Notion; un-checked here
-// once the resource is on the site so the queue empties itself.
-const QUEUE_PROP = 'Queued for Website';
+// The "Push Resource to Site" button sets Website = "Pushing" (yellow);
+// once the resource is on the site we flip it to "Live" (green).
+const STATUS_PROP = 'Website';
 
-async function clearQueued(pageId) {
+async function markLive(pageId) {
   try {
     await notion.pages.update({
       page_id: pageId,
-      properties: { [QUEUE_PROP]: { checkbox: false } },
+      properties: { [STATUS_PROP]: { select: { name: 'Live' } } },
     });
   } catch (err) {
-    console.warn(`  ⚠ Could not clear "${QUEUE_PROP}" on ${pageId}: ${err.message}`);
+    console.warn(`  ⚠ Could not set "${STATUS_PROP}" to Live on ${pageId}: ${err.message}`);
   }
 }
 
@@ -365,7 +365,7 @@ async function main() {
       start_cursor: cursor,
       page_size: 100,
       sorts: [{ timestamp: 'created_time', direction: 'descending' }],
-      filter: { property: QUEUE_PROP, checkbox: { equals: true } },
+      filter: { property: STATUS_PROP, select: { equals: 'Pushing' } },
     });
     pages.push(...res.results);
     cursor = res.has_more ? res.next_cursor : null;
@@ -379,7 +379,7 @@ async function main() {
     const pageId = page.id;
 
     if (synced[pageId]) {
-      await clearQueued(pageId);  // already on the site — just clear the queue flag
+      await markLive(pageId);  // already on the site — just show it as Live
       continue;
     }
 
@@ -460,7 +460,7 @@ async function main() {
       createdAt: page.created_time,
     };
     addedCount++;
-    await clearQueued(pageId);
+    await markLive(pageId);
   }
 
   // Persist synced state
