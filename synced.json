@@ -316,5 +316,12 @@
     "category": "prompts",
     "syncedAt": "2026-07-12T01:02:48.359Z",
     "createdAt": "2026-07-08T00:59:00.000Z"
+  },
+  "3962539e-3629-809f-b6a4-c36dbbfe917b": {
+    "title": "Why Claude Can't Catch Its Own Mistakes (And the Fix)",
+    "filename": "why-claude-cant-catch-its-own-mistakes-and-the-fix.html",
+    "category": "prompts",
+    "syncedAt": "2026-07-12T01:20:57.577Z",
+    "createdAt": "2026-07-07T00:27:00.000Z"
   }
 }
