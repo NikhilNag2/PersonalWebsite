@@ -334,7 +334,7 @@ function extractDescriptions(commentsText, blocks) {
 
 // The "Push Resource to Site" button sets Website = "Pushing" (yellow);
 // once the resource is on the site we flip it to "Live" (green).
-const STATUS_PROP = 'Website';
+const STATUS_PROP = 'Push Status';
 
 async function markLive(pageId) {
   try {
