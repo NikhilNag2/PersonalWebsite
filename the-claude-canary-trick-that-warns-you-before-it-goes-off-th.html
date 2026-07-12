@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="favicon.png"><title>The Claude Canary Trick That Warns You Before It Goes Off the Rails — Nikhil Naglapur</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={theme:{extend:{fontFamily:{serif:['Outfit','system-ui','sans-serif'],sans:['Outfit','system-ui','sans-serif']}}}}</script><style>body{background:#131C2B;color:#F2F2F2}nav{backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background-color:rgba(19,28,43,.92)!important}.nav-link{position:relative;color:#777;transition:color .18s ease}.nav-link:hover,.nav-link.active{color:#F2F2F2}.nav-link::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:#00B4FF;transition:width .22s ease}.nav-link:hover::after{width:100%}.btn-blue{background:#00B4FF;color:#fff;transition:all .18s ease}.btn-blue:hover{background:#0090CC;box-shadow:0 0 24px rgba(0,180,255,.4);transform:translateY(-1px)}.content h1{font-size:2.1rem;line-height:1.1;font-weight:800;color:#fff;margin:2.5rem 0 1rem}.content h2{font-size:1.55rem;line-height:1.2;font-weight:750;color:#fff;margin:2.35rem 0 .85rem}.content h3{font-size:1.15rem;font-weight:700;color:#E8E8E8;margin:1.65rem 0 .6rem}.content p,.content li{color:#9A9A9A;line-height:1.78;font-size:15px}.content p{margin-bottom:1rem}.content strong{color:#DCDCDC;font-weight:700}.content em{color:#C8C8C8}.content ul,.content ol{margin:0 0 1.2rem 1.35rem}.content ul{list-style:disc}.content ol{list-style:decimal}.content li{margin:.35rem 0}.content hr{border:0;border-top:1px solid #1E2D42;margin:2rem 0}.content blockquote{border-left:3px solid #00B4FF;background:rgba(0,180,255,.06);border-radius:0 8px 8px 0;padding:1rem 1.15rem;margin:1.4rem 0;color:#CFCFCF;line-height:1.7}.content pre{background:#142540;border:1px solid #2E4060;border-radius:8px;padding:1rem;overflow:auto;margin:1.25rem 0;color:#D6D6D6;font-size:14px;line-height:1.65}.content code{background:#162A45;border:1px solid #2E4060;border-radius:5px;padding:.1rem .28rem;color:#E6E6E6;font-size:.92em}.content pre code{background:transparent;border:0;padding:0;color:inherit}.content table{width:100%;border-collapse:collapse;margin:1.4rem 0;border:1px solid #2A3A52;border-radius:8px;overflow:hidden;display:table}.content tr{border-bottom:1px solid #2A3A52}.content tr:last-child{border-bottom:0}.content td{border-right:1px solid #2A3A52;padding:.8rem;vertical-align:top;color:#999;font-size:14px;line-height:1.55}.content td:last-child{border-right:0}.content tr:first-child td{color:#F2F2F2;font-weight:700;background:#142540}.content details{border:1px solid #2A3A52;border-radius:8px;margin:1rem 0;background:#122238}.content summary{cursor:pointer;padding:1rem;color:#F2F2F2;font-weight:650;list-style:none}.content summary::-webkit-details-marker{display:none}.content summary::before{content:"+ ";color:#00B4FF}.content details[open] summary::before{content:"− ";color:#00B4FF}.content .details-body{padding:0 1rem 1rem}@media(max-width:640px){.content table{display:block;overflow-x:auto}.content h1{font-size:1.7rem}}</style></head>
+<body class="font-sans">
+  <nav class="sticky top-0 z-50 border-b border-[#1E2D42]">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <img src="nikhil2.png" alt="Nikhil" class="w-8 h-8 rounded-full object-cover border border-[#2E4060]" style="object-position:center 35%;">
+        <span class="font-semibold text-sm text-white">Nikhil</span>
+      </a>
+      <div class="hidden md:flex items-center gap-7 text-sm">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="resources.html" class="nav-link active">Resources</a>
+        <a href="ai-solutions.html" class="nav-link">Consulting</a>
+        <a href="partnerships.html" class="nav-link">Partnerships</a>
+        <a href="newsletter.html" class="nav-link">Newsletter</a>
+      </div>
+      <a href="newsletter.html#newsletter-signup" class="btn-blue text-sm font-semibold px-5 py-2.5 rounded-full">Sign up to newsletter</a>
+    </div>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-6 py-14">
+    <a href="resources.html" class="inline-flex items-center gap-1.5 text-[#00B4FF] text-sm font-medium mb-10 hover:underline">← Back to Resources</a>
+    <div class="flex items-center gap-2.5 mb-4">
+      <span class="w-2 h-2 rounded-full bg-[#00B4FF]" style="box-shadow:0 0 8px rgba(0,180,255,.8);"></span>
+      <p class="text-[#00B4FF] text-xs font-semibold uppercase tracking-[0.18em]">Prompts</p>
+    </div>
+    <h1 class="font-serif text-4xl md:text-5xl font-bold leading-[1.08] mb-10 text-white">The Claude Canary Trick That Warns You Before It Goes Off the Rails</h1>
+
+    <article class="content">
+      <h2>🐤 The Canary Method: Know the Instant Claude Stops Following Your Rules</h2>
+<blockquote>💡 One tiny line in your rules file gives you a live signal that tells you <em>exactly</em> when Claude drifts off track — before it starts hallucinating garbage.</blockquote>
+<hr>
+<h2>🎯 The Overview</h2>
+<p>Here's the problem nobody talks about: Claude doesn't announce when it stops reading your instructions. It just... quietly starts ignoring them. Long conversations, big context, complex tasks — at some point your carefully written rules fall out of memory and you have no idea it happened.</p>
+<p>The Canary Method fixes that. You plant a &quot;canary&quot; — a small, visible behavior Claude has to perform on every single reply. As long as you see it, your rules are intact. The moment it disappears, that's your early warning that Claude is going off-script.</p>
+<p>The simplest canary? <strong>Make Claude say your name at the start of every response.</strong></p>
+<table>
+<tr><td>🐤 Canary Alive</td><td>⚠️ Canary Dead</td></tr>
+<tr><td>Claude opens with your name</td><td>Your name is missing</td></tr>
+<tr><td>Rules are being read</td><td>Rules dropped out of context</td></tr>
+<tr><td>Trust the output</td><td>Reset, refresh, or re-anchor</td></tr>
+</table>
+<p>Just like miners used canaries to detect invisible danger, you're using a visible signal to detect invisible rule-drift.</p>
+<hr>
+<h2>🛠️ Step-by-Step Setup</h2>
+<h3>1️⃣ Pick your canary instruction</h3>
+<p>The classic is your name. It's short, personal, and impossible to miss.</p>
+<h3>2️⃣ Add it to your rules file</h3>
+<p>Drop it into your Claude rules / project instructions (or <code>CLAUDE.md</code> if you're in Claude Code). Keep it at the very top so it's the first thing read.</p>
+<pre><code>Begin every single reply by addressing me as &quot;[Your Name]&quot; — no exceptions.
+This is a non-negotiable formatting rule. If you ever skip it,
+you are telling me you've lost track of these instructions.</code></pre>
+<h3>3️⃣ Watch every response</h3>
+<p>Skim the first word of each reply. Name there? You're good. Name gone? Time to act.</p>
+<h3>4️⃣ Recover when the canary dies</h3>
+<p>Don't argue with a drifting Claude — reset the context. Start a fresh chat, re-paste your rules, or explicitly ask it to re-read your instructions before continuing.</p>
+<blockquote>💡 The canary doesn't prevent drift — it <em>exposes</em> it. That's the whole point. You get a warning before the bad output, not after.</blockquote>
+<hr>
+<h2>🔧 Canary Variations</h2>
+<p>You're not locked into your name. Any consistent, visible marker works.</p>
+<table>
+<tr><td>🐤 Canary Type</td><td>What It Looks Like</td><td>Best For</td></tr>
+<tr><td><strong>Name tag</strong></td><td>&quot;Hey [Name], ...&quot;</td><td>General daily use</td></tr>
+<tr><td><strong>Status flag</strong></td><td>Reply starts with <code>✅ RULES ACTIVE</code></td><td>Technical / coding work</td></tr>
+<tr><td><strong>Version stamp</strong></td><td>&quot;Following ruleset v2 —&quot;</td><td>When you update rules often</td></tr>
+<tr><td><strong>Emoji marker</strong></td><td>Every reply opens with 🐤</td><td>Quick visual scanning</td></tr>
+</table>
+<details><summary>🐤 Copy-paste: Status flag canary (for coding)</summary><div class="details-body"><pre><code>Start every response with the exact line: &quot;✅ RULES ACTIVE — [Name]&quot;.
+This confirms you are still reading and applying my full instruction set.
+If this line is ever missing, it signals you've dropped context and
+I should not trust the output until we reset.</code></pre></div></details>
+<details><summary>🐤 Copy-paste: Double-canary (name + rule count)</summary><div class="details-body"><pre><code>Begin every reply with: &quot;[Name] — [X] active rules&quot;.
+Replace [X] with the number of rules you are currently tracking from
+my instructions. If that number ever drops or the line disappears,
+you are telling me you've lost part of my ruleset.</code></pre></div></details>
+<hr>
+<h2>🧪 Pro Tips</h2>
+<details><summary>💥 Combine canaries with fresh-eyes reviews</summary><div class="details-body"><p>The canary tells you <em>when</em> Claude drifts. A clean-context review catches the mistakes it already made. Once your canary &quot;dies,&quot; open a brand-new chat, paste only the output, and have Claude review it cold — no memory of the reasoning that produced it.</p></div></details>
+<details><summary>🔁 Refresh, don't nag</summary><div class="details-body"><p>When the canary vanishes, resist the urge to type &quot;hey you forgot my name.&quot; That rarely restores the full ruleset. Re-paste the rules or start fresh. A dead canary means the context is compromised, not just the name.</p></div></details>
+<details><summary>📍 Placement matters</summary><div class="details-body"><p>Put the canary instruction at the very top of your rules file. Instructions buried at the bottom of a long file are the first to get ignored — which defeats the purpose.</p></div></details>
+<blockquote>💡 The canary is a signal, not a fix. Treat a missing name like a smoke alarm: don't ignore it, don't just silence it — go find out what's burning.</blockquote>
+<hr>
+<h2>✅ Quick Recap</h2>
+<table>
+<tr><td>Step</td><td>Action</td></tr>
+<tr><td>1</td><td>Add a visible canary to the top of your rules file</td></tr>
+<tr><td>2</td><td>Make Claude perform it on <strong>every</strong> reply</td></tr>
+<tr><td>3</td><td>Scan the first word/line of each response</td></tr>
+<tr><td>4</td><td>Canary alive = trust it. Canary dead = reset the context</td></tr>
+</table>
+<p>Dead simple, costs you one line, and it turns Claude's silent rule-drift into something you can actually <em>see</em>.</p>
+
+    </article>
+  </main>
+
+  <footer class="border-t border-[#1E2D42]" style="background:#131C2B;">
+    <div class="max-w-6xl mx-auto px-6 pt-8 pb-4 flex flex-col md:flex-row items-center justify-between gap-5">
+      <div class="flex items-center gap-2.5">
+        <img src="nikhil2.png" alt="Nikhil" class="w-6 h-6 rounded-full object-cover border border-[#2E4060]" style="object-position:center 35%;">
+        <span class="text-sm font-semibold text-white">Nikhil</span>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-[#8A9AB0]">
+        <a href="index.html" class="hover:text-white transition-colors">Home</a>
+        <a href="resources.html" class="hover:text-white transition-colors">Resources</a>
+        <a href="ai-solutions.html" class="hover:text-white transition-colors">Consulting</a>
+        <a href="partnerships.html" class="hover:text-white transition-colors">Partnerships</a>
+        <a href="newsletter.html" class="hover:text-white transition-colors">Newsletter</a>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pb-6 mt-2 flex items-center justify-between">
+      <p class="text-[#6F8298] text-xs">© 2026 Nikhil Naglapur</p>
+      <p class="text-[#6F8298] text-xs">Email: <a href="mailto:niknaglapur@gmail.com" class="text-[#00B4FF] hover:underline">niknaglapur@gmail.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>
