@@ -330,5 +330,12 @@
     "category": "prompts",
     "syncedAt": "2026-07-12T02:06:59.805Z",
     "createdAt": "2026-07-07T00:25:49.000Z"
+  },
+  "3812539e-3629-802d-a613-d061bca31c78": {
+    "title": "The Claude Code Health Bar That Tracks Your Context in Real Time",
+    "filename": "the-claude-code-health-bar-that-tracks-your-context-in-real.html",
+    "category": "prompts",
+    "syncedAt": "2026-07-12T02:49:05.348Z",
+    "createdAt": "2026-06-16T00:10:00.000Z"
   }
 }
