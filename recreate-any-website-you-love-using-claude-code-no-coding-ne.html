@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="favicon.png"><title>Recreate Any Website You Love Using Claude Code (No Coding Needed) — Nikhil Naglapur</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={theme:{extend:{fontFamily:{serif:['Outfit','system-ui','sans-serif'],sans:['Outfit','system-ui','sans-serif']}}}}</script><style>body{background:#131C2B;color:#F2F2F2}nav{backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background-color:rgba(19,28,43,.92)!important}.nav-link{position:relative;color:#777;transition:color .18s ease}.nav-link:hover,.nav-link.active{color:#F2F2F2}.nav-link::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:#00B4FF;transition:width .22s ease}.nav-link:hover::after{width:100%}.btn-blue{background:#00B4FF;color:#fff;transition:all .18s ease}.btn-blue:hover{background:#0090CC;box-shadow:0 0 24px rgba(0,180,255,.4);transform:translateY(-1px)}.content h1{font-size:2.1rem;line-height:1.1;font-weight:800;color:#fff;margin:2.5rem 0 1rem}.content h2{font-size:1.55rem;line-height:1.2;font-weight:750;color:#fff;margin:2.35rem 0 .85rem}.content h3{font-size:1.15rem;font-weight:700;color:#E8E8E8;margin:1.65rem 0 .6rem}.content p,.content li{color:#9A9A9A;line-height:1.78;font-size:15px}.content p{margin-bottom:1rem}.content strong{color:#DCDCDC;font-weight:700}.content em{color:#C8C8C8}.content ul,.content ol{margin:0 0 1.2rem 1.35rem}.content ul{list-style:disc}.content ol{list-style:decimal}.content li{margin:.35rem 0}.content hr{border:0;border-top:1px solid #1E2D42;margin:2rem 0}.content blockquote{border-left:3px solid #00B4FF;background:rgba(0,180,255,.06);border-radius:0 8px 8px 0;padding:1rem 1.15rem;margin:1.4rem 0;color:#CFCFCF;line-height:1.7}.content pre{background:#142540;border:1px solid #2E4060;border-radius:8px;padding:1rem;overflow:auto;margin:1.25rem 0;color:#D6D6D6;font-size:14px;line-height:1.65}.content code{background:#162A45;border:1px solid #2E4060;border-radius:5px;padding:.1rem .28rem;color:#E6E6E6;font-size:.92em}.content pre code{background:transparent;border:0;padding:0;color:inherit}.content table{width:100%;border-collapse:collapse;margin:1.4rem 0;border:1px solid #2A3A52;border-radius:8px;overflow:hidden;display:table}.content tr{border-bottom:1px solid #2A3A52}.content tr:last-child{border-bottom:0}.content td{border-right:1px solid #2A3A52;padding:.8rem;vertical-align:top;color:#999;font-size:14px;line-height:1.55}.content td:last-child{border-right:0}.content tr:first-child td{color:#F2F2F2;font-weight:700;background:#142540}.content details{border:1px solid #2A3A52;border-radius:8px;margin:1rem 0;background:#122238}.content summary{cursor:pointer;padding:1rem;color:#F2F2F2;font-weight:650;list-style:none}.content summary::-webkit-details-marker{display:none}.content summary::before{content:"+ ";color:#00B4FF}.content details[open] summary::before{content:"− ";color:#00B4FF}.content .details-body{padding:0 1rem 1rem}@media(max-width:640px){.content table{display:block;overflow-x:auto}.content h1{font-size:1.7rem}}</style></head>
+<body class="font-sans">
+  <nav class="sticky top-0 z-50 border-b border-[#1E2D42]">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <img src="nikhil2.png" alt="Nikhil" class="w-8 h-8 rounded-full object-cover border border-[#2E4060]" style="object-position:center 35%;">
+        <span class="font-semibold text-sm text-white">Nikhil</span>
+      </a>
+      <div class="hidden md:flex items-center gap-7 text-sm">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="resources.html" class="nav-link active">Resources</a>
+        <a href="ai-solutions.html" class="nav-link">Consulting</a>
+        <a href="partnerships.html" class="nav-link">Partnerships</a>
+        <a href="newsletter.html" class="nav-link">Newsletter</a>
+      </div>
+      <a href="newsletter.html#newsletter-signup" class="btn-blue text-sm font-semibold px-5 py-2.5 rounded-full">Sign up to newsletter</a>
+    </div>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-6 py-14">
+    <a href="resources.html" class="inline-flex items-center gap-1.5 text-[#00B4FF] text-sm font-medium mb-10 hover:underline">← Back to Resources</a>
+    <div class="flex items-center gap-2.5 mb-4">
+      <span class="w-2 h-2 rounded-full bg-[#00B4FF]" style="box-shadow:0 0 8px rgba(0,180,255,.8);"></span>
+      <p class="text-[#00B4FF] text-xs font-semibold uppercase tracking-[0.18em]">Prompts</p>
+    </div>
+    <h1 class="font-serif text-4xl md:text-5xl font-bold leading-[1.08] mb-10 text-white">Recreate Any Website You Love Using Claude Code (No Coding Needed)</h1>
+
+    <article class="content">
+      <h2>🎨 Clone the Vibe of Any Website Using Claude Code</h2>
+<p>Ever landed on a site so clean you assumed you'd need a dev team to build anything close? You don't. I'm going to walk you through how I feed Claude Code a screenshot and the copied styles from a site I love, then let it rebuild the look and <em>fix itself</em> until it's basically there.</p>
+<blockquote>💡 Big rule up front: this is <strong>inspiration, not theft</strong>. Borrow the layout and feel — then drop in your own words, images, and brand. Never lift logos or copyrighted assets.</blockquote>
+<hr>
+<h2>🧠 What You're Actually Doing</h2>
+<p>Four moves take you from &quot;wish I could build that&quot; to &quot;I built that.&quot;</p>
+<table>
+<tr><td>Step</td><td>What Happens</td></tr>
+<tr><td>⚙️ <strong>Set up</strong></td><td>Install Claude Code inside a free IDE so you've got a build-ready terminal</td></tr>
+<tr><td>📸 <strong>Capture</strong></td><td>Grab a full-page screenshot + the site's copied styles (the real colors &amp; gradients)</td></tr>
+<tr><td>🔁 <strong>Rebuild</strong></td><td>Claude builds, screenshots its own work, compares to the original, and patches the gaps</td></tr>
+<tr><td>✍️ <strong>Make it yours</strong></td><td>Swap in your copy, images, and brand so it's genuinely <em>your</em> site</td></tr>
+</table>
+<hr>
+<h2>🛠️ One-Time Setup</h2>
+<p>You only do this once — then it's ready for every rebuild after.</p>
+<p><strong>1️⃣ Grab an IDE.</strong> Download Antigravity (Google's free coding app, built on VS Code) or plain VS Code.</p>
+<p><strong>2️⃣ Install Claude Code.</strong> Open the built-in terminal and run:</p>
+<pre><code>npm install -g @anthropic-ai/claude-code</code></pre>
+<p>Then type <code>claude</code> and hit enter.</p>
+<blockquote>💡 On a paid Claude plan you just log in — no API key needed. If a VS Code extension step gets stuck, ignore it and run the <code>claude</code> command straight from the terminal.</blockquote>
+<hr>
+<h2>📸 Capturing the Design</h2>
+<p>Two grabs from the site you love — the full picture, then the true colors.</p>
+<p><strong>3️⃣ Open dev tools.</strong> Right-click anywhere on the site → <strong>Inspect</strong>. Set the view to <strong>full desktop width</strong> so you capture the real layout, not the squished mobile version.</p>
+<p><strong>4️⃣ Screenshot the whole page.</strong> Open the command bar:</p>
+<table>
+<tr><td>OS</td><td>Shortcut</td></tr>
+<tr><td>Mac</td><td><code>Cmd + Shift + P</code></td></tr>
+<tr><td>Windows</td><td><code>Ctrl + Shift + P</code></td></tr>
+</table>
+<p>Type <code>screenshot</code> → pick <strong>Capture full size screenshot</strong>. That grabs the entire page top to bottom as one image.</p>
+<p><strong>5️⃣ Compress it.</strong> Run the screenshot through any free image compressor to shrink the file. Big images burn through tokens fast.</p>
+<p><strong>6️⃣ Copy the styles.</strong> Back in the <strong>Elements</strong> panel, right-click the <code>&lt;body&gt;</code> tag near the top → <strong>Copy styles</strong>. This pulls the exact colors and gradients a screenshot can't capture.</p>
+<hr>
+<h2>📋 The Main Rebuild Prompt</h2>
+<p>In your Claude Code terminal, <strong>paste the screenshot + the copied styles first</strong>, then drop in this prompt:</p>
+<pre><code>Attached is a full-page screenshot of a website I'm using as design
+inspiration, plus its copied styles (colors and gradients). Rebuild
+it as a clean, fully responsive website using semantic HTML and modern
+CSS.
+
+Workflow:
+1. Build a first version.
+2. Take a screenshot of your own result.
+3. Compare it side-by-side to the original and list every visual
+   difference you notice (spacing, type scale, colors, layout).
+4. Fix those differences, then repeat the compare-and-fix loop until
+   the result closely matches the original.
+
+Once it's close, swap in MY content:
+[paste your headings, body copy, and image notes here]
+
+This should be INSPIRED by the original — not a pixel clone. Use my
+brand, my colors, and my words.</code></pre>
+<p>Claude builds it, checks its own work, and keeps refining until it matches.</p>
+<hr>
+<h2>🎁 3 Follow-Up Prompts</h2>
+<p>Keep going in the <em>same</em> Claude Code session — it already has all the context.</p>
+<details><summary>📱 Make it mobile-responsive</summary><div class="details-body"><pre><code>Make this fully responsive. Test it at phone, tablet, and desktop
+widths. Fix anything that overflows, stacks awkwardly, or gets too
+small to tap. Collapse the navigation into a clean mobile menu.
+Show me before-and-after screenshots at each breakpoint.</code></pre></div></details>
+<details><summary>📝 Add a blog / CMS</summary><div class="details-body"><pre><code>Add a simple blog to this site: a post-list page plus individual post
+pages, powered by Markdown files so I can publish without touching
+code. Match the existing design exactly, and generate two sample posts
+so I can see the layout and styling in action.</code></pre></div></details>
+<details><summary>🚀 Deploy it live for free</summary><div class="details-body"><pre><code>Walk me through deploying this site live for free, step by step, using
+Vercel or Netlify. Tell me exactly what to click and paste. Set it up
+to auto-redeploy when I push changes, and explain how to connect a
+custom domain later. Assume I've never deployed anything before.</code></pre></div></details>
+<hr>
+<h2>🎓 Pro Tips</h2>
+<details><summary>🖥️ Always capture at full desktop width</summary><div class="details-body"><p>If you screenshot the mobile view by accident, Claude rebuilds the squished version. Set the desktop layout <em>before</em> you capture — every single time.</p></div></details>
+<details><summary>🔁 Let the self-correct loop run</summary><div class="details-body"><p>The real magic is in the compare-and-fix passes. If the first build looks off, just say <em>&quot;compare to the original again and fix the differences&quot;</em> and let it keep grinding.</p></div></details>
+<details><summary>🪜 It scales to your level</summary><div class="details-body"><p>Brand new? Paste the prompts as-is and answer Claude's questions as they pop up. More advanced? Feed it your own design system or brand palette up front and have it match <em>that</em> instead of the source site's colors.</p></div></details>
+<details><summary>🙅 Keep it clean and yours</summary><div class="details-body"><p>Swap in your own copy, images, and brand. Never lift logos or copyrighted assets. The goal is a site that looks pro <em>and</em> is unmistakably yours.</p></div></details>
+<hr>
+<h2>✅ Honest Expectations</h2>
+<table>
+<tr><td>What you get</td><td>What you don't get</td></tr>
+<tr><td>A great-looking starting point in an afternoon</td><td>A finished, bug-free product on the first try</td></tr>
+<tr><td>A layout that looks like the sites you admire</td><td>Zero manual tweaking</td></tr>
+<tr><td>A real foundation with no dev background</td><td>Someone else's site copied wholesale</td></tr>
+</table>
+<p>You'll still fix the odd layout glitch and make some design calls. But going from a blank screen to something that looks <em>pro</em> in an afternoon — that's the part that used to be impossible. That's what changed.</p>
+
+    </article>
+  </main>
+
+  <footer class="border-t border-[#1E2D42]" style="background:#131C2B;">
+    <div class="max-w-6xl mx-auto px-6 pt-8 pb-4 flex flex-col md:flex-row items-center justify-between gap-5">
+      <div class="flex items-center gap-2.5">
+        <img src="nikhil2.png" alt="Nikhil" class="w-6 h-6 rounded-full object-cover border border-[#2E4060]" style="object-position:center 35%;">
+        <span class="text-sm font-semibold text-white">Nikhil</span>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-[#8A9AB0]">
+        <a href="index.html" class="hover:text-white transition-colors">Home</a>
+        <a href="resources.html" class="hover:text-white transition-colors">Resources</a>
+        <a href="ai-solutions.html" class="hover:text-white transition-colors">Consulting</a>
+        <a href="partnerships.html" class="hover:text-white transition-colors">Partnerships</a>
+        <a href="newsletter.html" class="hover:text-white transition-colors">Newsletter</a>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pb-6 mt-2 flex items-center justify-between">
+      <p class="text-[#6F8298] text-xs">© 2026 Nikhil Naglapur</p>
+      <p class="text-[#6F8298] text-xs">Email: <a href="mailto:niknaglapur@gmail.com" class="text-[#00B4FF] hover:underline">niknaglapur@gmail.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>
