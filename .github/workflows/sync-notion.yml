@@ -1,8 +1,10 @@
 name: Sync Notion Prompts
 
 on:
+  repository_dispatch:
+    types: [notion-sync]    # fired instantly by the Val Town relay when the Notion button is clicked
   schedule:
-    - cron: '0 * * * *'     # hourly — GitHub throttles sub-hourly cron on low-traffic repos, so */5 never actually ran that often
+    - cron: '0 * * * *'     # hourly fallback in case a webhook is ever missed
   workflow_dispatch:        # allow manual trigger from GitHub UI
 
 jobs:
